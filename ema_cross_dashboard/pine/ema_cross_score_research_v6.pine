@@ -1,0 +1,165 @@
+//@version=6
+indicator("EMA Cross Score Lab · Research v6", overlay = true, max_labels_count = 100)
+
+// Daily research companion to app/engine.py. The baseline keeps the Python
+// four-pillar weights (30/25/20/25). Optional overlays are experimental.
+string benchmarkSymbol = input.symbol("AMEX:SPY", "Benchmark (RS)", group = "Score")
+string sectorSymbol = input.symbol("AMEX:XLK", "Sector ETF (RS)", group = "Score")
+string weightModel = input.string("Current 30/25/20/25", "Pillar weights", options = ["Current 30/25/20/25", "25/30/30/15 research"], group = "Score")
+float watchThreshold = input.float(65.0, "Alert threshold", minval = 0, maxval = 99.5, step = 0.5, group = "Score")
+bool useResearchOverlay = input.bool(false, "Apply experimental overlay to score", group = "Research overlays")
+bool useRsi = input.bool(true, "RSI(14)", group = "Research overlays")
+bool useMacd = input.bool(true, "MACD(12,26,9)", group = "Research overlays")
+bool useVwap = input.bool(true, "Daily VWAP20 + pivot AVWAP", group = "Research overlays")
+bool usePivots = input.bool(true, "Confirmed pivot support/resistance", group = "Research overlays")
+int pivotLeft = input.int(5, "Pivot bars left", minval = 2, maxval = 20, group = "Research overlays")
+int pivotRight = input.int(5, "Pivot bars right", minval = 2, maxval = 20, group = "Research overlays")
+bool showMAs = input.bool(true, "Show EMA9 / EMA21 / SMA50 / EMA200", group = "Chart")
+bool showVwapLines = input.bool(false, "Show VWAP20 / pivot AVWAP", group = "Chart")
+bool showPivotLines = input.bool(true, "Show confirmed pivot levels", group = "Chart")
+
+if not timeframe.isdaily
+    runtime.error("Use this research indicator on a 1D chart so its score matches the daily backtest.")
+
+f_clip(float x) =>
+    math.max(0.0, math.min(1.0, nz(x, 0.0)))
+
+// Match the Python EMA seed (SMA of the first N values, then recursive EMA).
+f_emaSmaSeed(float src, int length) =>
+    float alpha = 2.0 / (length + 1.0)
+    float seed = ta.sma(src, length)
+    var float value = na
+    value := na(value[1]) ? seed : alpha * src + (1.0 - alpha) * value[1]
+    value
+
+float benchmarkClose = request.security(benchmarkSymbol, timeframe.period, close, gaps = barmerge.gaps_on, lookahead = barmerge.lookahead_off)
+float sectorClose = request.security(sectorSymbol, timeframe.period, close, gaps = barmerge.gaps_on, lookahead = barmerge.lookahead_off)
+
+float ema9 = f_emaSmaSeed(close, 9)
+float ema21 = f_emaSmaSeed(close, 21)
+float ema200 = f_emaSmaSeed(close, 200)
+float sma50 = ta.sma(close, 50)
+float vol10 = ta.sma(volume, 10)
+float vol50 = ta.sma(volume, 50)
+float tr = ta.tr(true)
+float atr14 = ta.sma(tr, 14)
+float atr50 = ta.sma(tr, 50)
+float ema21Old = ema21[20]
+float slope21 = not na(ema21Old) and ema21Old != 0 ? ema21 / ema21Old - 1.0 : na
+float stock20 = close[20] != 0 ? close / close[20] - 1.0 : na
+float stock60 = close[60] != 0 ? close / close[60] - 1.0 : na
+float benchmark20 = not na(benchmarkClose[20]) and benchmarkClose[20] != 0 ? benchmarkClose / benchmarkClose[20] - 1.0 : na
+float benchmark60 = not na(benchmarkClose[60]) and benchmarkClose[60] != 0 ? benchmarkClose / benchmarkClose[60] - 1.0 : na
+float sector20 = not na(sectorClose[20]) and sectorClose[20] != 0 ? sectorClose / sectorClose[20] - 1.0 : na
+float rel20 = stock20 - benchmark20
+float rel60 = stock60 - benchmark60
+float sectorRel = sector20 - benchmark20
+float atrRatio = not na(atr50) and atr50 != 0 ? atr14 / atr50 : na
+float range20 = ta.highest(close, 20) - ta.lowest(close, 20)
+range20 := close != 0 ? range20 / close : na
+float volumeContraction = not na(vol50) and vol50 != 0 ? vol10 / vol50 : na
+float volumeRatio = not na(vol50) and vol50 != 0 ? volume / vol50 : na
+float gapFast = not na(atr14) and atr14 != 0 ? (ema9 - ema21) / atr14 : na
+float gapMid = not na(atr14) and atr14 != 0 ? (ema21 - sma50) / atr14 : na
+float extension = not na(atr14) and atr14 != 0 ? (close - ema21) / atr14 : na
+float nearHigh = close / ta.highest(close, 20)
+
+float trendScore = 10.0 * f_clip((close / ema200 - 0.97) / 0.10) +
+     4.0 * f_clip(gapFast / 1.5) + 4.0 * f_clip(gapMid / 3.0) +
+     7.0 * f_clip(slope21 / 0.05) + 5.0 * f_clip((close / sma50 - 0.98) / 0.06)
+float relativeScore = 12.0 * f_clip(rel20 / 0.12) + 8.0 * f_clip(rel60 / 0.20) + 5.0 * f_clip(sectorRel / 0.10)
+float contractionScore = 8.0 * f_clip((1.10 - nz(atrRatio, 1.10)) / 0.35) +
+     7.0 * f_clip((0.30 - nz(range20, 0.30)) / 0.20) +
+     5.0 * f_clip((1.15 - nz(volumeContraction, 1.15)) / 0.50)
+float setupScore = 5.0 * f_clip(gapFast / 1.5) + 6.0 * f_clip((nearHigh - 0.90) / 0.10) +
+     4.0 * f_clip((nz(volumeRatio, 0.0) - 0.80) / 0.70) +
+     4.0 * f_clip(1.0 - math.abs(nz(extension, 0.0) - 0.75) / 2.0) +
+     6.0 * f_clip((close / sma50 - 0.98) / 0.06)
+float productionWeightsScore = math.min(99.5, trendScore + relativeScore + contractionScore + setupScore)
+float researchWeightsScore = math.min(99.5, trendScore / 30.0 * 25.0 + relativeScore / 25.0 * 30.0 + contractionScore / 20.0 * 30.0 + setupScore / 25.0 * 15.0)
+float baselineScore = weightModel == "Current 30/25/20/25" ? productionWeightsScore : researchWeightsScore
+
+// RSI and MACD are research overlays, not production weights. Their bounded
+// point rules mirror the isolated Python experiment.
+float rsi14 = ta.rsi(close, 14)
+float rsiPoints = rsi14 >= 50 and rsi14 <= 65 ? 3.0 : rsi14 >= 45 and rsi14 < 50 or rsi14 > 65 and rsi14 <= 72 ? 1.0 : rsi14 < 40 or rsi14 > 78 ? -3.0 : 0.0
+float macdFast = f_emaSmaSeed(close, 12)
+float macdSlow = f_emaSmaSeed(close, 26)
+float macdLine = macdFast - macdSlow
+float macdSignal = f_emaSmaSeed(macdLine, 9)
+float macdHist = macdLine - macdSignal
+float macdPoints = macdHist > 0 and macdHist > macdHist[1] ? 3.0 : macdHist > 0 ? 1.0 : macdHist < 0 and macdHist < macdHist[1] ? -3.0 : -1.0
+
+float vwap20 = ta.sma(hlc3 * volume, 20) / ta.sma(volume, 20)
+float confirmedPivotLow = ta.pivotlow(low, pivotLeft, pivotRight)
+float confirmedPivotHigh = ta.pivothigh(high, pivotLeft, pivotRight)
+float lastSupport = ta.valuewhen(not na(confirmedPivotLow), confirmedPivotLow, 0)
+float lastResistance = ta.valuewhen(not na(confirmedPivotHigh), confirmedPivotHigh, 0)
+var float anchoredPv = na
+var float anchoredVolume = na
+if barstate.isconfirmed
+    if not na(confirmedPivotLow)
+        float seedPv = 0.0
+        float seedVol = 0.0
+        for offset = 0 to pivotRight
+            seedPv += hlc3[offset] * volume[offset]
+            seedVol += volume[offset]
+        anchoredPv := seedPv
+        anchoredVolume := seedVol
+    else if not na(anchoredPv)
+        anchoredPv += hlc3 * volume
+        anchoredVolume += volume
+float avwap = not na(anchoredVolume) and anchoredVolume != 0 ? anchoredPv / anchoredVolume : na
+
+float vwapPoints = 0.0
+if not na(vwap20) and not na(avwap)
+    bool aboveVwap = close >= vwap20
+    bool aboveAvwap = close >= avwap
+    vwapPoints := aboveVwap and aboveAvwap ? 3.0 : not aboveVwap and not aboveAvwap ? -3.0 : aboveVwap ? 1.0 : -1.0
+float pivotPoints = not na(lastResistance) and close > lastResistance ? 3.0 : not na(lastSupport) and close >= lastSupport and close <= lastSupport * 1.03 ? 2.0 : not na(lastSupport) and close < lastSupport ? -3.0 : 0.0
+float overlayRaw = (useRsi ? rsiPoints : 0.0) + (useMacd ? macdPoints : 0.0) + (useVwap ? vwapPoints : 0.0) + (usePivots ? pivotPoints : 0.0)
+float overlayPoints = math.max(-8.0, math.min(8.0, overlayRaw))
+float researchScore = math.max(0.0, math.min(99.5, baselineScore + overlayPoints))
+float displayedScore = useResearchOverlay ? researchScore : baselineScore
+bool scoreReady = not na(benchmarkClose) and not na(sectorClose) and not na(baselineScore) and bar_index >= 200
+bool confirmedCross = barstate.isconfirmed and scoreReady and ta.crossover(displayedScore, watchThreshold)
+
+plot(showMAs ? ema9 : na, "EMA 9", color = color.new(color.blue, 15), linewidth = 1)
+plot(showMAs ? ema21 : na, "EMA 21", color = color.new(color.orange, 15), linewidth = 1)
+plot(showMAs ? sma50 : na, "SMA 50", color = color.new(color.purple, 5), linewidth = 2)
+plot(showMAs ? ema200 : na, "EMA 200", color = color.new(color.gray, 0), linewidth = 2)
+plot(showVwapLines ? vwap20 : na, "Daily VWAP20 proxy", color = color.new(color.teal, 10), linewidth = 1)
+plot(showVwapLines ? avwap : na, "AVWAP from confirmed pivot low", color = color.new(color.green, 10), linewidth = 2)
+plot(showPivotLines ? lastSupport : na, "Last confirmed pivot support", color = color.new(color.green, 35), style = plot.style_stepline)
+plot(showPivotLines ? lastResistance : na, "Last confirmed pivot resistance", color = color.new(color.red, 35), style = plot.style_stepline)
+plotshape(not na(confirmedPivotLow) and barstate.isconfirmed, title = "Pivot low confirmed now", style = shape.circle, location = location.belowbar, color = color.new(color.green, 15), size = size.tiny, text = "PL")
+plotshape(not na(confirmedPivotHigh) and barstate.isconfirmed, title = "Pivot high confirmed now", style = shape.circle, location = location.abovebar, color = color.new(color.red, 15), size = size.tiny, text = "PH")
+plotshape(confirmedCross, title = "Score crossed threshold at confirmed close", style = shape.labelup, location = location.belowbar, color = color.new(color.blue, 15), textcolor = color.white, size = size.tiny, text = "SCORE")
+plot(productionWeightsScore, "Production weights score 30/25/20/25 (data window)", display = display.data_window)
+plot(researchWeightsScore, "Research weights score 25/30/30/15 (data window)", display = display.data_window)
+plot(researchScore, "Experimental score (data window)", display = display.data_window)
+plot(rsi14, "RSI 14 (data window)", display = display.data_window)
+plot(macdHist, "MACD histogram (data window)", display = display.data_window)
+
+var table panel = table.new(position.top_right, 2, 8, border_width = 1)
+if barstate.islast
+    color headerBg = color.rgb(235, 239, 245)
+    color cellBg = color.rgb(250, 251, 253)
+    table.cell(panel, 0, 0, "EMA Cross Score Lab", bgcolor = headerBg, text_color = color.black)
+    table.cell(panel, 1, 0, useResearchOverlay ? "RESEARCH" : "BASELINE", bgcolor = headerBg, text_color = useResearchOverlay ? color.rgb(180, 110, 0) : color.rgb(35, 75, 150))
+    table.cell(panel, 0, 1, "Score", bgcolor = cellBg, text_color = color.black)
+    table.cell(panel, 1, 1, scoreReady ? str.tostring(displayedScore, "#.00") : "DATA UNAVAILABLE", bgcolor = cellBg, text_color = color.black)
+    table.cell(panel, 0, 2, "Trend / RS", bgcolor = cellBg, text_color = color.black)
+    table.cell(panel, 1, 2, str.tostring(trendScore, "#.0") + " / " + str.tostring(relativeScore, "#.0"), bgcolor = cellBg, text_color = color.black)
+    table.cell(panel, 0, 3, "Contraction / Setup", bgcolor = cellBg, text_color = color.black)
+    table.cell(panel, 1, 3, str.tostring(contractionScore, "#.0") + " / " + str.tostring(setupScore, "#.0"), bgcolor = cellBg, text_color = color.black)
+    table.cell(panel, 0, 4, "RSI / MACD pts", bgcolor = cellBg, text_color = color.black)
+    table.cell(panel, 1, 4, str.tostring(rsi14, "#.0") + " / " + str.tostring(macdPoints, "#.0"), bgcolor = cellBg, text_color = color.black)
+    table.cell(panel, 0, 5, "VWAP / AVWAP", bgcolor = cellBg, text_color = color.black)
+    table.cell(panel, 1, 5, na(vwap20) or na(avwap) ? "DATA UNAVAILABLE" : (close >= vwap20 ? "ABOVE" : "BELOW") + " / " + (close >= avwap ? "ABOVE" : "BELOW"), bgcolor = cellBg, text_color = color.black)
+    table.cell(panel, 0, 6, "Pivot S / R", bgcolor = cellBg, text_color = color.black)
+    table.cell(panel, 1, 6, na(lastSupport) or na(lastResistance) ? "DATA UNAVAILABLE" : str.tostring(lastSupport, format.mintick) + " / " + str.tostring(lastResistance, format.mintick), bgcolor = cellBg, text_color = color.black)
+    table.cell(panel, 0, 7, "Signal", bgcolor = cellBg, text_color = color.black)
+    table.cell(panel, 1, 7, confirmedCross ? "SCORE ≥ " + str.tostring(watchThreshold, "#.0") : "WAIT FOR CLOSE", bgcolor = cellBg, text_color = confirmedCross ? color.rgb(30, 110, 65) : color.gray)
+
+alertcondition(confirmedCross, "Score threshold confirmed", "EMA Cross Score Lab: score crossed its threshold on the confirmed daily close.")

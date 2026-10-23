@@ -1,0 +1,98 @@
+{
+  "status": "RESEARCH_ONLY",
+  "as_of": "2026-10-12",
+  "baseline_weights": [
+    25,
+    30,
+    30,
+    15
+  ],
+  "weight_ranges": [
+    [
+      15,
+      30
+    ],
+    [
+      20,
+      35
+    ],
+    [
+      20,
+      40
+    ],
+    [
+      10,
+      25
+    ]
+  ],
+  "weight_step": 5,
+  "thresholds": [
+    65,
+    70,
+    75,
+    80
+  ],
+  "horizons": [
+    5,
+    10,
+    20
+  ],
+  "minimum_history": 252,
+  "cooldown_sessions": 20,
+  "entry_policy": "SCORE_CROSS_FILTERED_BY_GATE",
+  "round_trip_cost_bps": 10,
+  "training_minimum_events": 100,
+  "training_minimum_entry_dates": 12,
+  "gate": {
+    "breadth_threshold_pct": 50,
+    "vix_max": 22,
+    "put_call_max": 1.05,
+    "put_call_lag_sessions": 1
+  },
+  "features": {
+    "atr_method": "SIMPLE_TR_MEAN_MATCHES_EXISTING_MODEL",
+    "sma200_slope_sessions": 20,
+    "ema200_event_age": 5,
+    "climax_atr": 3.5,
+    "climax_penalty": 5,
+    "rs_ratio_sma": 50,
+    "rs_momentum_sma": 10,
+    "rs_acceleration": 102,
+    "atr_minimum_sessions": 20,
+    "dry_volume_fraction": 0.7,
+    "episodic_gap": 0.08,
+    "episodic_volume_multiple": 2,
+    "pivot_left": 5,
+    "pivot_right": 5,
+    "vcp_base_lookback": 20,
+    "sector_unusual_volume_multiple": 2,
+    "fresh_age_sessions": 5
+  },
+  "component_distribution": {
+    "trend": [
+      0.6,
+      0.2,
+      0.2
+    ],
+    "relative_strength": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.3333333333333333
+    ],
+    "vcp": [
+      0.5,
+      0.5
+    ],
+    "setup": "OR_EPISODIC_OR_VCP_BREAKOUT"
+  },
+  "require_setup_variants": [
+    false,
+    true
+  ],
+  "notes": [
+    "Rules confirmed by the user in this conversation; explicit equal thirds complete the RS score using ratio>100, momentum>100 and momentum>102.",
+    "Weights sum exactly 100; no implicit rescaling of invalid tuples.",
+    "Current configured universe is survivor-biased; historical breadth is a valid-observation proxy with all exclusions disclosed.",
+    "2026 has already been viewed in prior research and is a retrospective temporal test, not an untouched holdout."
+  ]
+}

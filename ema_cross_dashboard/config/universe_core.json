@@ -1,0 +1,136 @@
+{
+  "source": "Yahoo Finance Chart API",
+  "benchmark": "SPY",
+  "growth_benchmark": "QQQ",
+  "volatility_symbol": "^VIX",
+  "lookback_days": 900,
+  "score_thresholds": {
+    "watch": 65,
+    "armed": 75,
+    "high_priority": 85
+  },
+  "backtest": {
+    "horizons_sessions": [
+      5,
+      10,
+      20
+    ],
+    "round_trip_cost_bps": 0,
+    "minimum_history_sessions": 252
+  },
+  "sectors": {
+    "SMH": [
+      "NVDA",
+      "AVGO",
+      "AMD",
+      "MU",
+      "QCOM",
+      "AMAT",
+      "LRCX",
+      "KLAC",
+      "ADI",
+      "INTC"
+    ],
+    "XLK": [
+      "AAPL",
+      "MSFT",
+      "CRM",
+      "ORCL",
+      "NOW",
+      "CSCO",
+      "ACN",
+      "ADBE"
+    ],
+    "XLF": [
+      "JPM",
+      "BAC",
+      "GS",
+      "MS",
+      "V",
+      "MA",
+      "BLK",
+      "SCHW"
+    ],
+    "XLV": [
+      "LLY",
+      "UNH",
+      "ABBV",
+      "MRK",
+      "TMO",
+      "AMGN",
+      "ISRG",
+      "GILD"
+    ],
+    "XLI": [
+      "CAT",
+      "GE",
+      "RTX",
+      "HON",
+      "UNP",
+      "ETN",
+      "LMT",
+      "GD"
+    ],
+    "XLY": [
+      "AMZN",
+      "TSLA",
+      "HD",
+      "MCD",
+      "BKNG",
+      "TJX",
+      "SBUX",
+      "NKE"
+    ],
+    "XLE": [
+      "XOM",
+      "CVX",
+      "COP",
+      "EOG",
+      "SLB",
+      "MPC",
+      "PSX"
+    ],
+    "XLP": [
+      "WMT",
+      "COST",
+      "PG",
+      "KO",
+      "PEP",
+      "PM",
+      "MDLZ"
+    ],
+    "XLU": [
+      "NEE",
+      "SO",
+      "DUK",
+      "CEG",
+      "AEP",
+      "SRE"
+    ],
+    "XLC": [
+      "META",
+      "GOOGL",
+      "NFLX",
+      "DIS",
+      "TMUS",
+      "T",
+      "VZ"
+    ],
+    "XLB": [
+      "LIN",
+      "SHW",
+      "FCX",
+      "NEM",
+      "APD",
+      "NUE"
+    ],
+    "XLRE": [
+      "PLD",
+      "AMT",
+      "EQIX",
+      "WELL",
+      "SPG",
+      "O"
+    ]
+  }
+}

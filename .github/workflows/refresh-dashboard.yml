@@ -1,0 +1,67 @@
+name: Refresh and publish EMA Cross dashboard
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 22:20 UTC = after the regular US close in both DST and standard time.
+    - cron: '20 22 * * 1-5'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ema-cross-daily-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ema_cross_dashboard
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Restore market cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ema_cross_dashboard/data/market.sqlite3
+          key: ema-cross-market-${{ github.run_id }}
+          restore-keys: |
+            ema-cross-market-
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install research dependency
+        run: python -m pip install --disable-pip-version-check -r requirements-research.txt
+
+      - name: Refresh market, volume and SEC context
+        env:
+          # Set this repository secret to a contact identifier, e.g. Name email@domain.com.
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+        run: python -m app.updater
+
+      - name: Run offline test suite
+        run: python -m unittest discover -s tests -v
+
+      - name: Build static publication bundle
+        run: python -m app.static_site
+
+      - name: Commit generated public snapshot
+        working-directory: .
+        run: |
+          git config user.name "ema-cross-bot"
+          git config user.email "ema-cross-bot@users.noreply.github.com"
+          git add -f ema_cross_dashboard/web/data ema_cross_dashboard/dist
+          git diff --cached --quiet || git commit -m "chore: daily dashboard snapshot"
+          git push
+
+      - name: Save market cache
+        if: success()
+        uses: actions/cache/save@v4
+        with:
+          path: ema_cross_dashboard/data/market.sqlite3
+          key: ema-cross-market-${{ github.run_id }}

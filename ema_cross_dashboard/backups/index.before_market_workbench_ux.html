@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EMA Cross Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header class="app-header">
+      <div class="brand-lockup">
+        <div class="brand-mark">EC</div>
+        <div>
+          <div class="eyebrow">EMA CROSS LAB · RESEARCH</div>
+          <h1>Market <em>Workbench</em></h1>
+          <p>Una mesa de trabajo para priorizar oportunidades, contexto y seguimiento.</p>
+        </div>
+      </div>
+      <div class="data-status"><span class="dot"></span><span id="updated">Cargando datos…</span></div>
+    </header>
+
+    <nav class="tabs" aria-label="Secciones del dashboard">
+      <button class="active" data-tab="opportunities">Top 10</button>
+      <button data-tab="universe">Universo</button>
+      <button data-tab="rotation">Rotación</button>
+      <button data-tab="heatmap">Heatmap</button>
+      <button data-tab="analysis">Análisis</button>
+      <button data-tab="track">Track record</button>
+      <button data-tab="journal">Operativa</button>
+      <button data-tab="backtest">Backtest</button>
+      <button data-tab="research">Investigación</button>
+      <button data-tab="technical">Técnico</button>
+    </nav>
+
+    <section id="loading" class="notice">Cargando snapshot local…</section>
+
+    <section data-view="opportunities">
+      <div class="section-intro">
+        <div><span class="section-kicker">DECISIÓN DIARIA</span><h2>Oportunidades calificadas</h2><p>El ranking conserva el score actual. Las nuevas entradas requieren cruce ≥65 y gate FULL.</p></div>
+        <span id="assetCount" class="count">—</span>
+      </div>
+      <div id="market" class="metrics"></div>
+      <section id="operationalGate" class="panel gate-panel" aria-live="polite"></section>
+      <div id="quickKpis" class="quick-kpis" aria-label="Resumen de oportunidades"></div>
+      <section class="panel top10-panel"><div class="panel-head"><div><span class="section-kicker">RANKING ACTUAL</span><h2>Top 10 por score ajustado</h2><p class="muted">El rendimiento se mide desde la primera entrada prospectiva al Top 10, con entrada a la apertura T+1 y retorno bruto sin costes de transacción.</p></div><span id="top10NewEntries" class="table-hint">—</span></div><div id="top10Summary" class="top10-summary"></div><div class="scroll"><table><thead><tr><th>#</th><th>Ticker</th><th>ETF</th><th>Score</th><th>Estado</th><th>Entró al Top 10</th><th>Entrada</th><th>Actual</th><th>5d</th><th>10d</th><th>20d</th><th>Exceso SPY 20d</th></tr></thead><tbody id="top10Rows"></tbody></table></div></section>
+      <section class="panel selective-panel"><div class="panel-head"><div><span class="section-kicker">MÁXIMA SELECTIVIDAD</span><h2>SELECTIVE SETUP</h2><p class="muted">Modelo 25 / 30 / 30 / 15 con gate FULL y setup confirmado. Es una lista complementaria de investigación.</p></div><span id="selectiveCount" class="table-hint">—</span></div><div class="scroll compact"><table><thead><tr><th>Ticker</th><th>ETF</th><th>Score nuevo</th><th>Setup</th><th>Score actual</th><th>Estado</th></tr></thead><tbody id="selectiveRows"></tbody></table></div></section>
+      <section class="panel spotlight-panel"><div class="panel-head"><div><span class="section-kicker">SPOTLIGHT</span><h2>Top 3 del ranking</h2><p class="muted">Los mejores puntajes ajustados del universo operativo actual.</p></div></div><div id="spotlight" class="spotlight-grid"></div></section>
+
+    </section>
+
+    <section data-view="universe" hidden>
+      <div class="section-intro"><div><span class="section-kicker">EXPLORACIÓN</span><h2>Universo fuera del Top 10</h2><p>Filtros y detalle para los activos desde el puesto 11. El ranking principal conserva sus diez mejores oportunidades en la portada.</p></div><span id="assetCount" class="count">—</span></div>
+      <section class="panel filter-panel">
+        <div class="filter-heading"><div><h3>Universo operativo</h3><p class="muted">Aplicá condiciones antes de revisar el detalle.</p></div><span class="filter-note">Los filtros no cambian el modelo</span></div>
+        <div class="preset-row" aria-label="Preselecciones">
+          <span>Vistas rápidas</span>
+          <button type="button" class="preset" data-preset="base">Base ≥65</button>
+          <button type="button" class="preset" data-preset="operable">Nuevas entradas</button>
+          <button type="button" class="preset" data-preset="selective">SELECTIVE SETUP</button>
+          <button type="button" class="preset" data-preset="fresh">Setup fresco</button>
+          <button type="button" class="preset" data-preset="rs">RS fuerte ≥80</button>
+          <button type="button" class="preset subtle" data-preset="reset">Restablecer</button>
+        </div>
+        <div class="filters">
+          <input id="search" placeholder="Buscar ticker" aria-label="Buscar ticker">
+          <select id="state"><option value="">Todos los estados</option><option>HIGH PRIORITY</option><option>ARMED</option><option>WATCH</option></select>
+          <select id="sector"><option value="">Todos los ETF</option></select>
+          <label>Score ajustado ≥ <input id="minScore" type="number" value="0" min="0" max="100"></label>
+          <details class="advanced-filters"><summary>Más filtros</summary><div class="advanced-content">
+          <label>RS Score ≥ <input id="minRsScore" type="number" value="0" min="0" max="100"></label>
+          <label class="toggle"><input id="hideExtended" type="checkbox" checked> Excluir EXTENDED</label>
+          <label class="toggle"><input id="hideWeakening" type="checkbox" checked> Excluir WEAKENING</label>
+          <label class="toggle"><input id="onlyFresh" type="checkbox"> Sólo setup fresco</label>
+          <label class="toggle"><input id="onlyVolume" type="checkbox"> Sólo volumen inusual</label>
+          <label class="toggle"><input id="onlyNewEntries" type="checkbox"> Sólo nuevas entradas operables</label>
+          <label class="toggle"><input id="onlySelectiveSetup" type="checkbox"> Sólo SELECTIVE SETUP</label>
+          </div></details>
+        </div>
+      </section>
+
+      <div class="workspace">
+        <section class="panel screener-panel">
+          <div class="panel-head"><div><h3>Lista de revisión</h3><p class="muted">Seleccioná un ticker para abrir su ficha técnica.</p></div><span class="table-hint">Desplazá la tabla para más métricas</span></div>
+          <div class="scroll"><table><thead><tr><th>Ticker</th><th>ETF</th><th>Operativa</th><th>Score ajustado</th><th>Score base</th><th>Estado</th><th>RS Score</th><th>Δ RS 5d</th><th>Estadio</th><th>Setup</th><th>Alertas</th></tr></thead><tbody id="assetRows"></tbody></table></div>
+        </section>
+        <aside class="panel detail-card" id="assetDetail"><div class="empty">Seleccioná un activo para ver sus condiciones técnicas.</div></aside>
+      </div>
+    </section>
+
+    <section data-view="rotation" hidden>
+      <section class="panel"><div class="panel-head"><div><h2>Rotación relativa</h2><p class="muted">ETF y acciones se calculan al cierre de cada rueda. Una aceleración negativa mantiene el estado WEAKENING aunque la fuerza relativa siga positiva.</p></div><div><select id="rotationMode" aria-label="Universo de rotación"><option value="sectors">ETF sectoriales</option><option value="assets">Acciones</option></select><b id="rotationCurrent">—</b></div></div><div class="timeline"><button id="rotationPlay" type="button">Reproducir</button><input id="rotationTimeline" type="range" aria-label="Evolución diaria de rotación"><div><span id="rotationStart">—</span><span id="rotationEnd">—</span></div></div><div class="legend"><span><i></i> Tamaño: breadth SMA50</span><span>X: fuerza relativa vs SPY 20d</span><span>Y: aceleración</span></div><div class="map" id="rotationMap"><span class="quad q1">Líderes</span><span class="quad q2">Debilitándose</span><span class="quad q3">Recuperando</span><span class="quad q4">Rezago</span></div></section>
+      <section class="panel"><p id="rotationInsight" class="muted">—</p><div class="scroll"><table><thead><tr><th id="rotationSymbolHead">ETF</th><th id="rotationSectorHead">—</th><th>RS Score</th><th>RS 20d</th><th>Momentum</th><th>Aceleración</th><th id="rotationBreadthHead">Breadth SMA50</th><th>Estado</th></tr></thead><tbody id="sectorRows"></tbody></table></div></section>
+    </section>
+
+    <section data-view="heatmap" hidden><section class="panel"><div class="panel-head"><div><h2>Heatmap del universo</h2><p class="muted">Variación diaria por ticker. El tamaño es uniforme porque la fuente actual no incluye market cap verificable.</p></div><span class="table-hint">Seleccioná un ticker para ver su ficha</span></div><div id="heatmap" class="heatmap"></div></section></section>
+
+    <section data-view="analysis" hidden><section class="panel"><div class="panel-head"><div><h2>Tendencia de RS Score</h2><p class="muted">Evolución point-in-time de las últimas cuatro semanas.</p></div><select id="rsTrendTicker" aria-label="Ticker para tendencia RS"></select></div><div id="rsTrendChart" class="analysis-chart"><div class="chart-empty">Seleccioná un ticker.</div></div></section><section class="panel"><div class="panel-head"><div><h2>Comparador de activos</h2><p class="muted">RS Score de dos activos durante las últimas ocho semanas.</p></div><div class="compare-controls"><select id="compareA" aria-label="Primer activo"></select><select id="compareB" aria-label="Segundo activo"></select></div></div><div id="compareChart" class="analysis-chart"><div class="chart-empty">Seleccioná dos activos.</div></div></section><section class="analysis-grid"><section class="panel"><h2>Sesiones y volumen</h2><p class="muted">Días alcistas de 10 ruedas ponderados por volumen 10d frente a SMA50.</p><div class="scroll compact"><table><thead><tr><th>Ticker</th><th>ETF</th><th>Sesiones alcistas</th><th>Vol. 10d / 50d</th><th>Ranking</th></tr></thead><tbody id="sessionsRows"></tbody></table></div></section><section class="panel"><h2>Volumen inusual</h2><p class="muted">Desvío actual sobre SMA50. Verde: acumulación; rojo: distribución.</p><div class="scroll compact"><table><thead><tr><th>Ticker</th><th>ETF</th><th>Desvío</th><th>Variación diaria</th><th>Lectura</th></tr></thead><tbody id="volumeRows"></tbody></table></div></section></section></section>
+
+    <section data-view="track" hidden><section class="panel"><h2>Track record por sector</h2><p class="muted">Retornos de cada inclusión contra su ETF sectorial, desde la fecha de inclusión.</p><div class="scroll"><table><thead><tr><th>ETF</th><th>Incluidos</th><th>Retornos válidos</th><th>Win rate</th><th>Retorno promedio</th><th>ETF promedio</th><th>Exceso</th></tr></thead><tbody id="trackSectorRows"></tbody></table></div></section><section class="panel"><h2>Posiciones incluidas</h2><div class="scroll"><table><thead><tr><th>Ticker</th><th>ETF</th><th>Evento</th><th>Inclusión</th><th>Retorno</th><th>ETF</th><th>Exceso</th></tr></thead><tbody id="trackRows"></tbody></table></div></section></section>
+    <section data-view="journal" hidden><section class="panel"><div class="panel-head"><div><span class="section-kicker">WATCHLIST PERSONAL</span><h2>Seguimiento discrecional</h2><p class="muted">Agregá activos para observarlos. Al ejecutar una compra paper, registrá precio y fecha reales: el ATR de señal congela el riesgo, stop y target. No se mezcla con el backtest sistemático.</p></div><span id="watchlistCount" class="table-hint">—</span></div><div class="scroll compact"><table><thead><tr><th>Ticker</th><th>ETF</th><th>Agregado</th><th>Score</th><th>Estado</th><th>Posición</th><th>Entrada</th><th>Retorno</th><th>Stop</th><th>Target</th><th>Acción</th></tr></thead><tbody id="watchlistRows"></tbody></table></div></section><section class="panel"><div class="panel-head"><div><span class="section-kicker">PAPER TRADING</span><h2>Bitácora operativa</h2><p class="muted">Se registra desde la primera señal prospectiva. Entrada a la apertura T+1; retornos brutos sin costes frente a SPY y ETF en las mismas fechas.</p></div><span id="journalNewSignals" class="table-hint">—</span></div><div class="scroll compact"><table><thead><tr><th>Modelo</th><th>Señales</th><th>Activas</th><th>Pendientes</th><th>Maduras 20d</th><th>Win rate 20d</th><th>Retorno 20d</th><th>Exceso SPY</th></tr></thead><tbody id="journalSummaryRows"></tbody></table></div></section><section class="panel"><h2>Señales y seguimiento</h2><p class="muted">Stop y target son sugerencias congeladas con ATR14 de la señal: stop inicial a 2×ATR y target a 2R. Si ambos se tocan en la misma vela diaria se aplica el supuesto conservador: stop primero.</p><div class="scroll"><table><thead><tr><th>Modelo</th><th>Ticker</th><th>ETF</th><th>Señal</th><th>Entrada</th><th>Score</th><th>Estado</th><th>Stop</th><th>Target</th><th>R</th><th>Riesgo</th><th>Retorno actual</th><th>Exceso SPY</th><th>5d</th><th>10d</th><th>20d</th><th>Exceso SPY 20d</th></tr></thead><tbody id="journalRows"></tbody></table></div></section></section>
+    <section data-view="backtest" hidden><section class="panel"><h2>Backtest point-in-time</h2><p id="backtestMethod" class="muted"></p><div class="scroll"><table><thead><tr><th>Modelo</th><th>Evento</th><th>Ruedas</th><th>Señales</th><th>Win rate</th><th>Retorno promedio</th><th>Mediana</th><th>ETF promedio</th><th>Exceso</th></tr></thead><tbody id="backtestRows"></tbody></table></div></section></section>
+    <section data-view="research" hidden><section class="panel"><h2>Comparación de filtros · investigación</h2><p id="researchMethod" class="muted"></p><div class="scroll"><table><thead><tr><th>Modelo / filtro</th><th>Señales</th><th>Win rate</th><th>Retorno promedio</th><th>Mediana</th><th>Exceso vs ETF</th></tr></thead><tbody id="researchRows"></tbody></table></div></section><section class="panel"><h2>Walk-forward</h2><p class="muted">La selección anual usa sólo evidencia de años anteriores.</p><div class="scroll"><table><thead><tr><th>Modelo</th><th>Año de prueba</th><th>Filtro</th><th>Señales</th><th>Win rate</th><th>Retorno promedio</th><th>Exceso</th></tr></thead><tbody id="walkRows"></tbody></table></div></section></section>
+    <section data-view="technical" hidden><section class="panel"><h2>Técnico</h2><p class="muted">Medias y volumen derivados de OHLCV diario. Son contexto, no cambios del score.</p><div class="scroll"><table><thead><tr><th>Ticker</th><th>ETF</th><th>WMA8</th><th>WMA21</th><th>SMA30</th><th>EMA200</th><th>Spread</th><th>Vol./SMA50</th><th>Volumen inusual</th></tr></thead><tbody id="technicalRows"></tbody></table></div></section></section>
+  </main>
+  <dialog id="executionDialog" class="execution-dialog">
+    <form id="executionForm" method="dialog">
+      <div class="dialog-head"><div><span class="section-kicker">WATCHLIST MANUAL</span><h2>Registrar entrada real</h2></div><button type="button" class="dialog-close" onclick="document.getElementById('executionDialog').close()" aria-label="Cerrar">×</button></div>
+      <p class="muted">El ATR14 se congela en la señal. El precio y la fecha son tu ejecución real; no se reemplazan por una apertura T+1. El precio precargado es sólo el último cierre como referencia: reemplazalo por tu fill.</p>
+      <label>Ticker<input id="executionTicker" type="text" readonly></label>
+      <label>Fecha de ejecución<input id="executionDate" type="date" required></label>
+      <label>Precio de ejecución<input id="executionPrice" type="number" min="0.000001" step="0.01" required></label>
+      <p id="executionPreview" class="execution-preview">—</p>
+      <p id="executionError" class="execution-error" role="alert"></p>
+      <div class="dialog-actions"><button type="button" class="watchlist-action" onclick="document.getElementById('executionDialog').close()">Cancelar</button><button type="submit" class="watchlist-action primary">Guardar entrada y calcular riesgo</button></div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
