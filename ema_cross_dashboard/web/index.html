@@ -338,6 +338,25 @@ const fundamentalSummary = asset => {
   const value = asset.fundamentals;
   return value?.status === 'OK' ? `${value.form || 'filing SEC'} · ${value.filed_at || 'fecha no disponible'}` : 'DATA UNAVAILABLE';
 };
+const money = n => {
+  if (n == null || !Number.isFinite(Number(n))) return 'DATA UNAVAILABLE';
+  const value = Number(n), absolute = Math.abs(value);
+  if (absolute >= 1e9) return `${(value / 1e9).toFixed(2)} B USD`;
+  if (absolute >= 1e6) return `${(value / 1e6).toFixed(1)} M USD`;
+  return `${value.toFixed(0)} USD`;
+};
+const fundamentalDetail = asset => {
+  const value = asset.fundamentals;
+  if (value?.status !== 'OK') return `<h3>Fundamentals · SEC EDGAR<\/h3><p class="muted">DATA UNAVAILABLE · ${value?.reason || 'sin una presentación SEC comparable'}<\/p>`;
+  const metrics = [
+    ['Ingresos', money(value.revenue)], ['Resultado neto', money(value.net_income)],
+    ['Flujo operativo', money(value.operating_cash_flow)], ['Free cash flow', money(value.free_cash_flow)],
+    ['Caja', money(value.cash)], ['Deuda', money(value.debt)],
+    ['Período reportado', value.period_end || 'DATA UNAVAILABLE'], ['Presentado ante SEC', value.filed_at || 'DATA UNAVAILABLE'],
+  ];
+  const source = value.source_url ? `<a href="${value.source_url}" target="_blank" rel="noreferrer">Ver filing SEC<\/a>` : 'SEC EDGAR';
+  return `<h3>Fundamentals · SEC EDGAR<\/h3><p class="muted">${value.form || 'Filing SEC'} · datos contextuales, no modifican el score · ${source}<\/p><div class="detail-grid fundamentals-grid">${metrics.map(([label, content]) => `<div><span>${label}<\/span><b>${content}<\/b><\/div>`).join('')}<\/div>`;
+};
 const earningsSummary = asset => asset.earnings?.date ? `${asset.earnings.date} · ${asset.earnings.source || 'verificar fuente'}` : 'DATA UNAVAILABLE';
 const f = (n, d = 2) => n == null ? '—' : Number(n).toFixed(d);
 const p = n => n == null ? '—' : `${Number(n).toFixed(2)}%`;
@@ -549,6 +568,7 @@ function detail(asset) {
   const setup = asset.setup_event ? `${asset.setup_event}${asset.setup_age_sessions != null ? ` · ${asset.setup_age_sessions} ruedas` : ''}` : 'Sin evento reciente';
   const detectorText = (asset.detectors || []).map(item => `<li><b>${item.name}<\/b> · ${item.date}<br><span>${item.detail}<\/span><\/li>`).join('') || '<li>Sin detectores activos al último cierre.<\/li>';
   const watched = (data.watchlist || []).find(item => item.ticker === asset.ticker);
+  const financialDetail = fundamentalDetail(asset);
   const watchAction = staticDeployment
     ? '<span class="muted">Watchlist editable sólo desde el monitor local<\/span>'
     : (watched
@@ -556,7 +576,7 @@ function detail(asset) {
         ? `<button class="watchlist-action primary" data-detail-watch-open="${asset.ticker}" data-watch-action>Registrar entrada real<\/button>`
         : `<span class="muted">En watchlist · ${watched.position_status}<\/span>`)
       : `<button class="watchlist-action primary" data-detail-watch-add="${asset.ticker}" data-watch-action>+ Agregar a watchlist<\/button>`);
-  $('assetDetail').innerHTML = `<div class="eyebrow">${asset.sector_etf} · ${asset.state}<\/div><h2>${asset.ticker}<\/h2>${operationalBadge(asset)}<div class="manual-actions">${watchAction}<\/div><div class="big-score">${f(asset.opportunity_score)}<span>score ajustado<\/span><\/div><div class="detail-grid"><div><span>Precio / día<\/span><b>${f(asset.close)} · ${p(asset.daily_return_pct)}<\/b><\/div><div><span>Score cuatro pilares<\/span><b>${f(asset.score)}<\/b><\/div><div><span>Score selectivo 25/30/30/15<\/span><b>${f(asset.selective_score_25_30_30_15)}<\/b><\/div><div><span>RS compuesto<\/span><b>${f(asset.rs_score, 1)}/100 · ${p(asset.rs_change_5d_pct)}<\/b><\/div><div><span>Estadio técnico<\/span><b>${asset.technical_stage || '—'} · ${p(asset.ema200_slope20_pct)}<\/b><\/div><div><span>Dist. SMA50 / EMA200<\/span><b>${p(asset.distance_sma50_pct)} · ${p(asset.distance_ema200_pct)}<\/b><\/div><div><span>ATR14 / volatilidad<\/span><b>${f(asset.atr14)} · ${p(asset.atr14_pct)}<\/b><\/div><div><span>Setup<\/span><b class="${asset.fresh_setup ? 'fresh-setup' : ''}">${setup}<\/b><\/div><div><span>Setup selectivo<\/span><b class="${asset.selective_setup ? 'fresh-setup' : ''}">${asset.selective_setup_reason || 'No confirmado'}<\/b><\/div><div><span>Volumen<\/span><b>${f(asset.volume_ratio50)}x<\/b><\/div><div><span>Fundamentals<\/span><b>${fundamentalSummary(asset)}<\/b><\/div><div><span>Earnings<\/span><b>${earningsSummary(asset)}<\/b><\/div><\/div><h3>Cuatro pilares<\/h3><div class="pillar-grid"><div><span>Tendencia<\/span><b>${f(pillars.trend)}<\/b><i style="width:${Math.min(100, Number(pillars.trend || 0) / 30 * 100)}%"><\/i><\/div><div><span>Fuerza RS<\/span><b>${f(pillars.relative_strength)}<\/b><i style="width:${Math.min(100, Number(pillars.relative_strength || 0) / 25 * 100)}%"><\/i><\/div><div><span>Contracción<\/span><b>${f(pillars.contraction)}<\/b><i style="width:${Math.min(100, Number(pillars.contraction || 0) / 20 * 100)}%"><\/i><\/div><div><span>Setup<\/span><b>${f(pillars.setup)}<\/b><i style="width:${Math.min(100, Number(pillars.setup || 0) / 25 * 100)}%"><\/i><\/div><\/div><h3>Tendencia · 60 ruedas<\/h3>${trendChart(asset.trend_60)}<h3>Detectores independientes<\/h3><ul class="detectors">${detectorText}<\/ul><h3>Condiciones a revisar<\/h3><p class="alerts">${alerts(asset) || 'Sin alertas activas'}<\/p>`;
+  $('assetDetail').innerHTML = `<div class="eyebrow">${asset.sector_etf} · ${asset.state}<\/div><h2>${asset.ticker}<\/h2>${operationalBadge(asset)}<div class="manual-actions">${watchAction}<\/div><div class="big-score">${f(asset.opportunity_score)}<span>score ajustado<\/span><\/div><div class="detail-grid"><div><span>Precio / día<\/span><b>${f(asset.close)} · ${p(asset.daily_return_pct)}<\/b><\/div><div><span>Score cuatro pilares<\/span><b>${f(asset.score)}<\/b><\/div><div><span>Score selectivo 25/30/30/15<\/span><b>${f(asset.selective_score_25_30_30_15)}<\/b><\/div><div><span>RS compuesto<\/span><b>${f(asset.rs_score, 1)}/100 · ${p(asset.rs_change_5d_pct)}<\/b><\/div><div><span>Estadio técnico<\/span><b>${asset.technical_stage || '—'} · ${p(asset.ema200_slope20_pct)}<\/b><\/div><div><span>Dist. SMA50 / EMA200<\/span><b>${p(asset.distance_sma50_pct)} · ${p(asset.distance_ema200_pct)}<\/b><\/div><div><span>ATR14 / volatilidad<\/span><b>${f(asset.atr14)} · ${p(asset.atr14_pct)}<\/b><\/div><div><span>Setup<\/span><b class="${asset.fresh_setup ? 'fresh-setup' : ''}">${setup}<\/b><\/div><div><span>Setup selectivo<\/span><b class="${asset.selective_setup ? 'fresh-setup' : ''}">${asset.selective_setup_reason || 'No confirmado'}<\/b><\/div><div><span>Volumen<\/span><b>${f(asset.volume_ratio50)}x<\/b><\/div><div><span>Fundamentals<\/span><b>${fundamentalSummary(asset)}<\/b><\/div><div><span>Earnings<\/span><b>${earningsSummary(asset)}<\/b><\/div><\/div>${financialDetail}<h3>Cuatro pilares<\/h3><div class="pillar-grid"><div><span>Tendencia<\/span><b>${f(pillars.trend)}<\/b><i style="width:${Math.min(100, Number(pillars.trend || 0) / 30 * 100)}%"><\/i><\/div><div><span>Fuerza RS<\/span><b>${f(pillars.relative_strength)}<\/b><i style="width:${Math.min(100, Number(pillars.relative_strength || 0) / 25 * 100)}%"><\/i><\/div><div><span>Contracción<\/span><b>${f(pillars.contraction)}<\/b><i style="width:${Math.min(100, Number(pillars.contraction || 0) / 20 * 100)}%"><\/i><\/div><div><span>Setup<\/span><b>${f(pillars.setup)}<\/b><i style="width:${Math.min(100, Number(pillars.setup || 0) / 25 * 100)}%"><\/i><\/div><\/div><h3>Tendencia · 60 ruedas<\/h3>${trendChart(asset.trend_60)}<h3>Detectores independientes<\/h3><ul class="detectors">${detectorText}<\/ul><h3>Condiciones a revisar<\/h3><p class="alerts">${alerts(asset) || 'Sin alertas activas'}<\/p>`;
   const add = document.querySelector('[data-detail-watch-add]');
   const open = document.querySelector('[data-detail-watch-open]');
   if (add) add.onclick = () => watchlistAction('/api/watchlist', 'POST', add.dataset.detailWatchAdd);
