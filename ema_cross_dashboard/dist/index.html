@@ -772,7 +772,7 @@ async function init() {
     $('loading').hidden = true;
     const refreshKind = data.refresh?.rebuilt_from_local ? 'snapshot regenerado' : 'última descarga';
     const refreshAt = data.refresh?.attempted_at ? new Date(data.refresh.attempted_at).toLocaleString('es-AR') : '—';
-    $('updated').textContent = `Datos al ${data.as_of || 'DATA UNAVAILABLE'} · ${refreshKind}: ${refreshAt} · automática: L–V 18:15 ART`;
+    $('updated').textContent = `Datos al ${data.as_of || 'DATA UNAVAILABLE'} · ${refreshKind}: ${refreshAt} · automática: L–V 19:20 ART`;
     const market = data.market;
     $('market').innerHTML = [['Régimen', market.regime], ['QQQ / SPY', `${f(market.qqq_spy_ratio, 4)} · ${p(market.qqq_vs_spy_20d_pct)}`], ['VIX', `${f(market.vix)} · ${market.vix_state}`], ['Gate de entrada', gate().status], ['SEC EDGAR', `${data.fundamentals?.covered_count || 0}/${data.fundamentals?.selected_count || 0} cubiertos`], ['Fuente', data.source]].map(item => `<div class="metric">${item[0]}<b>${item[1]}<\/b><\/div>`).join('');
     if (data.status !== 'OK' || data.refresh?.errors?.length) { $('loading').hidden = false; $('loading').innerHTML = `<b>${data.status !== 'OK' ? 'DATA UNAVAILABLE' : 'Última actualización parcial'}<\/b><br>${data.refresh?.errors?.[0] || 'Se conserva el último snapshot válido.'}`; }

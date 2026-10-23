@@ -2,7 +2,7 @@
 
 Esta implementación publica una versión **estática y de sólo lectura**: no exige
 un servidor propio, Docker ni una suscripción de hosting. El cálculo se ejecuta
-en GitHub Actions y Cloudflare Pages muestra el contenido de `dist/`.
+en GitHub Actions y GitHub Pages muestra el contenido de `dist/`.
 
 ## Qué se publica
 
@@ -13,19 +13,16 @@ estático no puede guardar cambios compartidos sin una API y una base de datos.
 
 ## Preparación única
 
-1. Creá un repositorio privado en GitHub y subí la carpeta `Trading Agent`.
+1. Creá un repositorio público en GitHub y subí la carpeta `Trading Agent`.
 2. En **Settings → Secrets and variables → Actions**, agregá el secreto
    `SEC_USER_AGENT`, por ejemplo: `Tu Nombre tu-correo@ejemplo.com`.
    No es una API key: identifica de forma responsable las consultas a SEC.
-3. En Cloudflare, creá un proyecto **Pages**, conectalo al repositorio y elegí:
-   - Directorio raíz: `ema_cross_dashboard`
-   - Sin comando de build de Cloudflare: la publicación la genera GitHub Actions.
-   - Directorio publicado: `dist`
+3. En **Settings → Pages**, elegí **GitHub Actions** como fuente de publicación.
 4. Habilitá el workflow **Refresh and publish EMA Cross dashboard**. También se
    ejecuta automáticamente de lunes a viernes a las 22:20 UTC, después del cierre
    regular de EE. UU.
 
-Cloudflare Pages detectará el commit diario de `dist/` y actualizará la URL.
+GitHub Pages desplegará el artefacto diario de `dist/` y actualizará la URL.
 Si querés una actualización excepcional, ejecutá el workflow manualmente desde
 la pestaña **Actions** de GitHub.
 
@@ -36,10 +33,10 @@ la historia cada día. La caché acelera el proceso, pero no debe ser considerad
 un respaldo. Conservá el repositorio y, localmente, la carpeta `data/` como
 respaldo de tu bitácora.
 
-La URL publicada es de lectura. Antes de compartirla públicamente hay que
-revisar los términos de las fuentes y configurar un control de acceso. Para una
-watchlist sincronizada entre dispositivos necesitaremos una base de datos y una
-API; ese será un bloque posterior y separado.
+La URL publicada es de lectura y el repositorio debe ser público en el plan
+gratuito. Antes de compartirla ampliamente, revisá los términos de las fuentes.
+Para una watchlist sincronizada entre dispositivos necesitaremos una base de
+datos y una API; ese será un bloque posterior y separado.
 
 ## Datos fundamentales SEC
 

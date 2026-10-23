@@ -89,4 +89,4 @@ guardados, sin acceder a la red, ejecutá `scripts/Reconstruir-Snapshot.ps1`.
 
 ## Publicación gratuita
 
-Para publicar una versión estática actualizada automáticamente mediante GitHub Actions y Cloudflare Pages, seguí [`docs/free_static_deployment.md`](docs/free_static_deployment.md). La publicación es de sólo lectura; la watchlist local no se expone.
+Para publicar una versión estática actualizada automáticamente mediante GitHub Actions y GitHub Pages, seguí [`docs/free_static_deployment.md`](docs/free_static_deployment.md). La publicación es de sólo lectura; la watchlist local no se expone.
