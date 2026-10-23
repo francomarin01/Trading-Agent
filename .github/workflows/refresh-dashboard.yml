@@ -8,6 +8,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: ema-cross-daily-refresh
@@ -50,6 +52,11 @@ jobs:
       - name: Build static publication bundle
         run: python -m app.static_site
 
+      - name: Upload static site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ema_cross_dashboard/dist
+
       - name: Commit generated public snapshot
         working-directory: .
         run: |
@@ -65,3 +72,17 @@ jobs:
         with:
           path: ema_cross_dashboard/data/market.sqlite3
           key: ema-cross-market-${{ github.run_id }}
+
+  deploy:
+    needs: refresh
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy dashboard to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
