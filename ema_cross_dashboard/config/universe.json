@@ -646,7 +646,8 @@
   "fundamentals": {
     "enabled": true,
     "source": "SEC EDGAR companyfacts",
-    "max_symbols_per_refresh": 35,
-    "notes": "Contextual data only. Requires SEC_USER_AGENT. Does not affect the technical score."
+    "max_symbols_per_refresh": 600,
+    "cache_ttl_days": 7,
+    "notes": "SEC Company Facts plus Yahoo daily close for indicative valuation ratios. Requires SEC_USER_AGENT. Fundamentals never affect technical score or backtests. PEG is historical EPS growth, not analyst consensus."
   }
 }

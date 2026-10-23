@@ -2,6 +2,15 @@ name: Refresh and publish EMA Cross dashboard
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'ema_cross_dashboard/app/**'
+      - 'ema_cross_dashboard/config/**'
+      - 'ema_cross_dashboard/tests/**'
+      - 'ema_cross_dashboard/web/index.html'
+      - 'ema_cross_dashboard/docs/fundamental_module.md'
+      - '.github/workflows/refresh-dashboard.yml'
   schedule:
     # 22:20 UTC = after the regular US close in both DST and standard time.
     - cron: '20 22 * * 1-5'

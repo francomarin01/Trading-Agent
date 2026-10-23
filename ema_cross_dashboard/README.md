@@ -56,6 +56,9 @@ guardados, sin acceder a la red, ejecutá `scripts/Reconstruir-Snapshot.ps1`.
 
 ## Uso del dashboard
 
+- **Fundamentales** compara ratios de valoración calculados con hechos SEC reportados y el cierre diario de Yahoo Finance. Los datos SEC se conservan hasta siete días y los ratios se recalculan con el precio de cada snapshot. El PEG se basa en crecimiento histórico de EPS, no en consenso futuro. Fuente, fórmulas y limitaciones: [`docs/fundamental_module.md`](docs/fundamental_module.md).
+- **Técnico** mantiene score, setups, medias y volumen en una vista separada. La pestaña Fundamental no modifica scores, señales ni resultados históricos.
+
 - **Oportunidades** inicia en score ajustado mayor o igual a 65 y excluye
   `EXTENDED / DO NOT CHASE` y `WEAKENING`. Los tres controles son visibles y
   reversibles. El score base no se modifica: el score ajustado resta 15 puntos

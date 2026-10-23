@@ -110,6 +110,11 @@ tbody td:first-child{background:var(--surface);z-index:1}
 tbody tr:hover td{background:#f4f9f8}
 tbody tr:last-child td{border-bottom:0}
 td.pos{color:var(--gain);font-weight:600}td.neg{color:var(--loss);font-weight:600}
+.fundamental-table{min-width:1180px}.fundamental-row{cursor:pointer}.fundamental-row:hover td{background:var(--accent-soft)}
+.data-missing{color:var(--faint)}.fundamental-detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin-top:14px}
+.fundamental-detail-grid>div{padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:#fbfcfd;min-width:0}
+.fundamental-detail-grid span{display:block;color:var(--muted);font-size:11px}.fundamental-detail-grid b{display:block;margin-top:3px;overflow-wrap:anywhere}
+.valuation-caveat{padding:10px 12px;border-left:3px solid var(--warn);background:var(--warn-soft);color:#66420b;font-size:12px}
 .ticker{padding:0;border:0;background:transparent;color:var(--accent);font-weight:800}
 .ticker:hover{text-decoration:underline}
 
@@ -236,7 +241,8 @@ main{padding:0 14px 40px}.topbar{margin:0 -14px 16px;padding:10px 14px;top:58px;
         <button data-tab="track">Track record</button>
         <button data-tab="backtest">Backtest</button>
         <button data-tab="research">Investigación</button>
-        <button data-tab="technical">Técnico</button></div>
+        <button data-tab="technical">Técnico</button>
+        <button data-tab="fundamentals">Fundamentales</button></div>
     </nav>
     <div class="side-foot">Buscar ticker: <kbd>/</kbd></div>
   </aside>
@@ -315,6 +321,15 @@ main{padding:0 14px 40px}.topbar{margin:0 -14px 16px;padding:10px 14px;top:58px;
     <section data-view="backtest" hidden><section class="panel"><h2>Backtest point-in-time</h2><p id="backtestMethod" class="muted"></p><div class="scroll"><table><thead><tr><th>Modelo</th><th>Evento</th><th>Ruedas</th><th>Señales</th><th>Win rate</th><th>Retorno promedio</th><th>Mediana</th><th>ETF promedio</th><th>Exceso</th></tr></thead><tbody id="backtestRows"></tbody></table></div></section></section>
     <section data-view="research" hidden><section class="panel"><h2>Comparación de filtros · investigación</h2><p id="researchMethod" class="muted"></p><div class="scroll"><table><thead><tr><th>Modelo / filtro</th><th>Señales</th><th>Win rate</th><th>Retorno promedio</th><th>Mediana</th><th>Exceso vs ETF</th></tr></thead><tbody id="researchRows"></tbody></table></div></section><section class="panel"><h2>Walk-forward</h2><p class="muted">La selección anual usa sólo evidencia de años anteriores.</p><div class="scroll"><table><thead><tr><th>Modelo</th><th>Año de prueba</th><th>Filtro</th><th>Señales</th><th>Win rate</th><th>Retorno promedio</th><th>Exceso</th></tr></thead><tbody id="walkRows"></tbody></table></div></section></section>
     <section data-view="technical" hidden><section class="panel"><h2>Técnico</h2><p class="muted">Medias y volumen derivados de OHLCV diario. Son contexto, no cambios del score.</p><div class="scroll"><table><thead><tr><th>Ticker</th><th>ETF</th><th>WMA8</th><th>WMA21</th><th>SMA30</th><th>EMA200</th><th>Spread</th><th>Vol./SMA50</th><th>Volumen inusual</th></tr></thead><tbody id="technicalRows"></tbody></table></div></section></section>
+    <section data-view="fundamentals" hidden>
+      <div class="section-intro"><div><span class="section-kicker">SELECCIÓN DE VALOR</span><h2>Fundamentales y valoración</h2><p>Estados financieros SEC reportados, comparados con el último cierre de Yahoo Finance. La pestaña técnica sigue siendo independiente: no combinamos ambos datos en un score ni alteramos backtests.</p></div><span id="fundamentalsAsOf" class="count">—</span></div>
+      <div id="fundamentalKpis" class="metrics"></div>
+      <section class="panel"><div class="filter-heading"><div><h3>Comparador fundamental</h3><p class="muted">PEG usa crecimiento histórico de EPS TTM, no consenso de analistas. Ratios de valoración son aproximados y pueden no ser comparables entre sectores.</p></div><span id="fundamentalCoverage" class="filter-note">—</span></div>
+        <div class="filters fundamental-filters"><input id="fundSearch" placeholder="Buscar ticker" aria-label="Buscar ticker en fundamentales"><select id="fundSector" aria-label="Filtrar sector"><option value="">Todos los sectores</option></select><select id="fundSort" aria-label="Ordenar fundamentales"><option value="technical">Ordenar por score técnico</option><option value="pe">P/E ascendente</option><option value="peg">PEG histórico ascendente</option><option value="evsales">EV/Sales ascendente</option><option value="growth">Crecimiento de ingresos</option></select></div>
+        <div class="scroll"><table class="fundamental-table"><thead><tr><th>Ticker</th><th>Sector</th><th>Score técnico</th><th>Estado técnico</th><th>P/E</th><th>PEG hist.</th><th>EV/Sales</th><th>EV/EBITDA</th><th>P/B</th><th>FCF yield</th><th>Ventas YoY</th><th>Filing SEC</th></tr></thead><tbody id="fundamentalRows"></tbody></table></div>
+      </section>
+      <section class="panel" id="fundamentalDetail"><div class="empty">Seleccioná un activo para ver el contexto financiero, la fecha del filing y la base de cada ratio.</div></section>
+    </section>
   </main>
   </div>
   <dialog id="executionDialog" class="execution-dialog">
@@ -334,10 +349,6 @@ main{padding:0 14px 40px}.topbar{margin:0 -14px 16px;padding:10px 14px;top:58px;
 
 <script>const $ = id => document.getElementById(id);
 const staticDeployment = document.documentElement.dataset.deployment === 'static';
-const fundamentalSummary = asset => {
-  const value = asset.fundamentals;
-  return value?.status === 'OK' ? `${value.form || 'filing SEC'} · ${value.filed_at || 'fecha no disponible'}` : 'DATA UNAVAILABLE';
-};
 const money = n => {
   if (n == null || !Number.isFinite(Number(n))) return 'DATA UNAVAILABLE';
   const value = Number(n), absolute = Math.abs(value);
@@ -345,19 +356,6 @@ const money = n => {
   if (absolute >= 1e6) return `${(value / 1e6).toFixed(1)} M USD`;
   return `${value.toFixed(0)} USD`;
 };
-const fundamentalDetail = asset => {
-  const value = asset.fundamentals;
-  if (value?.status !== 'OK') return `<h3>Fundamentals · SEC EDGAR<\/h3><p class="muted">DATA UNAVAILABLE · ${value?.reason || 'sin una presentación SEC comparable'}<\/p>`;
-  const metrics = [
-    ['Ingresos', money(value.revenue)], ['Resultado neto', money(value.net_income)],
-    ['Flujo operativo', money(value.operating_cash_flow)], ['Free cash flow', money(value.free_cash_flow)],
-    ['Caja', money(value.cash)], ['Deuda', money(value.debt)],
-    ['Período reportado', value.period_end || 'DATA UNAVAILABLE'], ['Presentado ante SEC', value.filed_at || 'DATA UNAVAILABLE'],
-  ];
-  const source = value.source_url ? `<a href="${value.source_url}" target="_blank" rel="noreferrer">Ver filing SEC<\/a>` : 'SEC EDGAR';
-  return `<h3>Fundamentals · SEC EDGAR<\/h3><p class="muted">${value.form || 'Filing SEC'} · datos contextuales, no modifican el score · ${source}<\/p><div class="detail-grid fundamentals-grid">${metrics.map(([label, content]) => `<div><span>${label}<\/span><b>${content}<\/b><\/div>`).join('')}<\/div>`;
-};
-const earningsSummary = asset => asset.earnings?.date ? `${asset.earnings.date} · ${asset.earnings.source || 'verificar fuente'}` : 'DATA UNAVAILABLE';
 const f = (n, d = 2) => n == null ? '—' : Number(n).toFixed(d);
 const p = n => n == null ? '—' : `${Number(n).toFixed(2)}%`;
 let data = {assets: [], rotation_history: [], asset_rotation_history: [], track_record: [], track_record_sector_summary: [], journal: [], journal_summary: [], watchlist: [], top10: [], top10_summary: []};
@@ -370,6 +368,70 @@ let assetRotationLoaded = false;
 let assetRotationLoading = null;
 
 const row = values => `<tr>${values.map(value => `<td>${value}<\/td>`).join('')}<\/tr>`;
+const multiple = n => n == null || !Number.isFinite(Number(n)) ? '—' : `${Number(n).toFixed(2)}x`;
+const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+function fundamentalDetailMarkup(asset) {
+  const sec = asset.fundamentals || {}, val = asset.valuation || {};
+  if (sec.status !== 'OK') return `<h3>${escapeHtml(asset.ticker)} · Fundamentales<\/h3><p class="muted">DATA UNAVAILABLE · ${escapeHtml(sec.reason || 'No hay cobertura SEC para este activo.')}<\/p><p class="muted">Score técnico ${f(asset.opportunity_score)} · ${escapeHtml(asset.state)}. El análisis técnico se conserva por separado.<\/p>`;
+  const cells = [
+    ['P/E', multiple(val.price_to_earnings)], ['PEG histórico', multiple(val.peg_historical)],
+    ['EV / Sales', multiple(val.ev_to_sales)], ['EV / EBITDA', multiple(val.ev_to_ebitda)], ['P / Book', multiple(val.price_to_book)],
+    ['Capitalización indicativa', money(val.market_cap_indicative)], ['EV indicativo', money(val.enterprise_value_indicative)],
+    ['FCF yield', p(val.free_cash_flow_yield_pct)], ['Ingresos TTM', money(sec.revenue_ttm)],
+    ['Crecimiento de ingresos', p(sec.revenue_growth_yoy_pct)], ['Resultado neto TTM', money(sec.net_income_ttm)],
+    ['EPS diluido TTM', sec.eps_diluted_ttm == null ? '—' : f(sec.eps_diluted_ttm)], ['Crecimiento EPS', p(sec.eps_growth_yoy_pct)],
+    ['EBITDA TTM', money(sec.ebitda_ttm)], ['Free cash flow TTM', money(sec.free_cash_flow)],
+    ['Caja / Deuda', `${money(sec.cash)} / ${money(sec.debt)}`], ['Período reportado', sec.period_end || '—'],
+    ['Presentado ante SEC', sec.filed_at || '—'],
+  ];
+  const source = sec.source_url ? `<a href="${escapeHtml(sec.source_url)}" target="_blank" rel="noreferrer">Abrir Company Facts SEC<\/a>` : 'SEC EDGAR';
+  return `<div class="panel-head"><div><h3>${escapeHtml(asset.ticker)} · Fundamental</h3><p class="muted">Score técnico ${f(asset.opportunity_score)} · ${escapeHtml(asset.sector_etf)} · precio de referencia ${f(asset.close)} al ${escapeHtml(asset.date)}.</p></div><button class="watchlist-action" data-open-technical="${escapeHtml(asset.ticker)}">Ver ficha técnica</button></div><p class="muted">Filing ${escapeHtml(sec.form || 'SEC')} · período ${escapeHtml(sec.period_end || '—')} · presentado ${escapeHtml(sec.filed_at || '—')} · ${source}</p><p class="valuation-caveat">Ratios actuales aproximados: combinan el último cierre diario con el dato financiero más reciente presentado. PEG es histórico, sin estimaciones de analistas. Los ratios que carecen de componentes comparables se muestran como —.</p><div class="fundamental-detail-grid">${cells.map(([label,value]) => `<div><span>${escapeHtml(label)}</span><b>${escapeHtml(value)}</b></div>`).join('')}</div>`;
+}
+function renderFundamentalDetail(asset) {
+  $('fundamentalDetail').innerHTML = asset ? fundamentalDetailMarkup(asset) : '<div class="empty">Seleccioná un activo para ver sus datos fundamentales.</div>';
+  $('fundamentalDetail').querySelector('[data-open-technical]')?.addEventListener('click', event => {
+    const ticker = event.currentTarget.dataset.openTechnical;
+    selectedTicker = ticker;
+    const match = data.assets.find(item => item.ticker === ticker);
+    if (match) detail(match);
+    activateTab('universe');
+  });
+}
+function renderFundamentals() {
+  if (!$('fundamentalRows')) return;
+  const query = $('fundSearch').value.trim().toUpperCase(), sector = $('fundSector').value;
+  let assets = data.assets.filter(asset => (!query || asset.ticker.includes(query)) && (!sector || asset.sector_etf === sector));
+  const sort = $('fundSort').value;
+  const keys = {technical:'opportunity_score', pe:'price_to_earnings', peg:'peg_historical', evsales:'ev_to_sales', growth:'revenue_growth_yoy_pct'};
+  if (sort === 'technical') assets.sort((a,b) => Number(b.opportunity_score || -1)-Number(a.opportunity_score || -1));
+  else if (sort === 'growth') assets.sort((a,b) => Number(b.fundamentals?.revenue_growth_yoy_pct ?? -Infinity)-Number(a.fundamentals?.revenue_growth_yoy_pct ?? -Infinity));
+  else assets.sort((a,b) => Number(a.valuation?.[keys[sort]] ?? Infinity)-Number(b.valuation?.[keys[sort]] ?? Infinity));
+  const covered = data.assets.filter(asset => asset.fundamentals?.status === 'OK').length;
+  const stale = data.assets.filter(asset => asset.fundamentals?.refresh_status === 'STALE').length;
+  const valued = data.assets.filter(asset => asset.valuation?.price_to_earnings != null).length;
+  $('fundamentalsAsOf').textContent = `Precios al ${data.as_of || '—'}`;
+  $('fundamentalCoverage').textContent = `Cobertura SEC ${covered}/${data.assets.length} · caché vencida ${stale} · P/E calculable ${valued}`;
+  $('fundamentalKpis').innerHTML = [
+    ['Activos con filing', `${covered} / ${data.assets.length}`],
+    ['P/E calculable', valued],
+    ['Fuente financiera', 'SEC EDGAR Company Facts'],
+    ['Precio de referencia', 'Yahoo Finance · cierre diario'],
+  ].map(([label,value]) => `<div class="metric">${label}<b>${value}</b></div>`).join('');
+  const empty = `<tr><td colspan="12" class="muted">No hay activos que coincidan con los filtros.</td></tr>`;
+  $('fundamentalRows').innerHTML = assets.map(asset => {
+    const val = asset.valuation || {}, sec = asset.fundamentals || {};
+    const missing = sec.status !== 'OK' ? (sec.reason || 'Filing no disponible') : 'Métrica no calculable con los datos reportados';
+    const cell = (value, title = missing) => `<td title="${escapeHtml(value == null ? title : '')}">${value == null ? '<span class="data-missing">—</span>' : value}</td>`;
+    return `<tr class="fundamental-row" data-fundamental-ticker="${escapeHtml(asset.ticker)}"><td><button class="ticker" data-fundamental-select="${escapeHtml(asset.ticker)}">${escapeHtml(asset.ticker)}</button></td><td>${escapeHtml(asset.sector_etf)}</td><td>${f(asset.opportunity_score)}</td><td>${escapeHtml(asset.state)}</td>${cell(multiple(val.price_to_earnings))}${cell(multiple(val.peg_historical))}${cell(multiple(val.ev_to_sales))}${cell(multiple(val.ev_to_ebitda))}${cell(multiple(val.price_to_book))}${cell(p(val.free_cash_flow_yield_pct))}${cell(p(sec.revenue_growth_yoy_pct))}<td title="Período ${escapeHtml(sec.period_end || '—')}">${escapeHtml(sec.filed_at || '—')}</td></tr>`;
+  }).join('') || empty;
+  $('fundamentalRows').querySelectorAll('[data-fundamental-select]').forEach(button => button.addEventListener('click', () => {
+    const asset = data.assets.find(item => item.ticker === button.dataset.fundamentalSelect);
+    selectedTicker = asset?.ticker || null;
+    renderFundamentalDetail(asset);
+  }));
+  const selected = assets.find(asset => asset.ticker === selectedTicker) || assets[0];
+  if (selected) renderFundamentalDetail(selected);
+}
 const alerts = asset => (asset.alerts || []).join('; ');
 const stateBadge = state => `<span class="sector-state ${state}">${state}<\/span>`;
 const operationalBadge = asset => {
@@ -568,7 +630,6 @@ function detail(asset) {
   const setup = asset.setup_event ? `${asset.setup_event}${asset.setup_age_sessions != null ? ` · ${asset.setup_age_sessions} ruedas` : ''}` : 'Sin evento reciente';
   const detectorText = (asset.detectors || []).map(item => `<li><b>${item.name}<\/b> · ${item.date}<br><span>${item.detail}<\/span><\/li>`).join('') || '<li>Sin detectores activos al último cierre.<\/li>';
   const watched = (data.watchlist || []).find(item => item.ticker === asset.ticker);
-  const financialDetail = fundamentalDetail(asset);
   const watchAction = staticDeployment
     ? '<span class="muted">Watchlist editable sólo desde el monitor local<\/span>'
     : (watched
@@ -576,7 +637,7 @@ function detail(asset) {
         ? `<button class="watchlist-action primary" data-detail-watch-open="${asset.ticker}" data-watch-action>Registrar entrada real<\/button>`
         : `<span class="muted">En watchlist · ${watched.position_status}<\/span>`)
       : `<button class="watchlist-action primary" data-detail-watch-add="${asset.ticker}" data-watch-action>+ Agregar a watchlist<\/button>`);
-  $('assetDetail').innerHTML = `<div class="eyebrow">${asset.sector_etf} · ${asset.state}<\/div><h2>${asset.ticker}<\/h2>${operationalBadge(asset)}<div class="manual-actions">${watchAction}<\/div><div class="big-score">${f(asset.opportunity_score)}<span>score ajustado<\/span><\/div><div class="detail-grid"><div><span>Precio / día<\/span><b>${f(asset.close)} · ${p(asset.daily_return_pct)}<\/b><\/div><div><span>Score cuatro pilares<\/span><b>${f(asset.score)}<\/b><\/div><div><span>Score selectivo 25/30/30/15<\/span><b>${f(asset.selective_score_25_30_30_15)}<\/b><\/div><div><span>RS compuesto<\/span><b>${f(asset.rs_score, 1)}/100 · ${p(asset.rs_change_5d_pct)}<\/b><\/div><div><span>Estadio técnico<\/span><b>${asset.technical_stage || '—'} · ${p(asset.ema200_slope20_pct)}<\/b><\/div><div><span>Dist. SMA50 / EMA200<\/span><b>${p(asset.distance_sma50_pct)} · ${p(asset.distance_ema200_pct)}<\/b><\/div><div><span>ATR14 / volatilidad<\/span><b>${f(asset.atr14)} · ${p(asset.atr14_pct)}<\/b><\/div><div><span>Setup<\/span><b class="${asset.fresh_setup ? 'fresh-setup' : ''}">${setup}<\/b><\/div><div><span>Setup selectivo<\/span><b class="${asset.selective_setup ? 'fresh-setup' : ''}">${asset.selective_setup_reason || 'No confirmado'}<\/b><\/div><div><span>Volumen<\/span><b>${f(asset.volume_ratio50)}x<\/b><\/div><div><span>Fundamentals<\/span><b>${fundamentalSummary(asset)}<\/b><\/div><div><span>Earnings<\/span><b>${earningsSummary(asset)}<\/b><\/div><\/div>${financialDetail}<h3>Cuatro pilares<\/h3><div class="pillar-grid"><div><span>Tendencia<\/span><b>${f(pillars.trend)}<\/b><i style="width:${Math.min(100, Number(pillars.trend || 0) / 30 * 100)}%"><\/i><\/div><div><span>Fuerza RS<\/span><b>${f(pillars.relative_strength)}<\/b><i style="width:${Math.min(100, Number(pillars.relative_strength || 0) / 25 * 100)}%"><\/i><\/div><div><span>Contracción<\/span><b>${f(pillars.contraction)}<\/b><i style="width:${Math.min(100, Number(pillars.contraction || 0) / 20 * 100)}%"><\/i><\/div><div><span>Setup<\/span><b>${f(pillars.setup)}<\/b><i style="width:${Math.min(100, Number(pillars.setup || 0) / 25 * 100)}%"><\/i><\/div><\/div><h3>Tendencia · 60 ruedas<\/h3>${trendChart(asset.trend_60)}<h3>Detectores independientes<\/h3><ul class="detectors">${detectorText}<\/ul><h3>Condiciones a revisar<\/h3><p class="alerts">${alerts(asset) || 'Sin alertas activas'}<\/p>`;
+  $('assetDetail').innerHTML = `<div class="eyebrow">${asset.sector_etf} · ${asset.state}<\/div><h2>${asset.ticker}<\/h2>${operationalBadge(asset)}<div class="manual-actions">${watchAction}<\/div><div class="big-score">${f(asset.opportunity_score)}<span>score ajustado<\/span><\/div><div class="detail-grid"><div><span>Precio / día<\/span><b>${f(asset.close)} · ${p(asset.daily_return_pct)}<\/b><\/div><div><span>Score cuatro pilares<\/span><b>${f(asset.score)}<\/b><\/div><div><span>Score selectivo 25/30/30/15<\/span><b>${f(asset.selective_score_25_30_30_15)}<\/b><\/div><div><span>RS compuesto<\/span><b>${f(asset.rs_score, 1)}/100 · ${p(asset.rs_change_5d_pct)}<\/b><\/div><div><span>Estadio técnico<\/span><b>${asset.technical_stage || '—'} · ${p(asset.ema200_slope20_pct)}<\/b><\/div><div><span>Dist. SMA50 / EMA200<\/span><b>${p(asset.distance_sma50_pct)} · ${p(asset.distance_ema200_pct)}<\/b><\/div><div><span>ATR14 / volatilidad<\/span><b>${f(asset.atr14)} · ${p(asset.atr14_pct)}<\/b><\/div><div><span>Setup<\/span><b class="${asset.fresh_setup ? 'fresh-setup' : ''}">${setup}<\/b><\/div><div><span>Setup selectivo<\/span><b class="${asset.selective_setup ? 'fresh-setup' : ''}">${asset.selective_setup_reason || 'No confirmado'}<\/b><\/div><div><span>Volumen<\/span><b>${f(asset.volume_ratio50)}x<\/b><\/div><\/div><h3>Cuatro pilares<\/h3><div class="pillar-grid"><div><span>Tendencia<\/span><b>${f(pillars.trend)}<\/b><i style="width:${Math.min(100, Number(pillars.trend || 0) / 30 * 100)}%"><\/i><\/div><div><span>Fuerza RS<\/span><b>${f(pillars.relative_strength)}<\/b><i style="width:${Math.min(100, Number(pillars.relative_strength || 0) / 25 * 100)}%"><\/i><\/div><div><span>Contracción<\/span><b>${f(pillars.contraction)}<\/b><i style="width:${Math.min(100, Number(pillars.contraction || 0) / 20 * 100)}%"><\/i><\/div><div><span>Setup<\/span><b>${f(pillars.setup)}<\/b><i style="width:${Math.min(100, Number(pillars.setup || 0) / 25 * 100)}%"><\/i><\/div><\/div><h3>Tendencia · 60 ruedas<\/h3>${trendChart(asset.trend_60)}<h3>Detectores independientes<\/h3><ul class="detectors">${detectorText}<\/ul><h3>Condiciones a revisar<\/h3><p class="alerts">${alerts(asset) || 'Sin alertas activas'}<\/p>`;
   const add = document.querySelector('[data-detail-watch-add]');
   const open = document.querySelector('[data-detail-watch-open]');
   if (add) add.onclick = () => watchlistAction('/api/watchlist', 'POST', add.dataset.detailWatchAdd);
@@ -731,7 +792,10 @@ function drawRotation() {
 }
 
 function setOptions() {
-  for (const sector of [...new Set(data.assets.map(asset => asset.sector_etf))].sort()) $('sector').add(new Option(sector, sector));
+  for (const sector of [...new Set(data.assets.map(asset => asset.sector_etf))].sort()) {
+    $('sector').add(new Option(sector, sector));
+    $('fundSector').add(new Option(sector, sector));
+  }
   rotationDates = [...new Set(data.rotation_history.map(item => item.date))].sort();
   const timeline = $('rotationTimeline');
   timeline.min = 0; timeline.max = Math.max(0, rotationDates.length - 1); timeline.value = timeline.max;
@@ -800,6 +864,7 @@ async function init() {
     $('trackRows').innerHTML = (data.track_record || []).map(item => row([item.ticker, item.sector_etf, item.event, item.inclusion_date, p(item.return_pct), p(item.benchmark_return_pct), p(item.excess_return_pct)])).join('');
     $('trackSectorRows').innerHTML = (data.track_record_sector_summary || []).map(item => row([item.sector_etf, item.included, item.valid_returns, `${f(item.win_rate_pct)}%`, p(item.average_return_pct), p(item.benchmark_return_pct), p(item.excess_return_pct)])).join('');
     $('technicalRows').innerHTML = data.assets.map(item => row([item.ticker, item.sector_etf, f(item.wma8), f(item.wma21), f(item.sma30), f(item.ema200), p(item.d1_d2_spread_pct), `${f(item.volume_ratio50)}x`, item.unusual_volume ? 'SÍ' : 'NO'])).join('');
+    renderFundamentals();
     appendAnalytics();
   } catch (_) { $('loading').innerHTML = 'No hay snapshot todavía. Ejecutá <code>.\\scripts\\Actualizar.ps1<\/code> desde PowerShell.'; }
 }
@@ -821,6 +886,7 @@ async function pollRefresh() {
 }
 
 ['search', 'state', 'sector', 'minScore', 'minRsScore', 'hideExtended', 'hideWeakening', 'onlyFresh', 'onlyVolume', 'onlyNewEntries', 'onlySelectiveSetup'].forEach(id => $(id).addEventListener('input', drawAssets));
+['fundSearch', 'fundSector', 'fundSort'].forEach(id => $(id).addEventListener('input', renderFundamentals));
 document.querySelectorAll('.preset').forEach(button => button.addEventListener('click', () => applyPreset(button.dataset.preset)));
 setupExecutionDialog();
 $('rotationTimeline').addEventListener('input', drawRotation);
@@ -857,6 +923,7 @@ const VIEWS = {
   backtest: ['Backtest', 'Resultados históricos point-in-time.'],
   research: ['Investigación', 'Filtros y validación walk-forward.'],
   technical: ['Técnico', 'Medias y volumen como contexto.'],
+  fundamentals: ['Fundamentales', 'Valoración y salud financiera desde datos reportados.'],
 };
 function toast(message, isError = false) {
   const node = document.createElement('div');
