@@ -1,0 +1,202 @@
+{
+  "status": "OK",
+  "method": "Signal close T0 → entry open T+1 → exit close T+h; retorno bruto sin costes de transacción.",
+  "models": [
+    {
+      "status": "OK",
+      "model": "LEGACY",
+      "method": "Signal close T0 → entry open T+1 → exit close T+h; retorno bruto sin costes de transacción.",
+      "round_trip_cost_bps": 0,
+      "summary": [
+        {
+          "event": "ARMED",
+          "horizon_sessions": 5,
+          "signals": 25592,
+          "win_rate_pct": 52.4,
+          "average_return_pct": 0.23,
+          "median_return_pct": 0.19,
+          "benchmark_return_pct": 0.17,
+          "excess_return_pct": 0.06
+        },
+        {
+          "event": "ARMED",
+          "horizon_sessions": 10,
+          "signals": 25518,
+          "win_rate_pct": 52.73,
+          "average_return_pct": 0.43,
+          "median_return_pct": 0.32,
+          "benchmark_return_pct": 0.34,
+          "excess_return_pct": 0.09
+        },
+        {
+          "event": "ARMED",
+          "horizon_sessions": 20,
+          "signals": 25380,
+          "win_rate_pct": 53.8,
+          "average_return_pct": 0.94,
+          "median_return_pct": 0.67,
+          "benchmark_return_pct": 0.76,
+          "excess_return_pct": 0.17
+        },
+        {
+          "event": "HIGH PRIORITY",
+          "horizon_sessions": 5,
+          "signals": 23878,
+          "win_rate_pct": 53.17,
+          "average_return_pct": 0.26,
+          "median_return_pct": 0.25,
+          "benchmark_return_pct": 0.2,
+          "excess_return_pct": 0.06
+        },
+        {
+          "event": "HIGH PRIORITY",
+          "horizon_sessions": 10,
+          "signals": 23813,
+          "win_rate_pct": 52.98,
+          "average_return_pct": 0.47,
+          "median_return_pct": 0.36,
+          "benchmark_return_pct": 0.36,
+          "excess_return_pct": 0.11
+        },
+        {
+          "event": "HIGH PRIORITY",
+          "horizon_sessions": 20,
+          "signals": 23688,
+          "win_rate_pct": 53.63,
+          "average_return_pct": 0.98,
+          "median_return_pct": 0.64,
+          "benchmark_return_pct": 0.8,
+          "excess_return_pct": 0.18
+        },
+        {
+          "event": "SCORE_65",
+          "horizon_sessions": 5,
+          "signals": 23636,
+          "win_rate_pct": 53.24,
+          "average_return_pct": 0.34,
+          "median_return_pct": 0.28,
+          "benchmark_return_pct": 0.27,
+          "excess_return_pct": 0.08
+        },
+        {
+          "event": "SCORE_65",
+          "horizon_sessions": 10,
+          "signals": 23592,
+          "win_rate_pct": 53.97,
+          "average_return_pct": 0.63,
+          "median_return_pct": 0.47,
+          "benchmark_return_pct": 0.5,
+          "excess_return_pct": 0.13
+        },
+        {
+          "event": "SCORE_65",
+          "horizon_sessions": 20,
+          "signals": 23478,
+          "win_rate_pct": 54.27,
+          "average_return_pct": 1.13,
+          "median_return_pct": 0.8,
+          "benchmark_return_pct": 0.99,
+          "excess_return_pct": 0.14
+        }
+      ]
+    },
+    {
+      "status": "OK",
+      "model": "FOUR_PILLAR",
+      "method": "Signal close T0 → entry open T+1 → exit close T+h; retorno bruto sin costes de transacción.",
+      "round_trip_cost_bps": 0,
+      "summary": [
+        {
+          "event": "ARMED",
+          "horizon_sessions": 5,
+          "signals": 4112,
+          "win_rate_pct": 52.89,
+          "average_return_pct": 0.25,
+          "median_return_pct": 0.24,
+          "benchmark_return_pct": 0.26,
+          "excess_return_pct": -0.01
+        },
+        {
+          "event": "ARMED",
+          "horizon_sessions": 10,
+          "signals": 4101,
+          "win_rate_pct": 51.52,
+          "average_return_pct": 0.6,
+          "median_return_pct": 0.24,
+          "benchmark_return_pct": 0.51,
+          "excess_return_pct": 0.09
+        },
+        {
+          "event": "ARMED",
+          "horizon_sessions": 20,
+          "signals": 4082,
+          "win_rate_pct": 52.67,
+          "average_return_pct": 1.24,
+          "median_return_pct": 0.54,
+          "benchmark_return_pct": 0.95,
+          "excess_return_pct": 0.3
+        },
+        {
+          "event": "HIGH PRIORITY",
+          "horizon_sessions": 5,
+          "signals": 130,
+          "win_rate_pct": 60.77,
+          "average_return_pct": 0.56,
+          "median_return_pct": 0.63,
+          "benchmark_return_pct": 0.5,
+          "excess_return_pct": 0.05
+        },
+        {
+          "event": "HIGH PRIORITY",
+          "horizon_sessions": 10,
+          "signals": 130,
+          "win_rate_pct": 60.0,
+          "average_return_pct": 0.79,
+          "median_return_pct": 0.95,
+          "benchmark_return_pct": 0.92,
+          "excess_return_pct": -0.13
+        },
+        {
+          "event": "HIGH PRIORITY",
+          "horizon_sessions": 20,
+          "signals": 129,
+          "win_rate_pct": 62.02,
+          "average_return_pct": 2.68,
+          "median_return_pct": 2.13,
+          "benchmark_return_pct": 2.22,
+          "excess_return_pct": 0.46
+        },
+        {
+          "event": "SCORE_65",
+          "horizon_sessions": 5,
+          "signals": 13489,
+          "win_rate_pct": 52.4,
+          "average_return_pct": 0.24,
+          "median_return_pct": 0.22,
+          "benchmark_return_pct": 0.21,
+          "excess_return_pct": 0.03
+        },
+        {
+          "event": "SCORE_65",
+          "horizon_sessions": 10,
+          "signals": 13454,
+          "win_rate_pct": 52.55,
+          "average_return_pct": 0.59,
+          "median_return_pct": 0.32,
+          "benchmark_return_pct": 0.44,
+          "excess_return_pct": 0.15
+        },
+        {
+          "event": "SCORE_65",
+          "horizon_sessions": 20,
+          "signals": 13396,
+          "win_rate_pct": 53.16,
+          "average_return_pct": 1.14,
+          "median_return_pct": 0.57,
+          "benchmark_return_pct": 0.85,
+          "excess_return_pct": 0.29
+        }
+      ]
+    }
+  ]
+}
