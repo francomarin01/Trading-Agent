@@ -645,9 +645,9 @@
   },
   "fundamentals": {
     "enabled": true,
-    "source": "SEC EDGAR companyfacts",
-    "max_symbols_per_refresh": 600,
-    "cache_ttl_days": 7,
-    "notes": "SEC Company Facts plus Yahoo daily close for indicative valuation ratios. Requires SEC_USER_AGENT. Fundamentals never affect technical score or backtests. PEG is historical EPS growth, not analyst consensus."
+    "source": "Finviz CSV export",
+    "max_age_days": 7,
+    "snapshot_path": "data/incoming/finviz_fundamentals.json",
+    "notes": "Finviz screener CSV export imported manually. No network scraping. Fundamentals never affect technical score or backtests."
   }
 }

@@ -1,4 +1,6 @@
 const $ = id => document.getElementById(id);
+const staticDeployment = document.documentElement.dataset.deployment === 'static';
+const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
 const f = (n, d = 2) => n == null ? '—' : Number(n).toFixed(d);
 const p = n => n == null ? '—' : `${Number(n).toFixed(2)}%`;
 let data = {assets: [], rotation_history: [], asset_rotation_history: [], track_record: [], track_record_sector_summary: [], journal: [], journal_summary: [], watchlist: [], top10: [], top10_summary: []};
@@ -63,6 +65,10 @@ function bindTickerButtons() {
 }
 
 async function watchlistAction(path, method, ticker, payload = {}) {
+  if (staticDeployment) {
+    window.alert('La versión publicada es de solo lectura. La watchlist se administra desde la instancia local.');
+    return;
+  }
   const buttons = [...document.querySelectorAll('[data-watch-action]')];
   buttons.forEach(button => { button.disabled = true; });
   try {
@@ -127,15 +133,15 @@ function renderWatchlist() {
   $('watchlistCount').textContent = `${rows.length} activo${rows.length === 1 ? '' : 's'}`;
   $('watchlistRows').innerHTML = rows.map(item => {
     const status = item.position_status || 'WATCHING';
-    const action = status === 'WATCHING' || status === 'PENDING_ENTRY'
+    const action = !staticDeployment && (status === 'WATCHING' || status === 'PENDING_ENTRY')
       ? `<button class="watchlist-action primary" data-watch-open="${item.ticker}" data-watch-action>Registrar entrada real</button>`
-      : '<span class="muted">Seguimiento iniciado</span>';
+      : `<span class="muted">${staticDeployment ? 'Solo lectura' : 'Seguimiento iniciado'}</span>`;
     return row([
       `<button class="ticker" data-ticker="${item.ticker}">${item.ticker}</button>`, item.sector_etf, item.added_date,
       f(item.score), `<span class="state ${String(item.state || 'DATA UNAVAILABLE').replaceAll(' ', '_')}">${item.state || 'DATA UNAVAILABLE'}</span>`,
       `<span class="operational ${String(status).replaceAll(' ', '_')}">${status}</span>`, item.entry_date || 'SIN EJECUCIÓN',
       p(item.current_return_pct), f(item.stop_price), f(item.target_price),
-      `<div class="watchlist-buttons">${action}<button class="watchlist-action" data-watch-remove="${item.ticker}" data-watch-action>Quitar</button></div>`,
+      `<div class="watchlist-buttons">${action}${staticDeployment ? '' : `<button class="watchlist-action" data-watch-remove="${item.ticker}" data-watch-action>Quitar</button>`}</div>`,
     ]);
   }).join('') || row(['Todavía no agregaste activos a tu watchlist.', '', '', '', '', '', '', '', '', '', '']);
   document.querySelectorAll('[data-watch-open]').forEach(button => button.onclick = () => openExecutionDialog(button.dataset.watchOpen));
@@ -202,6 +208,7 @@ function detail(asset) {
       : `<span class="muted">En watchlist · ${watched.position_status}</span>`)
     : `<button class="watchlist-action primary" data-detail-watch-add="${asset.ticker}" data-watch-action>+ Agregar a watchlist</button>`;
   $('assetDetail').innerHTML = `<div class="eyebrow">${asset.sector_etf} · ${asset.state}</div><h2>${asset.ticker}</h2>${operationalBadge(asset)}<div class="manual-actions">${watchAction}</div><div class="big-score">${f(asset.opportunity_score)}<span>score ajustado</span></div><div class="detail-grid"><div><span>Precio / día</span><b>${f(asset.close)} · ${p(asset.daily_return_pct)}</b></div><div><span>Score cuatro pilares</span><b>${f(asset.score)}</b></div><div><span>Score selectivo 25/30/30/15</span><b>${f(asset.selective_score_25_30_30_15)}</b></div><div><span>RS compuesto</span><b>${f(asset.rs_score, 1)}/100 · ${p(asset.rs_change_5d_pct)}</b></div><div><span>Estadio técnico</span><b>${asset.technical_stage || '—'} · ${p(asset.ema200_slope20_pct)}</b></div><div><span>Dist. SMA50 / EMA200</span><b>${p(asset.distance_sma50_pct)} · ${p(asset.distance_ema200_pct)}</b></div><div><span>ATR14 / volatilidad</span><b>${f(asset.atr14)} · ${p(asset.atr14_pct)}</b></div><div><span>Setup</span><b class="${asset.fresh_setup ? 'fresh-setup' : ''}">${setup}</b></div><div><span>Setup selectivo</span><b class="${asset.selective_setup ? 'fresh-setup' : ''}">${asset.selective_setup_reason || 'No confirmado'}</b></div><div><span>Volumen</span><b>${f(asset.volume_ratio50)}x</b></div><div><span>Earnings</span><b>DATA UNAVAILABLE</b></div></div><h3>Cuatro pilares</h3><div class="pillar-grid"><div><span>Tendencia</span><b>${f(pillars.trend)}</b><i style="width:${Math.min(100, Number(pillars.trend || 0) / 30 * 100)}%"></i></div><div><span>Fuerza RS</span><b>${f(pillars.relative_strength)}</b><i style="width:${Math.min(100, Number(pillars.relative_strength || 0) / 25 * 100)}%"></i></div><div><span>Contracción</span><b>${f(pillars.contraction)}</b><i style="width:${Math.min(100, Number(pillars.contraction || 0) / 20 * 100)}%"></i></div><div><span>Setup</span><b>${f(pillars.setup)}</b><i style="width:${Math.min(100, Number(pillars.setup || 0) / 25 * 100)}%"></i></div></div><h3>Tendencia · 60 ruedas</h3>${trendChart(asset.trend_60)}<h3>Detectores independientes</h3><ul class="detectors">${detectorText}</ul><h3>Condiciones a revisar</h3><p class="alerts">${alerts(asset) || 'Sin alertas activas'}</p>`;
+  if (staticDeployment) $('assetDetail').querySelector('.manual-actions').innerHTML = '<span class="muted">Watchlist disponible en la instancia local.</span>';
   const add = document.querySelector('[data-detail-watch-add]');
   const open = document.querySelector('[data-detail-watch-open]');
   if (add) add.onclick = () => watchlistAction('/api/watchlist', 'POST', add.dataset.detailWatchAdd);
@@ -356,6 +363,112 @@ function setOptions() {
   $('rotationEnd').textContent = rotationDates.at(-1) || '—';
 }
 
+const fundamentalMetrics = [
+  ['trailing_pe', 'P/E', true, value => `${f(value)}x`],
+  ['peg_forward', 'PEG esperado', true, value => `${f(value)}x`],
+  ['forward_pe', 'Forward P/E', true, value => `${f(value)}x`],
+  ['ev_sales', 'EV/Sales', true, value => `${f(value)}x`],
+  ['ev_ebitda', 'EV/EBITDA', true, value => `${f(value)}x`],
+  ['price_to_sales', 'P/S', true, value => `${f(value)}x`],
+  ['price_to_book', 'P/B', true, value => `${f(value)}x`],
+  ['roe_pct', 'ROE', false, p],
+  ['operating_margin_pct', 'Margen operativo', false, p],
+  ['eps_growth_next_5y_pct', 'EPS growth 5y', false, p],
+  ['revenue_growth_past_5y_pct', 'Sales growth 5y', false, p],
+  ['fcf_yield_pct', 'FCF yield', false, p],
+];
+
+function fundamentalCell(asset, key, lowerBetter, formatValue) {
+  const value = asset.fundamentals?.metrics?.[key];
+  if (value == null || !Number.isFinite(Number(value))) return '<span class="fund-missing" title="Finviz no informó este dato">—</span>';
+  const peers = asset.fundamental_peers || {};
+  const average = peers.averages?.[key];
+  const count = peers.counts?.[key] || 0;
+  if (average == null || !count) return `<span class="fund-value">${formatValue(value)}</span><small class="peer-context">Promedio pares: —</small>`;
+  const delta = Number(value) - Number(average);
+  const relative = Number(average) === 0 ? null : delta / Math.abs(Number(average)) * 100;
+  const neutral = Math.abs(delta) < Math.max(0.01, Math.abs(Number(average)) * 0.05);
+  const favorable = lowerBetter ? delta < 0 : delta > 0;
+  const state = neutral ? 'peer-neutral' : favorable ? 'peer-better' : 'peer-worse';
+  const sign = delta > 0 ? '+' : '';
+  const deviation = relative == null ? `${sign}${f(delta)} vs promedio` : `${sign}${f(relative, 0)}% vs promedio`;
+  return `<span class="fund-value ${state}">${formatValue(value)}</span><small class="peer-context">Pares ${count}: ${formatValue(average)} · ${deviation}</small>`;
+}
+
+function renderFundamentalSectorMap(assets) {
+  const sectors = new Map();
+  for (const asset of assets) {
+    const sector = asset.fundamentals?.sector;
+    if (!sector) continue;
+    if (!sectors.has(sector)) sectors.set(sector, []);
+    sectors.get(sector).push(asset);
+  }
+  $('fundamentalSectorMap').innerHTML = [...sectors.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([sector, rows]) => {
+    const average = key => {
+      const values = rows.map(asset => Number(asset.fundamentals?.metrics?.[key])).filter(Number.isFinite);
+      return values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : null;
+    };
+    const active = $('fundSector').value === sector ? ' selected' : '';
+    return `<button type="button" class="fund-sector-card${active}" data-fund-sector="${escapeHtml(sector)}"><span>${escapeHtml(sector)}</span><b>${rows.length} empresas</b><small>PEG ${average('peg_forward') == null ? '—' : `${f(average('peg_forward'))}x`} · ROE ${p(average('roe_pct'))} · EV/Sales ${average('ev_sales') == null ? '—' : `${f(average('ev_sales'))}x`}</small></button>`;
+  }).join('') || '<div class="empty">DATA UNAVAILABLE · Importá un CSV exportado desde Finviz Elite para clasificar sectores. Esta exportación requiere acceso Elite.</div>';
+  document.querySelectorAll('[data-fund-sector]').forEach(button => button.onclick = () => {
+    $('fundSector').value = $('fundSector').value === button.dataset.fundSector ? '' : button.dataset.fundSector;
+    renderFundamentals();
+  });
+}
+
+function renderFundamentals() {
+  const all = data.assets.filter(asset => ['OK', 'STALE'].includes(asset.fundamentals?.status)
+    && asset.fundamentals?.source === 'Finviz CSV export'
+    && asset.fundamentals?.schema_version === 3);
+  const sectors = [...new Set(all.map(asset => asset.fundamentals.sector).filter(Boolean))].sort();
+  const current = $('fundSector').value;
+  $('fundSector').innerHTML = '<option value="">Todos los sectores</option>' + sectors.map(sector => `<option value="${escapeHtml(sector)}">${escapeHtml(sector)}</option>`).join('');
+  if (sectors.includes(current)) $('fundSector').value = current;
+  const industries = new Set(all.map(asset => asset.fundamentals.industry).filter(Boolean));
+  const fundamentalState = data.fundamentals || {};
+  const hasFinvizSnapshot = fundamentalState.source === 'Finviz CSV export'
+    && ['OK', 'STALE'].includes(fundamentalState.status)
+    && all.length > 0;
+  const asOf = hasFinvizSnapshot && fundamentalState.as_of ? String(fundamentalState.as_of).slice(0, 10) : null;
+  $('fundamentalsAsOf').textContent = `Datos al ${data.as_of || '—'}`;
+  $('fundamentalCoverage').textContent = `${all.length} / ${data.assets.length} empresas con métricas`;
+  $('fundamentalSourceStamp').textContent = hasFinvizSnapshot
+    ? `Fuente: Finviz Elite CSV · datos al ${asOf} · snapshot de mercado ${data.as_of || '—'}${fundamentalState.status === 'STALE' ? ` · EXPORTACIÓN DESACTUALIZADA (${fundamentalState.stale_count} filas)` : ''} · ${industries.size} industrias identificadas.`
+    : `Fuente: DATA UNAVAILABLE · falta una exportación Finviz Elite válida · snapshot de mercado ${data.as_of || '—'}.`;
+  $('fundamentalKpis').innerHTML = [
+    ['Empresas cubiertas', `${all.length} / ${data.assets.length}`],
+    ['Sectores', sectors.length],
+    ['Industrias / grupos de pares', industries.size],
+    ['Con PEG proyectado', all.filter(asset => asset.fundamentals.metrics?.peg_forward != null).length],
+  ].map(([label, value]) => `<div class="metric">${label}<b>${value}</b></div>`).join('');
+  renderFundamentalSectorMap(all);
+  const query = $('fundSearch').value.trim().toUpperCase();
+  const sectorFilter = $('fundSector').value;
+  const sort = $('fundSort').value;
+  const filtered = all.filter(asset => (!sectorFilter || asset.fundamentals.sector === sectorFilter)
+    && (!query || asset.ticker.includes(query) || (asset.fundamentals.industry || '').toUpperCase().includes(query)))
+    .sort((a, b) => {
+      if (sort === 'ticker') return a.ticker.localeCompare(b.ticker);
+      const av = Number(a.fundamentals.metrics?.[sort]), bv = Number(b.fundamentals.metrics?.[sort]);
+      if (!Number.isFinite(av)) return 1;
+      if (!Number.isFinite(bv)) return -1;
+      return ['peg_forward', 'forward_pe', 'ev_sales', 'ev_ebitda', 'price_to_book', 'price_to_sales', 'trailing_pe'].includes(sort) ? av - bv : bv - av;
+    });
+  $('fundamentalCount').textContent = `${filtered.length} empresas visibles · comparación informativa`;
+  $('fundamentalRows').innerHTML = filtered.map(asset => {
+    const industry = asset.fundamentals.industry || 'Industria no informada';
+    const peerGroup = asset.fundamental_peers?.peer_group || industry;
+    const metrics = Object.fromEntries(fundamentalMetrics.map(([key, label, lower, format]) => [key, fundamentalCell(asset, key, lower, format)]));
+    return row([
+      `<a class="ticker" href="${asset.fundamentals.source_url || `https://finviz.com/quote.ashx?t=${encodeURIComponent(asset.ticker)}`}" target="_blank" rel="noopener">${escapeHtml(asset.ticker)}</a>`,
+      `<span>${escapeHtml(industry)}</span><small class="peer-context">Pares: ${escapeHtml(peerGroup)}</small>`,
+      metrics.peg_forward, metrics.forward_pe, metrics.ev_sales, metrics.ev_ebitda, metrics.price_to_sales, metrics.price_to_book,
+      metrics.roe_pct, metrics.operating_margin_pct, metrics.eps_growth_next_5y_pct, metrics.revenue_growth_past_5y_pct, metrics.fcf_yield_pct,
+    ]);
+  }).join('') || row([all.length ? 'No hay empresas con métricas de Finviz para esos filtros.' : 'DATA UNAVAILABLE · Importá un CSV exportado desde Finviz Elite para publicar la matriz.', '', '', '', '', '', '', '', '', '', '', '']);
+}
+
 async function ensureAssetRotation() {
   if (assetRotationLoaded) return true;
   if (assetRotationLoading) return assetRotationLoading;
@@ -382,27 +495,13 @@ function togglePlayback() {
   }, 260);
 }
 
-async function appendAnalytics() {
-  try {
-    const backtest = await (await fetch('data/backtest_summary.json', {cache: 'no-store'})).json();
-    $('backtestMethod').textContent = backtest.method || backtest.reason || 'DATA UNAVAILABLE';
-    const models = backtest.models || [{model: backtest.model || 'LEGACY', summary: backtest.summary || []}];
-    $('backtestRows').innerHTML = models.flatMap(model => (model.summary || []).map(item => row([model.model, item.event, item.horizon_sessions, item.signals, `${f(item.win_rate_pct)}%`, p(item.average_return_pct), p(item.median_return_pct), p(item.benchmark_return_pct), p(item.excess_return_pct)]))).join('');
-  } catch (_) {}
-  try {
-    const research = await (await fetch('data/filter_research.json', {cache: 'no-store'})).json();
-    $('researchMethod').textContent = research.method || research.reason || 'DATA UNAVAILABLE';
-    const models = research.models || {LEGACY: research};
-    $('researchRows').innerHTML = Object.entries(models).flatMap(([model, result]) => Object.entries(result.filters || {}).map(([name, value]) => { const aggregate = value.aggregate; return aggregate ? row([`${model} · ${name}`, aggregate.signals, `${f(aggregate.win_rate_pct)}%`, p(aggregate.average_return_pct), p(aggregate.median_return_pct), p(aggregate.excess_return_pct)]) : ''; })).join('');
-    $('walkRows').innerHTML = Object.entries(models).flatMap(([model, result]) => (result.walk_forward || []).map(item => row([model, item.test_year, item.selected_filter, item.signals, `${f(item.win_rate_pct)}%`, p(item.average_return_pct), p(item.excess_return_pct)]))).join('');
-  } catch (_) {}
-}
-
 async function init() {
+  let snapshotLoaded = false;
   try {
     const response = await fetch('data/dashboard.json', {cache: 'no-store'});
     if (!response.ok) throw Error();
     data = await response.json();
+    snapshotLoaded = true;
     data.asset_rotation_history ||= [];
     assetRotationLoaded = false;
     loadedRefreshAttempt = data.refresh?.attempted_at || null;
@@ -414,9 +513,14 @@ async function init() {
     renderOperationalGate(); renderTop10(); renderSelectiveSetup(); renderWatchlist(); renderJournal(); setOptions(); drawAssets(); drawRotation(); renderHeatmap();
     $('trackRows').innerHTML = (data.track_record || []).map(item => row([item.ticker, item.sector_etf, item.event, item.inclusion_date, p(item.return_pct), p(item.benchmark_return_pct), p(item.excess_return_pct)])).join('');
     $('trackSectorRows').innerHTML = (data.track_record_sector_summary || []).map(item => row([item.sector_etf, item.included, item.valid_returns, `${f(item.win_rate_pct)}%`, p(item.average_return_pct), p(item.benchmark_return_pct), p(item.excess_return_pct)])).join('');
-    $('technicalRows').innerHTML = data.assets.map(item => row([item.ticker, item.sector_etf, f(item.wma8), f(item.wma21), f(item.sma30), f(item.ema200), p(item.d1_d2_spread_pct), `${f(item.volume_ratio50)}x`, item.unusual_volume ? 'SÍ' : 'NO'])).join('');
-    appendAnalytics();
-  } catch (_) { $('loading').innerHTML = 'No hay snapshot todavía. Ejecutá <code>.\\scripts\\Actualizar.ps1</code> desde PowerShell.'; }
+    renderFundamentals();
+  } catch (error) {
+    console.error('No se pudo inicializar el dashboard', error);
+    $('loading').hidden = false;
+    $('loading').innerHTML = snapshotLoaded
+      ? `El snapshot sí se cargó, pero hubo un error al mostrar el dashboard: <code>${escapeHtml(error?.message || 'error de interfaz')}</code>.`
+      : 'No hay snapshot disponible en esta instancia. Revisá la actualización de datos o abrí la instancia local correcta.';
+  }
 }
 
 async function pollRefresh() {
@@ -448,9 +552,26 @@ $('rotationMode').addEventListener('change', async () => {
   drawRotation();
 });
 ['rsTrendTicker', 'compareA', 'compareB'].forEach(id => $(id).addEventListener('change', renderAnalysis));
+['fundSearch'].forEach(id => $(id).addEventListener('input', renderFundamentals));
+['fundSector', 'fundSort'].forEach(id => $(id).addEventListener('change', renderFundamentals));
 async function activateTab(name) {
   document.querySelectorAll('[data-view]').forEach(view => view.hidden = view.dataset.view !== name);
   document.querySelectorAll('.tabs button').forEach(item => item.classList.toggle('active', item.dataset.tab === name));
+  const viewLabels = {
+    opportunities: ['Top 10', 'Qué mirar hoy, en orden de prioridad.'],
+    universe: ['Universo', 'Explorá el resto de activos y sus condiciones técnicas.'],
+    journal: ['Operativa', 'Watchlist y seguimiento prospectivo de señales.'],
+    rotation: ['Rotación', 'Fuerza relativa y evolución sectorial.'],
+    heatmap: ['Heatmap', 'Variación diaria del universo.'],
+    analysis: ['Análisis', 'Comparación de fuerza relativa y volumen.'],
+    track: ['Track record', 'Rendimientos observados y exceso frente a SPY.'],
+    fundamentals: ['Fundamentales', 'Comparación descriptiva por sector, industria y pares.'],
+  };
+  if (viewLabels[name]) {
+    $('viewTitle').textContent = viewLabels[name][0];
+    $('viewHint').textContent = viewLabels[name][1];
+  }
+  if (name === 'fundamentals') renderFundamentals();
   if (name === 'analysis') {
     const loaded = await ensureAssetRotation();
     if (loaded) renderAnalysis();

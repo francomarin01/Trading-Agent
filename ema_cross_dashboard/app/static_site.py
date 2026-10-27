@@ -4,7 +4,7 @@ import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_ARTIFACTS = ('dashboard.json', 'asset_rotation.json', 'backtest_summary.json', 'filter_research.json')
+DEFAULT_ARTIFACTS = ('dashboard.json', 'asset_rotation.json')
 
 
 def prepare_static_site(source: Path | None = None, target: Path | None = None) -> Path:

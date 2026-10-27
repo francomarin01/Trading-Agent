@@ -38,8 +38,10 @@ def publish_snapshot(snapshot: dict) -> None:
 
 
 def update_track_record(con, snapshot: dict, bars: dict[str, list[dict]]) -> list[dict]:
-    """Register each eligible ticker once; calculate return to common last close."""
+    """Register each eligible ticker once; compare its return with SPY from the same close."""
     threshold = config()['score_thresholds']['watch']
+    spy_bars = bars.get(config()['benchmark'], [])
+    spy_by_date = {bar['date']: bar['close'] for bar in spy_bars}
     for asset in snapshot['assets']:
         if asset['score'] < threshold: continue
         exists = con.execute('SELECT 1 FROM inclusions WHERE ticker=?', (asset['ticker'],)).fetchone()
@@ -50,13 +52,14 @@ def update_track_record(con, snapshot: dict, bars: dict[str, list[dict]]) -> lis
             con.execute('INSERT INTO inclusions(ticker,sector_etf,event,inclusion_date,entry_close,entry_etf_close) VALUES(?,?,?,?,?,?)', (asset['ticker'], asset['sector_etf'], event, asset['date'], asset['close'], etf_close))
     con.commit(); rows=[]
     for inclusion in con.execute('SELECT * FROM inclusions ORDER BY inclusion_date,ticker'):
-        item=dict(inclusion); ticker_bars=bars.get(item['ticker'], []); etf_bars=bars.get(item['sector_etf'], [])
-        ticker_by_date={x['date']:x['close'] for x in ticker_bars}; etf_by_date={x['date']:x['close'] for x in etf_bars}
-        common=sorted(set(ticker_by_date).intersection(etf_by_date)); last=common[-1] if common else None
-        close=ticker_by_date.get(last) if last else None; etf_close=etf_by_date.get(last) if last else None
+        item=dict(inclusion); ticker_bars=bars.get(item['ticker'], [])
+        ticker_by_date={x['date']:x['close'] for x in ticker_bars}
+        common=sorted(set(ticker_by_date).intersection(spy_by_date)); last=common[-1] if common else None
+        close=ticker_by_date.get(last) if last else None; spy_close=spy_by_date.get(last) if last else None
+        entry_spy_close=spy_by_date.get(item['inclusion_date'])
         ret=(close/item['entry_close']-1)*100 if close else None
-        bench=(etf_close/item['entry_etf_close']-1)*100 if etf_close and item['entry_etf_close'] else None
-        rows.append({'ticker':item['ticker'],'sector_etf':item['sector_etf'],'event':item['event'],'inclusion_date':item['inclusion_date'],'as_of':last,'return_pct':round(ret,2) if ret is not None else None,'benchmark_return_pct':round(bench,2) if bench is not None else None,'excess_return_pct':round(ret-bench,2) if ret is not None and bench is not None else None})
+        bench=(spy_close/entry_spy_close-1)*100 if spy_close and entry_spy_close else None
+        rows.append({'ticker':item['ticker'],'sector_etf':item['sector_etf'],'benchmark_symbol':config()['benchmark'],'event':item['event'],'inclusion_date':item['inclusion_date'],'as_of':last,'return_pct':round(ret,2) if ret is not None else None,'benchmark_return_pct':round(bench,2) if bench is not None else None,'excess_return_pct':round(ret-bench,2) if ret is not None and bench is not None else None})
     return rows
 
 
@@ -65,8 +68,8 @@ def summarize_track_record(rows: list[dict]) -> list[dict]:
     for sector in sorted({r['sector_etf'] for r in rows}):
         group=[r for r in rows if r['sector_etf']==sector and r['return_pct'] is not None and r['benchmark_return_pct'] is not None]
         if not group:
-            summary.append({'sector_etf':sector,'included':sum(r['sector_etf']==sector for r in rows),'valid_returns':0,'win_rate_pct':None,'average_return_pct':None,'benchmark_return_pct':None,'excess_return_pct':None}); continue
-        summary.append({'sector_etf':sector,'included':sum(r['sector_etf']==sector for r in rows),'valid_returns':len(group),'win_rate_pct':round(100*sum(r['return_pct']>0 for r in group)/len(group),2),'average_return_pct':round(statistics.fmean(r['return_pct'] for r in group),2),'benchmark_return_pct':round(statistics.fmean(r['benchmark_return_pct'] for r in group),2),'excess_return_pct':round(statistics.fmean(r['excess_return_pct'] for r in group),2)})
+            summary.append({'sector_etf':sector,'benchmark_symbol':config()['benchmark'],'included':sum(r['sector_etf']==sector for r in rows),'valid_returns':0,'win_rate_pct':None,'average_return_pct':None,'benchmark_return_pct':None,'excess_return_pct':None}); continue
+        summary.append({'sector_etf':sector,'benchmark_symbol':config()['benchmark'],'included':sum(r['sector_etf']==sector for r in rows),'valid_returns':len(group),'win_rate_pct':round(100*sum(r['return_pct']>0 for r in group)/len(group),2),'average_return_pct':round(statistics.fmean(r['return_pct'] for r in group),2),'benchmark_return_pct':round(statistics.fmean(r['benchmark_return_pct'] for r in group),2),'excess_return_pct':round(statistics.fmean(r['excess_return_pct'] for r in group),2)})
     return summary
 
 

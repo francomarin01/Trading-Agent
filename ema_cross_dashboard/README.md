@@ -28,6 +28,9 @@ Set-ExecutionPolicy -Scope Process Bypass
 
 La primera actualización descarga las series necesarias y genera
 `web/data/dashboard.json`. Después abrí `http://127.0.0.1:8765`.
+La vista fundamental compara empresas por sector e industria usando un CSV de
+Finviz Elite; la exportación es una función paga. Sin ese archivo la matriz
+indica `DATA UNAVAILABLE`. Su fecha se muestra separada de la fecha de mercado.
 
 ## Automatización
 
@@ -56,8 +59,7 @@ guardados, sin acceder a la red, ejecutá `scripts/Reconstruir-Snapshot.ps1`.
 
 ## Uso del dashboard
 
-- **Fundamentales** compara ratios de valoración calculados con hechos SEC reportados y el cierre diario de Yahoo Finance. Los datos SEC se conservan hasta siete días y los ratios se recalculan con el precio de cada snapshot. El PEG se basa en crecimiento histórico de EPS, no en consenso futuro. Fuente, fórmulas y limitaciones: [`docs/fundamental_module.md`](docs/fundamental_module.md).
-- **Técnico** mantiene score, setups, medias y volumen en una vista separada. La pestaña Fundamental no modifica scores, señales ni resultados históricos.
+- **Fundamentales** compara PEG proyectado, Forward P/E, P/S, P/B, ROE, márgenes y crecimiento en una matriz por sector e industria. Muestra promedios de pares sin alterar el score técnico. EV/Sales y EV/EBITDA sólo aparecen si vienen en el CSV; no se imputan. Importación y límites: [`docs/fundamental_module.md`](docs/fundamental_module.md).
 
 - **Oportunidades** inicia en score ajustado mayor o igual a 65 y excluye
   `EXTENDED / DO NOT CHASE` y `WEAKENING`. Los tres controles son visibles y
@@ -75,12 +77,11 @@ guardados, sin acceder a la red, ejecutá `scripts/Reconstruir-Snapshot.ps1`.
   datos disponibles a ese cierre.
 - **Gate operativo:** SPY, QQQ, VIX y Put/Call determinan si se habilitan nuevas entradas. El breadth agregado se muestra con umbral 50% como advertencia contextual; no bloquea una entrada por sí solo. La investigación histórica conserva su gate original para mantener la trazabilidad de resultados ya auditados.
 - **Track record** incluye una fila por ticker desde su primera inclusión y
-  agrega un consolidado por ETF: cantidad de casos, retornos válidos, win rate,
-  retorno medio, retorno del ETF y exceso frente al ETF.
-- **Investigación** conserva los filtros históricos como análisis separado.
-  No promueve ni altera automáticamente los umbrales operativos. El backtest
-  compara de forma separada el modelo `LEGACY` y `FOUR_PILLAR`; cada uno genera
-  sus propias señales point-in-time y usa entrada en la apertura de T+1.
+  agrega un consolidado por ETF sectorial. El exceso se calcula contra SPY en
+  las mismas fechas; el ETF sólo etiqueta el grupo de activos.
+- La navegación principal omite las pestañas internas **Backtest**,
+  **Investigación** y **Técnico**. Las señales y el score técnico siguen
+  disponibles en Oportunidades, Universo y Operativa.
 
 ## Límites actuales
 

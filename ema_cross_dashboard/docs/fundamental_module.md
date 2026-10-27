@@ -1,34 +1,35 @@
-# Módulo Fundamental
+# Módulo de análisis fundamental
 
-La pestaña **Fundamentales** separa el análisis de valor del score de momentum. El score, las señales, los estados, la bitácora y los backtests no consumen datos fundamentales.
+La pestaña **Fundamentales** es una matriz de comparación informativa. Sus datos no modifican score, señales, estados, bitácora ni backtests.
 
-## Fuentes y fecha
+## Fuente elegida y actualización
 
-- Estados, acciones en circulación, EPS y fechas de presentación: SEC EDGAR Company Facts, filtrados a formularios reportados y hechos disponibles al momento de la actualización.
-- Precio: último cierre diario que el pipeline ya obtiene de Yahoo Finance Chart API.
-- Las métricas se regeneran en cada snapshot con el último cierre, mientras el payload SEC se cachea por siete días. La pestaña muestra la fecha de cotización y la última fecha de filing para que no se confundan.
-- El endpoint público Company Facts no necesita una API key. La aplicación requiere `SEC_USER_AGENT` con nombre y contacto, y separa llamadas a intervalos de 0,12 segundos (menos de 10 solicitudes por segundo). La SEC publica Company Facts actualizado al difundir nuevas presentaciones y limita el acceso automatizado a 10 solicitudes por segundo. Véanse [EDGAR APIs](https://www.sec.gov/search-filings/edgar-application-programming-interfaces) y [SEC Webmaster FAQ](https://www.sec.gov/about/webmaster-frequently-asked-questions).
+- **Fuente concreta: Finviz Screener.** Finviz documenta Sector, Industry, Forward P/E, PEG, P/B, ROE, EPS growth next 5 years, márgenes y otras métricas. Define PEG como Forward P/E respecto al crecimiento EPS proyectado a 3–5 años. [Finviz screener help](https://finviz.com/help/screener)
+- **La exportación CSV requiere Finviz Elite.** Su documentación identifica export/API como prestación Elite; por eso esta integración no es una solución gratuita por sí sola. Si no tenés acceso a Elite, el importador sigue disponible, pero el dashboard conserva `DATA UNAVAILABLE` hasta que exista una fuente de archivo autorizada. [Finviz: introducción al screener](https://finviz.com/knowledge-base/screener/getting-started-with-screener/introduction-to-screener)
+- No se hace webscraping ni descarga automática de fundamentales. El refresco técnico diario continúa independiente. No automatizo Yahoo Finance como reemplazo: `yfinance` usa endpoints no oficiales y Yahoo advierte que no se redistribuyan sus datos; además, la descarga CSV oficial documentada es para históricos de precios y requiere Gold. [yfinance README](https://github.com/ranaroussi/yfinance/blob/main/README.md) [Yahoo Finance data availability](https://uk.help.yahoo.com/kb/finance/article-data-availability-yahoo-finance-sln2310.html) [Yahoo: descarga de históricos](https://ca.help.yahoo.com/kb/SLN2311.html)
 
-## Definiciones
+## Importación
 
-- **Ingresos TTM, resultado neto TTM, EPS diluido TTM, flujo operativo y capex:** suma de cuatro trimestres discretos contiguos. Si esos trimestres no están disponibles, se usa el último ejercicio anual completo; nunca se convierte un trimestre suelto en TTM.
-- **P/E:** precio / EPS diluido TTM; si EPS no está disponible, capitalización indicativa / resultado neto TTM. Sólo se publica para ganancias positivas.
-- **PEG histórico:** P/E / crecimiento interanual porcentual del EPS TTM; sólo cuando el crecimiento es positivo y ambos períodos son comparables. No es PEG de consenso ni una previsión.
-- **EV:** capitalización indicativa + deuda reportada − caja reportada. Capitalización indicativa = cierre diario × acciones en circulación reportadas. Se muestra como estimación porque la cantidad de acciones puede tener retraso o diferencias por ADR y clases de acciones.
-- **EV/Sales:** EV / ingresos TTM positivos.
-- **EV/EBITDA:** EV / EBITDA aproximado, calculado como resultado operativo TTM + depreciación y amortización TTM. Puede diferir del EBITDA ajustado o de la definición de proveedores.
-- **P/B:** capitalización indicativa / patrimonio atribuible a accionistas, sólo si es positivo.
-- **FCF yield:** (flujo operativo TTM − capex TTM) / capitalización indicativa.
-- **Crecimiento de ventas:** cambio interanual entre TTM comparables. Se evita mostrar cuando no se puede construir ambos períodos.
+En Finviz, exportá el universo con las columnas Ticker, Sector, Industry, P/E, Forward P/E, PEG, P/S, P/B, ROE, ROA, Oper. Margin, EPS growth next 5 years y Sales growth past 5 years. Agregá EV/Sales, EV/EBITDA o FCF yield sólo si la exportación que tenés realmente incluye esos campos; el importador no convierte P/S en EV/Sales.
 
-Un ratio aparece como no disponible cuando faltan componentes, los valores no son positivos donde la razón perdería sentido, o SEC no reporta conceptos comparables. No se imputan ni aproximan cifras faltantes. La tabla combina los ratios con score y estado técnico para facilitar la comparación; no produce un score combinado ni una recomendación automática.
+Desde PowerShell, ejecutá:
 
-## Cobertura y límites
+```powershell
+cd "C:\Users\MAK\Documents\ChatGPT\Trading Agent\ema_cross_dashboard"
+python -m app.import_finviz --input "C:\ruta\al\finviz_export.csv" --as-of 2026-10-23
+python -m app.updater
+```
 
-Company Facts de SEC cubre hechos XBRL de emisores que presentan ante la SEC. La cobertura y las etiquetas varían por emisor; la cobertura de emisores extranjeros, ADR, fondos y estructuras con múltiples clases puede ser incompleta. Además, XBRL no normaliza todas las definiciones de cada compañía. Revisa el filing fuente antes de comparar empresas de sectores distintos. No se obtienen estimaciones de EPS, crecimiento futuro, PEG de analistas, múltiplos normalizados de proveedores, noticias ni calificaciones de inversión.
+`--as-of` debe ser la fecha real de la exportación en formato `YYYY-MM-DD`. El script valida ticker, sector, industria, encabezados, duplicados y fecha; convierte porcentajes y escribe `data/incoming/finviz_fundamentals.json`. Si un campo no vino en el CSV, el dashboard lo deja vacío. No completa datos faltantes.
 
-Los ratios son información contextual, no asesoramiento financiero ni una orden de compra. El dashboard sigue siendo de lectura y paper tracking.
+Para que GitHub Actions actualice la página pública, incorporá el JSON normalizado a la rama del repositorio; el workflow detecta cambios bajo `data/incoming/`, reconstruye el dashboard y lo publica. Ese repositorio y la página son públicos: los valores fundamentales del snapshot también quedarán públicamente accesibles. La actualización programada reutiliza la última exportación y muestra `STALE` cuando supera siete días; no obtiene un CSV nuevo por sí sola. No publiques un archivo si sus condiciones de uso no autorizan su redistribución.
 
-## Actualización
+## Matriz por sector e industria
 
-La tarea diaria existente actualiza el cierre, recompone el snapshot y publica el dashboard. SEC Facts se vuelve a consultar al vencer el TTL de siete días; las razones se recalculan con el cierre diario disponible. En desarrollo local se puede reconstruir el snapshot desde los datos almacenados con `scripts/Reconstruir-Snapshot.ps1`; la reconstrucción local no consulta ni renueva SEC.
+El mapa agrupa por Sector y la matriz usa Industry como grupo de pares preferido. Los promedios son simples y excluyen el propio ticker; si una industria no tiene otra empresa exportada, se usa el promedio de su sector y se identifica ese grupo. Los datos faltantes no entran al promedio.
+
+Un múltiplo inferior al promedio se marca como relativamente menor; ROE, márgenes y crecimiento superiores se marcan como relativamente mayores. Estos colores describen cada métrica por separado: no producen un puntaje combinado ni una recomendación. PEG es una expectativa del proveedor y puede cambiar; no es garantía de crecimiento.
+
+## Limitaciones
+
+La exportación disponible puede no contener EV/Sales, EV/EBITDA o todos los activos. Esos campos permanecen `DATA UNAVAILABLE`; P/S no se usa como sustituto de EV/Sales. El screener tiene su propia cobertura y metodología, y el archivo no incluye una serie histórica para reconstruir cómo se veían las estimaciones en fechas anteriores. La comparación es transversal a la fecha de exportación, no un backtest point-in-time.

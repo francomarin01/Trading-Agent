@@ -17,6 +17,9 @@ class StaticSiteTests(unittest.TestCase):
             destination = prepare_static_site(source, root / 'dist')
             self.assertIn('data-deployment="static"', (destination / 'index.html').read_text(encoding='utf-8'))
             self.assertTrue((destination / 'data' / 'dashboard.json').exists())
+            self.assertTrue((destination / 'data' / 'asset_rotation.json').exists())
+            self.assertFalse((destination / 'data' / 'backtest_summary.json').exists())
+            self.assertFalse((destination / 'data' / 'filter_research.json').exists())
 
 
 if __name__ == '__main__':

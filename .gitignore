@@ -1,5 +1,7 @@
 # Caches and generated data
-ema_cross_dashboard/data/
+ema_cross_dashboard/data/*
+!ema_cross_dashboard/data/incoming/
+!ema_cross_dashboard/data/incoming/**
 ema_cross_dashboard/dist/
 **/__pycache__/
 *.py[cod]

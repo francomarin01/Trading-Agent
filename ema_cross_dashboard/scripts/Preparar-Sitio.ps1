@@ -12,9 +12,9 @@ Copy-Item (Join-Path $web 'index.html') $dist
 Copy-Item (Join-Path $web 'app.js') $dist
 Copy-Item (Join-Path $web 'styles.css') $dist
 
-# The full signal-level backtests are development artefacts (tens of MB).
-# The dashboard itself consumes these compact, reviewable files only.
-foreach ($name in @('dashboard.json', 'asset_rotation.json', 'backtest_summary.json', 'filter_research.json')) {
+# Public bundle includes only data consumed by the dashboard. Internal backtest
+# and filter-research summaries are intentionally excluded from publication.
+foreach ($name in @('dashboard.json', 'asset_rotation.json')) {
   $source = Join-Path $web "data\$name"
   if (-not (Test-Path $source)) { throw "Falta $source. Ejecutá la actualización antes de preparar el sitio." }
   Copy-Item $source (Join-Path $dist "data\$name")
