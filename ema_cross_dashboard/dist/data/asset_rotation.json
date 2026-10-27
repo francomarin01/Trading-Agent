@@ -1092514,13 +1092514,103 @@
     },
     {
       "date": "2026-10-26",
+      "ticker": "ACN",
+      "sector_etf": "XLK",
+      "relative_strength20_pct": 41.73,
+      "rs_composite_raw": 0.413049,
+      "acceleration_pct": 4.84,
+      "state": "LEADING",
+      "rs_score": 99.6
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "ADBE",
+      "sector_etf": "XLK",
+      "relative_strength20_pct": 11.98,
+      "rs_composite_raw": 0.053239,
+      "acceleration_pct": 4.77,
+      "state": "LEADING",
+      "rs_score": 67.9
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AKAM",
+      "sector_etf": "XLK",
+      "relative_strength20_pct": -9.59,
+      "rs_composite_raw": -0.143238,
+      "acceleration_pct": 9.75,
+      "state": "RECOVERING",
+      "rs_score": 12.0
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "APH",
+      "sector_etf": "XLK",
+      "relative_strength20_pct": -11.02,
+      "rs_composite_raw": -0.072653,
+      "acceleration_pct": -8.68,
+      "state": "LAGGING",
+      "rs_score": 24.5
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AAPL",
+      "sector_etf": "XLK",
+      "relative_strength20_pct": 1.66,
+      "rs_composite_raw": 0.065465,
+      "acceleration_pct": 1.94,
+      "state": "LEADING",
+      "rs_score": 73.0
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "ANET",
+      "sector_etf": "XLK",
+      "relative_strength20_pct": -13.48,
+      "rs_composite_raw": -0.083167,
+      "acceleration_pct": -4.32,
+      "state": "LAGGING",
+      "rs_score": 22.4
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "ADSK",
+      "sector_etf": "XLK",
+      "relative_strength20_pct": 20.43,
+      "rs_composite_raw": 0.102831,
+      "acceleration_pct": 2.57,
+      "state": "LEADING",
+      "rs_score": 82.7
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CDW",
+      "sector_etf": "XLK",
+      "relative_strength20_pct": 25.27,
+      "rs_composite_raw": 0.177452,
+      "acceleration_pct": 10.63,
+      "state": "LEADING",
+      "rs_score": 93.2
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CIEN",
+      "sector_etf": "XLK",
+      "relative_strength20_pct": -2.37,
+      "rs_composite_raw": -0.140086,
+      "acceleration_pct": 0.22,
+      "state": "RECOVERING",
+      "rs_score": 12.6
+    },
+    {
+      "date": "2026-10-26",
       "ticker": "CSCO",
       "sector_etf": "XLK",
       "relative_strength20_pct": 3.31,
       "rs_composite_raw": 0.016626,
       "acceleration_pct": 3.59,
       "state": "LEADING",
-      "rs_score": 55.3
+      "rs_score": 56.2
     },
     {
       "date": "2026-10-26",
@@ -1092530,7 +1092620,7 @@
       "rs_composite_raw": 0.235409,
       "acceleration_pct": 1.19,
       "state": "LEADING",
-      "rs_score": 95.4
+      "rs_score": 96.0
     },
     {
       "date": "2026-10-26",
@@ -1092540,7 +1092630,7 @@
       "rs_composite_raw": -0.16257,
       "acceleration_pct": -0.3,
       "state": "LAGGING",
-      "rs_score": 8.5
+      "rs_score": 10.2
     },
     {
       "date": "2026-10-26",
@@ -1092550,7 +1092640,7 @@
       "rs_composite_raw": 0.337386,
       "acceleration_pct": 12.76,
       "state": "LEADING",
-      "rs_score": 98.3
+      "rs_score": 98.4
     },
     {
       "date": "2026-10-26",
@@ -1092560,7 +1092650,7 @@
       "rs_composite_raw": 0.201108,
       "acceleration_pct": -2.03,
       "state": "WEAKENING",
-      "rs_score": 93.7
+      "rs_score": 94.3
     },
     {
       "date": "2026-10-26",
@@ -1092570,7 +1092660,7 @@
       "rs_composite_raw": 0.188585,
       "acceleration_pct": 6.02,
       "state": "IMPROVING",
-      "rs_score": 93.2
+      "rs_score": 93.8
     },
     {
       "date": "2026-10-26",
@@ -1092590,7 +1092680,7 @@
       "rs_composite_raw": 0.126788,
       "acceleration_pct": 0.65,
       "state": "LEADING",
-      "rs_score": 89.3
+      "rs_score": 88.5
     },
     {
       "date": "2026-10-26",
@@ -1092600,7 +1092690,7 @@
       "rs_composite_raw": -0.275707,
       "acceleration_pct": -2.0,
       "state": "LAGGING",
-      "rs_score": 2.4
+      "rs_score": 3.1
     },
     {
       "date": "2026-10-26",
@@ -1092610,7 +1092700,7 @@
       "rs_composite_raw": -0.140299,
       "acceleration_pct": 2.24,
       "state": "RECOVERING",
-      "rs_score": 10.4
+      "rs_score": 12.2
     },
     {
       "date": "2026-10-26",
@@ -1092620,7 +1092710,7 @@
       "rs_composite_raw": -0.315463,
       "acceleration_pct": -10.81,
       "state": "LAGGING",
-      "rs_score": 1.2
+      "rs_score": 1.8
     },
     {
       "date": "2026-10-26",
@@ -1092630,7 +1092720,7 @@
       "rs_composite_raw": 0.248513,
       "acceleration_pct": 4.34,
       "state": "LEADING",
-      "rs_score": 95.9
+      "rs_score": 96.4
     },
     {
       "date": "2026-10-26",
@@ -1092640,7 +1092730,7 @@
       "rs_composite_raw": 0.371278,
       "acceleration_pct": 10.65,
       "state": "LEADING",
-      "rs_score": 99.0
+      "rs_score": 98.9
     },
     {
       "date": "2026-10-26",
@@ -1092650,7 +1092740,7 @@
       "rs_composite_raw": 0.081135,
       "acceleration_pct": 17.76,
       "state": "IMPROVING",
-      "rs_score": 78.6
+      "rs_score": 78.8
     },
     {
       "date": "2026-10-26",
@@ -1092660,7 +1092750,7 @@
       "rs_composite_raw": 0.216486,
       "acceleration_pct": 13.55,
       "state": "LEADING",
-      "rs_score": 94.7
+      "rs_score": 95.4
     },
     {
       "date": "2026-10-26",
@@ -1092670,7 +1092760,7 @@
       "rs_composite_raw": 0.208793,
       "acceleration_pct": 2.72,
       "state": "IMPROVING",
-      "rs_score": 94.2
+      "rs_score": 95.1
     },
     {
       "date": "2026-10-26",
@@ -1092680,7 +1092770,7 @@
       "rs_composite_raw": 0.222909,
       "acceleration_pct": 12.72,
       "state": "LEADING",
-      "rs_score": 94.9
+      "rs_score": 95.6
     },
     {
       "date": "2026-10-26",
@@ -1092690,7 +1092780,7 @@
       "rs_composite_raw": 0.116823,
       "acceleration_pct": 9.53,
       "state": "LEADING",
-      "rs_score": 87.9
+      "rs_score": 87.0
     },
     {
       "date": "2026-10-26",
@@ -1092700,7 +1092790,7 @@
       "rs_composite_raw": 0.105395,
       "acceleration_pct": 9.98,
       "state": "LEADING",
-      "rs_score": 84.0
+      "rs_score": 83.6
     },
     {
       "date": "2026-10-26",
@@ -1092710,7 +1092800,7 @@
       "rs_composite_raw": -0.160516,
       "acceleration_pct": -4.41,
       "state": "LAGGING",
-      "rs_score": 9.0
+      "rs_score": 10.6
     },
     {
       "date": "2026-10-26",
@@ -1092720,7 +1092810,7 @@
       "rs_composite_raw": -0.075795,
       "acceleration_pct": -6.31,
       "state": "LAGGING",
-      "rs_score": 20.9
+      "rs_score": 24.1
     },
     {
       "date": "2026-10-26",
@@ -1092730,7 +1092820,7 @@
       "rs_composite_raw": 0.107006,
       "acceleration_pct": -7.07,
       "state": "WEAKENING",
-      "rs_score": 84.7
+      "rs_score": 84.1
     },
     {
       "date": "2026-10-26",
@@ -1092750,7 +1092840,7 @@
       "rs_composite_raw": 0.286898,
       "acceleration_pct": 3.18,
       "state": "LEADING",
-      "rs_score": 97.6
+      "rs_score": 97.8
     },
     {
       "date": "2026-10-26",
@@ -1092760,7 +1092850,7 @@
       "rs_composite_raw": -0.116142,
       "acceleration_pct": -2.45,
       "state": "LAGGING",
-      "rs_score": 13.8
+      "rs_score": 16.4
     },
     {
       "date": "2026-10-26",
@@ -1092770,7 +1092860,7 @@
       "rs_composite_raw": 0.288937,
       "acceleration_pct": 3.19,
       "state": "LEADING",
-      "rs_score": 98.1
+      "rs_score": 98.2
     },
     {
       "date": "2026-10-26",
@@ -1092780,7 +1092870,7 @@
       "rs_composite_raw": 0.256683,
       "acceleration_pct": 10.72,
       "state": "LEADING",
-      "rs_score": 96.4
+      "rs_score": 96.9
     },
     {
       "date": "2026-10-26",
@@ -1092790,7 +1092880,7 @@
       "rs_composite_raw": 0.383773,
       "acceleration_pct": -7.8,
       "state": "WEAKENING",
-      "rs_score": 99.3
+      "rs_score": 99.1
     },
     {
       "date": "2026-10-26",
@@ -1092800,7 +1092890,17 @@
       "rs_composite_raw": 0.190847,
       "acceleration_pct": 15.83,
       "state": "LEADING",
-      "rs_score": 93.4
+      "rs_score": 94.0
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CRM",
+      "sector_etf": "XLK",
+      "relative_strength20_pct": 8.98,
+      "rs_composite_raw": 0.194551,
+      "acceleration_pct": -0.8,
+      "state": "WEAKENING",
+      "rs_score": 94.2
     },
     {
       "date": "2026-10-26",
@@ -1092810,7 +1092910,7 @@
       "rs_composite_raw": -0.276315,
       "acceleration_pct": -9.19,
       "state": "LAGGING",
-      "rs_score": 2.2
+      "rs_score": 2.9
     },
     {
       "date": "2026-10-26",
@@ -1092820,7 +1092920,7 @@
       "rs_composite_raw": 0.353431,
       "acceleration_pct": 8.48,
       "state": "LEADING",
-      "rs_score": 98.8
+      "rs_score": 98.7
     },
     {
       "date": "2026-10-26",
@@ -1092830,7 +1092930,7 @@
       "rs_composite_raw": -0.047245,
       "acceleration_pct": 2.97,
       "state": "RECOVERING",
-      "rs_score": 29.1
+      "rs_score": 31.9
     },
     {
       "date": "2026-10-26",
@@ -1092840,7 +1092940,7 @@
       "rs_composite_raw": -0.002079,
       "acceleration_pct": -0.73,
       "state": "LAGGING",
-      "rs_score": 47.8
+      "rs_score": 49.5
     },
     {
       "date": "2026-10-26",
@@ -1092850,7 +1092950,7 @@
       "rs_composite_raw": 0.009334,
       "acceleration_pct": 4.58,
       "state": "LEADING",
-      "rs_score": 51.5
+      "rs_score": 52.7
     },
     {
       "date": "2026-10-26",
@@ -1092860,7 +1092960,7 @@
       "rs_composite_raw": 0.05362,
       "acceleration_pct": 3.68,
       "state": "LEADING",
-      "rs_score": 67.7
+      "rs_score": 68.2
     },
     {
       "date": "2026-10-26",
@@ -1092870,7 +1092970,7 @@
       "rs_composite_raw": 0.111042,
       "acceleration_pct": -11.56,
       "state": "WEAKENING",
-      "rs_score": 86.2
+      "rs_score": 85.4
     },
     {
       "date": "2026-10-26",
@@ -1092880,7 +1092980,7 @@
       "rs_composite_raw": 0.187651,
       "acceleration_pct": 9.31,
       "state": "LEADING",
-      "rs_score": 93.0
+      "rs_score": 93.6
     },
     {
       "date": "2026-10-26",
@@ -1092900,7 +1093000,7 @@
       "rs_composite_raw": -0.276643,
       "acceleration_pct": -3.1,
       "state": "LAGGING",
-      "rs_score": 1.9
+      "rs_score": 2.7
     },
     {
       "date": "2026-10-26",
@@ -1092910,7 +1093010,7 @@
       "rs_composite_raw": 0.247719,
       "acceleration_pct": 0.64,
       "state": "LEADING",
-      "rs_score": 95.6
+      "rs_score": 96.2
     },
     {
       "date": "2026-10-26",
@@ -1092920,7 +1093020,77 @@
       "rs_composite_raw": 0.226436,
       "acceleration_pct": -6.36,
       "state": "WEAKENING",
-      "rs_score": 95.1
+      "rs_score": 95.8
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "ABT",
+      "sector_etf": "XLV",
+      "relative_strength20_pct": 3.89,
+      "rs_composite_raw": 0.038913,
+      "acceleration_pct": 3.11,
+      "state": "IMPROVING",
+      "rs_score": 63.9
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "ABBV",
+      "sector_etf": "XLV",
+      "relative_strength20_pct": 7.71,
+      "rs_composite_raw": 0.140753,
+      "acceleration_pct": 1.54,
+      "state": "LEADING",
+      "rs_score": 90.1
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "A",
+      "sector_etf": "XLV",
+      "relative_strength20_pct": 0.46,
+      "rs_composite_raw": 0.164365,
+      "acceleration_pct": -0.18,
+      "state": "WEAKENING",
+      "rs_score": 92.5
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "ALGN",
+      "sector_etf": "XLV",
+      "relative_strength20_pct": 5.04,
+      "rs_composite_raw": -0.043142,
+      "acceleration_pct": 3.6,
+      "state": "RECOVERING",
+      "rs_score": 33.0
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AMGN",
+      "sector_etf": "XLV",
+      "relative_strength20_pct": 6.37,
+      "rs_composite_raw": 0.129114,
+      "acceleration_pct": 2.14,
+      "state": "LEADING",
+      "rs_score": 89.2
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BAX",
+      "sector_etf": "XLV",
+      "relative_strength20_pct": 7.69,
+      "rs_composite_raw": 0.111604,
+      "acceleration_pct": -2.46,
+      "state": "WEAKENING",
+      "rs_score": 85.6
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BDX",
+      "sector_etf": "XLV",
+      "relative_strength20_pct": 6.86,
+      "rs_composite_raw": 0.143637,
+      "acceleration_pct": 1.68,
+      "state": "LEADING",
+      "rs_score": 90.9
     },
     {
       "date": "2026-10-26",
@@ -1092930,7 +1093100,97 @@
       "rs_composite_raw": 0.041527,
       "acceleration_pct": -1.12,
       "state": "WEAKENING",
-      "rs_score": 65.0
+      "rs_score": 65.1
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BIIB",
+      "sector_etf": "XLV",
+      "relative_strength20_pct": 10.34,
+      "rs_composite_raw": 0.172477,
+      "acceleration_pct": 6.06,
+      "state": "LEADING",
+      "rs_score": 92.9
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BSX",
+      "sector_etf": "XLV",
+      "relative_strength20_pct": 3.36,
+      "rs_composite_raw": -0.04658,
+      "acceleration_pct": 0.07,
+      "state": "RECOVERING",
+      "rs_score": 32.3
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BMY",
+      "sector_etf": "XLV",
+      "relative_strength20_pct": -3.52,
+      "rs_composite_raw": -0.037102,
+      "acceleration_pct": 2.9,
+      "state": "RECOVERING",
+      "rs_score": 35.8
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CAH",
+      "sector_etf": "XLV",
+      "relative_strength20_pct": 14.22,
+      "rs_composite_raw": 0.135649,
+      "acceleration_pct": 2.0,
+      "state": "LEADING",
+      "rs_score": 89.6
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "COR",
+      "sector_etf": "XLV",
+      "relative_strength20_pct": 8.65,
+      "rs_composite_raw": 0.058136,
+      "acceleration_pct": -0.41,
+      "state": "WEAKENING",
+      "rs_score": 70.4
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CNC",
+      "sector_etf": "XLV",
+      "relative_strength20_pct": 8.83,
+      "rs_composite_raw": 0.110102,
+      "acceleration_pct": 0.25,
+      "state": "LEADING",
+      "rs_score": 85.0
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CRL",
+      "sector_etf": "XLV",
+      "relative_strength20_pct": 21.31,
+      "rs_composite_raw": 0.43408,
+      "acceleration_pct": 16.15,
+      "state": "LEADING",
+      "rs_score": 99.8
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CI",
+      "sector_etf": "XLV",
+      "relative_strength20_pct": 12.52,
+      "rs_composite_raw": 0.094333,
+      "acceleration_pct": 5.38,
+      "state": "LEADING",
+      "rs_score": 81.9
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "COO",
+      "sector_etf": "XLV",
+      "relative_strength20_pct": 8.11,
+      "rs_composite_raw": -0.025048,
+      "acceleration_pct": 2.71,
+      "state": "RECOVERING",
+      "rs_score": 39.6
     },
     {
       "date": "2026-10-26",
@@ -1092940,7 +1093200,7 @@
       "rs_composite_raw": 0.003094,
       "acceleration_pct": 0.92,
       "state": "LEADING",
-      "rs_score": 49.0
+      "rs_score": 50.7
     },
     {
       "date": "2026-10-26",
@@ -1092950,7 +1093210,7 @@
       "rs_composite_raw": 0.118969,
       "acceleration_pct": 1.87,
       "state": "LEADING",
-      "rs_score": 88.3
+      "rs_score": 87.4
     },
     {
       "date": "2026-10-26",
@@ -1092960,7 +1093220,7 @@
       "rs_composite_raw": -0.037644,
       "acceleration_pct": -1.59,
       "state": "LAGGING",
-      "rs_score": 32.8
+      "rs_score": 35.4
     },
     {
       "date": "2026-10-26",
@@ -1092970,7 +1093230,7 @@
       "rs_composite_raw": -0.018839,
       "acceleration_pct": -12.93,
       "state": "LAGGING",
-      "rs_score": 38.6
+      "rs_score": 41.8
     },
     {
       "date": "2026-10-26",
@@ -1092980,7 +1093240,7 @@
       "rs_composite_raw": 0.036879,
       "acceleration_pct": 3.66,
       "state": "LEADING",
-      "rs_score": 63.6
+      "rs_score": 63.5
     },
     {
       "date": "2026-10-26",
@@ -1092990,7 +1093250,7 @@
       "rs_composite_raw": 0.105856,
       "acceleration_pct": 2.34,
       "state": "LEADING",
-      "rs_score": 84.2
+      "rs_score": 83.8
     },
     {
       "date": "2026-10-26",
@@ -1093000,7 +1093260,7 @@
       "rs_composite_raw": 0.073541,
       "acceleration_pct": 0.83,
       "state": "LEADING",
-      "rs_score": 76.2
+      "rs_score": 76.3
     },
     {
       "date": "2026-10-26",
@@ -1093010,7 +1093270,7 @@
       "rs_composite_raw": 0.105973,
       "acceleration_pct": 2.77,
       "state": "LEADING",
-      "rs_score": 84.5
+      "rs_score": 83.9
     },
     {
       "date": "2026-10-26",
@@ -1093030,7 +1093290,7 @@
       "rs_composite_raw": -0.004379,
       "acceleration_pct": 0.95,
       "state": "RECOVERING",
-      "rs_score": 46.8
+      "rs_score": 48.7
     },
     {
       "date": "2026-10-26",
@@ -1093040,7 +1093300,7 @@
       "rs_composite_raw": 0.209062,
       "acceleration_pct": 0.2,
       "state": "LEADING",
-      "rs_score": 94.4
+      "rs_score": 95.3
     },
     {
       "date": "2026-10-26",
@@ -1093060,7 +1093320,7 @@
       "rs_composite_raw": 0.265955,
       "acceleration_pct": -8.18,
       "state": "WEAKENING",
-      "rs_score": 96.6
+      "rs_score": 97.1
     },
     {
       "date": "2026-10-26",
@@ -1093070,7 +1093330,7 @@
       "rs_composite_raw": -0.047895,
       "acceleration_pct": -0.06,
       "state": "LAGGING",
-      "rs_score": 28.9
+      "rs_score": 31.8
     },
     {
       "date": "2026-10-26",
@@ -1093080,7 +1093340,7 @@
       "rs_composite_raw": -0.009043,
       "acceleration_pct": 9.18,
       "state": "RECOVERING",
-      "rs_score": 43.9
+      "rs_score": 46.4
     },
     {
       "date": "2026-10-26",
@@ -1093090,7 +1093350,7 @@
       "rs_composite_raw": 0.109278,
       "acceleration_pct": 2.14,
       "state": "LEADING",
-      "rs_score": 85.4
+      "rs_score": 84.7
     },
     {
       "date": "2026-10-26",
@@ -1093100,7 +1093360,7 @@
       "rs_composite_raw": 0.145565,
       "acceleration_pct": -4.29,
       "state": "WEAKENING",
-      "rs_score": 91.3
+      "rs_score": 91.1
     },
     {
       "date": "2026-10-26",
@@ -1093110,7 +1093370,7 @@
       "rs_composite_raw": 0.018686,
       "acceleration_pct": 5.79,
       "state": "LEADING",
-      "rs_score": 56.1
+      "rs_score": 56.8
     },
     {
       "date": "2026-10-26",
@@ -1093120,7 +1093380,7 @@
       "rs_composite_raw": 0.090808,
       "acceleration_pct": 4.83,
       "state": "LEADING",
-      "rs_score": 81.8
+      "rs_score": 81.6
     },
     {
       "date": "2026-10-26",
@@ -1093130,7 +1093390,7 @@
       "rs_composite_raw": 0.113851,
       "acceleration_pct": 0.86,
       "state": "LEADING",
-      "rs_score": 86.9
+      "rs_score": 86.3
     },
     {
       "date": "2026-10-26",
@@ -1093140,7 +1093400,7 @@
       "rs_composite_raw": 0.156843,
       "acceleration_pct": 0.65,
       "state": "LEADING",
-      "rs_score": 92.5
+      "rs_score": 92.0
     },
     {
       "date": "2026-10-26",
@@ -1093150,7 +1093410,7 @@
       "rs_composite_raw": 0.087582,
       "acceleration_pct": 4.31,
       "state": "LEADING",
-      "rs_score": 81.1
+      "rs_score": 81.0
     },
     {
       "date": "2026-10-26",
@@ -1093160,7 +1093420,7 @@
       "rs_composite_raw": 0.026649,
       "acceleration_pct": -2.15,
       "state": "WEAKENING",
-      "rs_score": 59.7
+      "rs_score": 59.9
     },
     {
       "date": "2026-10-26",
@@ -1093170,7 +1093430,7 @@
       "rs_composite_raw": 0.131581,
       "acceleration_pct": -3.97,
       "state": "WEAKENING",
-      "rs_score": 90.0
+      "rs_score": 89.4
     },
     {
       "date": "2026-10-26",
@@ -1093190,7 +1093450,7 @@
       "rs_composite_raw": 0.082517,
       "acceleration_pct": -0.83,
       "state": "WEAKENING",
-      "rs_score": 79.1
+      "rs_score": 79.2
     },
     {
       "date": "2026-10-26",
@@ -1093200,7 +1093460,7 @@
       "rs_composite_raw": 0.059921,
       "acceleration_pct": 5.22,
       "state": "LEADING",
-      "rs_score": 71.1
+      "rs_score": 71.2
     },
     {
       "date": "2026-10-26",
@@ -1093210,7 +1093470,7 @@
       "rs_composite_raw": 0.065867,
       "acceleration_pct": 2.66,
       "state": "LEADING",
-      "rs_score": 73.1
+      "rs_score": 73.4
     },
     {
       "date": "2026-10-26",
@@ -1093220,7 +1093480,7 @@
       "rs_composite_raw": 0.154946,
       "acceleration_pct": 5.16,
       "state": "LEADING",
-      "rs_score": 92.2
+      "rs_score": 91.8
     },
     {
       "date": "2026-10-26",
@@ -1093230,7 +1093490,7 @@
       "rs_composite_raw": 0.28749,
       "acceleration_pct": 1.96,
       "state": "LEADING",
-      "rs_score": 97.8
+      "rs_score": 98.0
     },
     {
       "date": "2026-10-26",
@@ -1093240,7 +1093500,7 @@
       "rs_composite_raw": 0.010347,
       "acceleration_pct": -2.53,
       "state": "WEAKENING",
-      "rs_score": 52.7
+      "rs_score": 53.8
     },
     {
       "date": "2026-10-26",
@@ -1093250,7 +1093510,7 @@
       "rs_composite_raw": 0.044969,
       "acceleration_pct": 1.77,
       "state": "LEADING",
-      "rs_score": 65.8
+      "rs_score": 66.1
     },
     {
       "date": "2026-10-26",
@@ -1093260,7 +1093520,7 @@
       "rs_composite_raw": 0.026614,
       "acceleration_pct": 4.93,
       "state": "LEADING",
-      "rs_score": 59.5
+      "rs_score": 59.7
     },
     {
       "date": "2026-10-26",
@@ -1093270,7 +1093530,7 @@
       "rs_composite_raw": 0.137166,
       "acceleration_pct": -0.41,
       "state": "WEAKENING",
-      "rs_score": 90.3
+      "rs_score": 89.8
     },
     {
       "date": "2026-10-26",
@@ -1093280,7 +1093540,7 @@
       "rs_composite_raw": 0.047856,
       "acceleration_pct": 1.91,
       "state": "LEADING",
-      "rs_score": 66.7
+      "rs_score": 67.0
     },
     {
       "date": "2026-10-26",
@@ -1093290,7 +1093550,7 @@
       "rs_composite_raw": 0.059799,
       "acceleration_pct": -1.52,
       "state": "WEAKENING",
-      "rs_score": 70.9
+      "rs_score": 71.0
     },
     {
       "date": "2026-10-26",
@@ -1093300,7 +1093560,7 @@
       "rs_composite_raw": 0.3897,
       "acceleration_pct": -10.45,
       "state": "WEAKENING",
-      "rs_score": 99.5
+      "rs_score": 99.3
     },
     {
       "date": "2026-10-26",
@@ -1093310,7 +1093570,7 @@
       "rs_composite_raw": 0.040939,
       "acceleration_pct": 2.27,
       "state": "IMPROVING",
-      "rs_score": 64.8
+      "rs_score": 65.0
     },
     {
       "date": "2026-10-26",
@@ -1093320,7 +1093580,7 @@
       "rs_composite_raw": 0.030011,
       "acceleration_pct": -4.6,
       "state": "WEAKENING",
-      "rs_score": 61.7
+      "rs_score": 61.5
     },
     {
       "date": "2026-10-26",
@@ -1093330,7 +1093590,7 @@
       "rs_composite_raw": 0.124638,
       "acceleration_pct": -0.2,
       "state": "WEAKENING",
-      "rs_score": 88.8
+      "rs_score": 88.0
     },
     {
       "date": "2026-10-26",
@@ -1093340,7 +1093600,7 @@
       "rs_composite_raw": 0.108692,
       "acceleration_pct": -1.36,
       "state": "WEAKENING",
-      "rs_score": 85.2
+      "rs_score": 84.5
     },
     {
       "date": "2026-10-26",
@@ -1093350,7 +1093610,7 @@
       "rs_composite_raw": 0.059035,
       "acceleration_pct": 3.61,
       "state": "LEADING",
-      "rs_score": 70.4
+      "rs_score": 70.6
     },
     {
       "date": "2026-10-26",
@@ -1093360,7 +1093620,157 @@
       "rs_composite_raw": 0.006254,
       "acceleration_pct": 1.71,
       "state": "LEADING",
-      "rs_score": 50.2
+      "rs_score": 51.6
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AFL",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": 6.53,
+      "rs_composite_raw": 0.009684,
+      "acceleration_pct": 2.9,
+      "state": "LEADING",
+      "rs_score": 53.1
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "ALL",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": 12.51,
+      "rs_composite_raw": 0.068733,
+      "acceleration_pct": 6.96,
+      "state": "LEADING",
+      "rs_score": 74.5
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AXP",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": 2.88,
+      "rs_composite_raw": -0.023955,
+      "acceleration_pct": 0.22,
+      "state": "RECOVERING",
+      "rs_score": 40.0
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AIG",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": 11.5,
+      "rs_composite_raw": 0.055176,
+      "acceleration_pct": 1.26,
+      "state": "LEADING",
+      "rs_score": 68.6
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AMP",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": -0.48,
+      "rs_composite_raw": -0.04201,
+      "acceleration_pct": 5.7,
+      "state": "RECOVERING",
+      "rs_score": 33.4
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AON",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": 11.04,
+      "rs_composite_raw": -0.020259,
+      "acceleration_pct": 8.32,
+      "state": "RECOVERING",
+      "rs_score": 41.1
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "APO",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": -3.86,
+      "rs_composite_raw": -0.08941,
+      "acceleration_pct": 4.79,
+      "state": "RECOVERING",
+      "rs_score": 19.9
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "ACGL",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": 7.87,
+      "rs_composite_raw": 0.043318,
+      "acceleration_pct": 4.21,
+      "state": "LEADING",
+      "rs_score": 65.9
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "ARES",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": 3.02,
+      "rs_composite_raw": -0.020048,
+      "acceleration_pct": 8.8,
+      "state": "RECOVERING",
+      "rs_score": 41.4
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AJG",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": 16.3,
+      "rs_composite_raw": 0.142803,
+      "acceleration_pct": 8.67,
+      "state": "LEADING",
+      "rs_score": 90.5
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AIZ",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": 8.99,
+      "rs_composite_raw": 0.076842,
+      "acceleration_pct": 5.09,
+      "state": "LEADING",
+      "rs_score": 77.0
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BAC",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": -8.89,
+      "rs_composite_raw": -0.128463,
+      "acceleration_pct": 2.39,
+      "state": "RECOVERING",
+      "rs_score": 14.1
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BRK-B",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": 9.07,
+      "rs_composite_raw": 0.083874,
+      "acceleration_pct": 3.06,
+      "state": "LEADING",
+      "rs_score": 79.6
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BLK",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": 5.3,
+      "rs_composite_raw": 0.032895,
+      "acceleration_pct": 0.53,
+      "state": "LEADING",
+      "rs_score": 62.6
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BX",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": 3.96,
+      "rs_composite_raw": -0.025435,
+      "acceleration_pct": 14.96,
+      "state": "RECOVERING",
+      "rs_score": 39.4
     },
     {
       "date": "2026-10-26",
@@ -1093370,7 +1093780,47 @@
       "rs_composite_raw": -0.025688,
       "acceleration_pct": -2.53,
       "state": "LAGGING",
-      "rs_score": 36.4
+      "rs_score": 39.2
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BNY",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": -0.82,
+      "rs_composite_raw": -0.018114,
+      "acceleration_pct": 5.89,
+      "state": "RECOVERING",
+      "rs_score": 42.2
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BRO",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": 18.03,
+      "rs_composite_raw": 0.121359,
+      "acceleration_pct": 7.9,
+      "state": "LEADING",
+      "rs_score": 87.8
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "COF",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": 3.03,
+      "rs_composite_raw": 8.7e-05,
+      "acceleration_pct": 3.1,
+      "state": "IMPROVING",
+      "rs_score": 50.2
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CBOE",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": 32.41,
+      "rs_composite_raw": 0.162285,
+      "acceleration_pct": 9.54,
+      "state": "LEADING",
+      "rs_score": 92.2
     },
     {
       "date": "2026-10-26",
@@ -1093380,7 +1093830,77 @@
       "rs_composite_raw": -0.112287,
       "acceleration_pct": 2.99,
       "state": "RECOVERING",
-      "rs_score": 14.3
+      "rs_score": 17.2
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CB",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": 7.69,
+      "rs_composite_raw": 0.045947,
+      "acceleration_pct": 2.7,
+      "state": "LEADING",
+      "rs_score": 66.4
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CINF",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": 9.54,
+      "rs_composite_raw": 0.049349,
+      "acceleration_pct": 7.75,
+      "state": "LEADING",
+      "rs_score": 67.3
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "C",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": -7.79,
+      "rs_composite_raw": -0.094543,
+      "acceleration_pct": 1.14,
+      "state": "RECOVERING",
+      "rs_score": 19.0
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CFG",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": 0.91,
+      "rs_composite_raw": -0.037462,
+      "acceleration_pct": 6.37,
+      "state": "RECOVERING",
+      "rs_score": 35.6
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CME",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": 17.06,
+      "rs_composite_raw": 0.126352,
+      "acceleration_pct": 6.45,
+      "state": "LEADING",
+      "rs_score": 88.3
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "COIN",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": -16.75,
+      "rs_composite_raw": -0.113845,
+      "acceleration_pct": -0.36,
+      "state": "LAGGING",
+      "rs_score": 16.6
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CPAY",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": 0.91,
+      "rs_composite_raw": 0.062777,
+      "acceleration_pct": -0.62,
+      "state": "WEAKENING",
+      "rs_score": 72.1
     },
     {
       "date": "2026-10-26",
@@ -1093390,7 +1093910,7 @@
       "rs_composite_raw": 0.086143,
       "acceleration_pct": 5.9,
       "state": "LEADING",
-      "rs_score": 80.3
+      "rs_score": 80.5
     },
     {
       "date": "2026-10-26",
@@ -1093410,7 +1093930,7 @@
       "rs_composite_raw": 0.248753,
       "acceleration_pct": 11.54,
       "state": "LEADING",
-      "rs_score": 96.1
+      "rs_score": 96.5
     },
     {
       "date": "2026-10-26",
@@ -1093420,7 +1093940,7 @@
       "rs_composite_raw": -0.076128,
       "acceleration_pct": 1.92,
       "state": "RECOVERING",
-      "rs_score": 20.4
+      "rs_score": 23.7
     },
     {
       "date": "2026-10-26",
@@ -1093430,7 +1093950,7 @@
       "rs_composite_raw": -0.010789,
       "acceleration_pct": 7.28,
       "state": "RECOVERING",
-      "rs_score": 43.0
+      "rs_score": 45.6
     },
     {
       "date": "2026-10-26",
@@ -1093440,7 +1093960,17 @@
       "rs_composite_raw": -0.056057,
       "acceleration_pct": 1.76,
       "state": "RECOVERING",
-      "rs_score": 26.0
+      "rs_score": 29.0
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BEN",
+      "sector_etf": "XLF",
+      "relative_strength20_pct": -5.14,
+      "rs_composite_raw": -0.066509,
+      "acceleration_pct": 0.7,
+      "state": "RECOVERING",
+      "rs_score": 26.1
     },
     {
       "date": "2026-10-26",
@@ -1093450,7 +1093980,7 @@
       "rs_composite_raw": -0.00772,
       "acceleration_pct": -4.44,
       "state": "LAGGING",
-      "rs_score": 44.9
+      "rs_score": 47.1
     },
     {
       "date": "2026-10-26",
@@ -1093460,7 +1093990,7 @@
       "rs_composite_raw": -0.086692,
       "acceleration_pct": -6.23,
       "state": "LAGGING",
-      "rs_score": 18.2
+      "rs_score": 21.2
     },
     {
       "date": "2026-10-26",
@@ -1093470,7 +1094000,7 @@
       "rs_composite_raw": -0.073681,
       "acceleration_pct": 5.53,
       "state": "RECOVERING",
-      "rs_score": 21.1
+      "rs_score": 24.3
     },
     {
       "date": "2026-10-26",
@@ -1093480,7 +1094010,7 @@
       "rs_composite_raw": 0.010617,
       "acceleration_pct": 3.86,
       "state": "LEADING",
-      "rs_score": 53.2
+      "rs_score": 54.2
     },
     {
       "date": "2026-10-26",
@@ -1093490,7 +1094020,7 @@
       "rs_composite_raw": -0.036003,
       "acceleration_pct": 6.41,
       "state": "RECOVERING",
-      "rs_score": 33.5
+      "rs_score": 36.3
     },
     {
       "date": "2026-10-26",
@@ -1093500,7 +1094030,7 @@
       "rs_composite_raw": -0.089112,
       "acceleration_pct": 2.06,
       "state": "RECOVERING",
-      "rs_score": 17.7
+      "rs_score": 20.4
     },
     {
       "date": "2026-10-26",
@@ -1093510,7 +1094040,7 @@
       "rs_composite_raw": 0.025681,
       "acceleration_pct": 0.93,
       "state": "LEADING",
-      "rs_score": 58.7
+      "rs_score": 58.9
     },
     {
       "date": "2026-10-26",
@@ -1093520,7 +1094050,7 @@
       "rs_composite_raw": -0.048095,
       "acceleration_pct": 2.08,
       "state": "RECOVERING",
-      "rs_score": 28.4
+      "rs_score": 31.4
     },
     {
       "date": "2026-10-26",
@@ -1093530,7 +1094060,7 @@
       "rs_composite_raw": 0.064051,
       "acceleration_pct": 7.76,
       "state": "LEADING",
-      "rs_score": 72.3
+      "rs_score": 72.4
     },
     {
       "date": "2026-10-26",
@@ -1093540,7 +1094070,7 @@
       "rs_composite_raw": -0.021701,
       "acceleration_pct": 2.92,
       "state": "RECOVERING",
-      "rs_score": 37.6
+      "rs_score": 40.7
     },
     {
       "date": "2026-10-26",
@@ -1093550,7 +1094080,7 @@
       "rs_composite_raw": -0.023213,
       "acceleration_pct": 7.63,
       "state": "RECOVERING",
-      "rs_score": 37.1
+      "rs_score": 40.3
     },
     {
       "date": "2026-10-26",
@@ -1093560,7 +1094090,7 @@
       "rs_composite_raw": -0.076759,
       "acceleration_pct": 7.96,
       "state": "RECOVERING",
-      "rs_score": 20.1
+      "rs_score": 23.5
     },
     {
       "date": "2026-10-26",
@@ -1093570,7 +1094100,7 @@
       "rs_composite_raw": 0.010101,
       "acceleration_pct": 3.92,
       "state": "LEADING",
-      "rs_score": 52.2
+      "rs_score": 53.5
     },
     {
       "date": "2026-10-26",
@@ -1093580,7 +1094110,7 @@
       "rs_composite_raw": -0.039584,
       "acceleration_pct": 5.82,
       "state": "RECOVERING",
-      "rs_score": 31.6
+      "rs_score": 34.5
     },
     {
       "date": "2026-10-26",
@@ -1093590,7 +1094120,7 @@
       "rs_composite_raw": 0.098065,
       "acceleration_pct": 4.08,
       "state": "LEADING",
-      "rs_score": 82.5
+      "rs_score": 82.3
     },
     {
       "date": "2026-10-26",
@@ -1093600,7 +1094130,7 @@
       "rs_composite_raw": 0.089092,
       "acceleration_pct": -1.73,
       "state": "WEAKENING",
-      "rs_score": 81.6
+      "rs_score": 81.4
     },
     {
       "date": "2026-10-26",
@@ -1093610,7 +1094140,7 @@
       "rs_composite_raw": 0.065932,
       "acceleration_pct": 0.33,
       "state": "LEADING",
-      "rs_score": 73.3
+      "rs_score": 73.5
     },
     {
       "date": "2026-10-26",
@@ -1093620,7 +1094150,7 @@
       "rs_composite_raw": 0.024743,
       "acceleration_pct": 1.54,
       "state": "LEADING",
-      "rs_score": 58.5
+      "rs_score": 58.8
     },
     {
       "date": "2026-10-26",
@@ -1093630,7 +1094160,7 @@
       "rs_composite_raw": -0.089394,
       "acceleration_pct": 6.26,
       "state": "RECOVERING",
-      "rs_score": 17.2
+      "rs_score": 20.1
     },
     {
       "date": "2026-10-26",
@@ -1093640,7 +1094170,7 @@
       "rs_composite_raw": 0.08683,
       "acceleration_pct": 10.84,
       "state": "LEADING",
-      "rs_score": 80.6
+      "rs_score": 80.7
     },
     {
       "date": "2026-10-26",
@@ -1093650,7 +1094180,7 @@
       "rs_composite_raw": 0.115481,
       "acceleration_pct": 13.76,
       "state": "LEADING",
-      "rs_score": 87.4
+      "rs_score": 86.7
     },
     {
       "date": "2026-10-26",
@@ -1093660,7 +1094190,7 @@
       "rs_composite_raw": -0.044001,
       "acceleration_pct": 4.81,
       "state": "RECOVERING",
-      "rs_score": 29.6
+      "rs_score": 32.5
     },
     {
       "date": "2026-10-26",
@@ -1093670,7 +1094200,7 @@
       "rs_composite_raw": 0.012762,
       "acceleration_pct": -3.18,
       "state": "WEAKENING",
-      "rs_score": 54.1
+      "rs_score": 54.9
     },
     {
       "date": "2026-10-26",
@@ -1093680,7 +1094210,7 @@
       "rs_composite_raw": -0.038905,
       "acceleration_pct": 6.55,
       "state": "RECOVERING",
-      "rs_score": 32.3
+      "rs_score": 35.0
     },
     {
       "date": "2026-10-26",
@@ -1093690,7 +1094220,7 @@
       "rs_composite_raw": -0.029433,
       "acceleration_pct": 2.72,
       "state": "RECOVERING",
-      "rs_score": 35.2
+      "rs_score": 38.0
     },
     {
       "date": "2026-10-26",
@@ -1093710,7 +1094240,7 @@
       "rs_composite_raw": -0.004497,
       "acceleration_pct": 1.92,
       "state": "RECOVERING",
-      "rs_score": 46.6
+      "rs_score": 48.5
     },
     {
       "date": "2026-10-26",
@@ -1093720,7 +1094250,7 @@
       "rs_composite_raw": -0.059829,
       "acceleration_pct": 2.88,
       "state": "RECOVERING",
-      "rs_score": 24.5
+      "rs_score": 27.6
     },
     {
       "date": "2026-10-26",
@@ -1093730,7 +1094260,7 @@
       "rs_composite_raw": -0.012558,
       "acceleration_pct": 7.67,
       "state": "RECOVERING",
-      "rs_score": 41.5
+      "rs_score": 44.3
     },
     {
       "date": "2026-10-26",
@@ -1093740,7 +1094270,7 @@
       "rs_composite_raw": -0.057298,
       "acceleration_pct": 3.3,
       "state": "RECOVERING",
-      "rs_score": 25.7
+      "rs_score": 28.6
     },
     {
       "date": "2026-10-26",
@@ -1093750,7 +1094280,7 @@
       "rs_composite_raw": 0.103369,
       "acceleration_pct": 8.69,
       "state": "LEADING",
-      "rs_score": 83.3
+      "rs_score": 83.0
     },
     {
       "date": "2026-10-26",
@@ -1093760,7 +1094290,7 @@
       "rs_composite_raw": -0.040505,
       "acceleration_pct": 4.83,
       "state": "RECOVERING",
-      "rs_score": 31.1
+      "rs_score": 34.1
     },
     {
       "date": "2026-10-26",
@@ -1093770,7 +1094300,7 @@
       "rs_composite_raw": 0.003483,
       "acceleration_pct": 3.04,
       "state": "IMPROVING",
-      "rs_score": 49.3
+      "rs_score": 50.9
     },
     {
       "date": "2026-10-26",
@@ -1093780,7 +1094310,7 @@
       "rs_composite_raw": -0.043611,
       "acceleration_pct": 4.36,
       "state": "RECOVERING",
-      "rs_score": 29.9
+      "rs_score": 32.7
     },
     {
       "date": "2026-10-26",
@@ -1093790,7 +1094320,7 @@
       "rs_composite_raw": 0.11852,
       "acceleration_pct": 7.4,
       "state": "LEADING",
-      "rs_score": 88.1
+      "rs_score": 87.2
     },
     {
       "date": "2026-10-26",
@@ -1093800,7 +1094330,7 @@
       "rs_composite_raw": -0.020499,
       "acceleration_pct": 7.93,
       "state": "RECOVERING",
-      "rs_score": 37.9
+      "rs_score": 40.9
     },
     {
       "date": "2026-10-26",
@@ -1093810,7 +1094340,7 @@
       "rs_composite_raw": -0.011889,
       "acceleration_pct": 5.44,
       "state": "RECOVERING",
-      "rs_score": 42.0
+      "rs_score": 44.9
     },
     {
       "date": "2026-10-26",
@@ -1093820,7 +1094350,7 @@
       "rs_composite_raw": 0.112984,
       "acceleration_pct": -0.99,
       "state": "WEAKENING",
-      "rs_score": 86.4
+      "rs_score": 85.9
     },
     {
       "date": "2026-10-26",
@@ -1093830,7 +1094360,7 @@
       "rs_composite_raw": 0.053724,
       "acceleration_pct": 2.21,
       "state": "LEADING",
-      "rs_score": 68.0
+      "rs_score": 68.4
     },
     {
       "date": "2026-10-26",
@@ -1093840,7 +1094370,7 @@
       "rs_composite_raw": -0.013596,
       "acceleration_pct": 5.08,
       "state": "RECOVERING",
-      "rs_score": 41.0
+      "rs_score": 44.0
     },
     {
       "date": "2026-10-26",
@@ -1093850,7 +1094380,77 @@
       "rs_composite_raw": 0.077238,
       "acceleration_pct": 5.1,
       "state": "LEADING",
-      "rs_score": 76.9
+      "rs_score": 77.2
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "ABNB",
+      "sector_etf": "XLY",
+      "relative_strength20_pct": 9.62,
+      "rs_composite_raw": 0.11275,
+      "acceleration_pct": -1.65,
+      "state": "WEAKENING",
+      "rs_score": 85.8
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AMZN",
+      "sector_etf": "XLY",
+      "relative_strength20_pct": 1.23,
+      "rs_composite_raw": -0.055459,
+      "acceleration_pct": -8.25,
+      "state": "LAGGING",
+      "rs_score": 29.2
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "APTV",
+      "sector_etf": "XLY",
+      "relative_strength20_pct": -0.04,
+      "rs_composite_raw": -0.128293,
+      "acceleration_pct": -0.31,
+      "state": "LAGGING",
+      "rs_score": 14.2
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AZO",
+      "sector_etf": "XLY",
+      "relative_strength20_pct": 9.53,
+      "rs_composite_raw": 0.026273,
+      "acceleration_pct": 0.76,
+      "state": "LEADING",
+      "rs_score": 59.1
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BBY",
+      "sector_etf": "XLY",
+      "relative_strength20_pct": 8.97,
+      "rs_composite_raw": 0.208728,
+      "acceleration_pct": 11.36,
+      "state": "LEADING",
+      "rs_score": 94.9
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BKNG",
+      "sector_etf": "XLY",
+      "relative_strength20_pct": -6.52,
+      "rs_composite_raw": -0.130566,
+      "acceleration_pct": -5.34,
+      "state": "LAGGING",
+      "rs_score": 13.5
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CCL",
+      "sector_etf": "XLY",
+      "relative_strength20_pct": 21.35,
+      "rs_composite_raw": 0.086102,
+      "acceleration_pct": 1.29,
+      "state": "LEADING",
+      "rs_score": 80.3
     },
     {
       "date": "2026-10-26",
@@ -1093860,7 +1094460,17 @@
       "rs_composite_raw": -0.128951,
       "acceleration_pct": 2.04,
       "state": "RECOVERING",
-      "rs_score": 11.4
+      "rs_score": 13.9
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CMG",
+      "sector_etf": "XLY",
+      "relative_strength20_pct": -10.77,
+      "rs_composite_raw": -0.167858,
+      "acceleration_pct": -5.95,
+      "state": "LAGGING",
+      "rs_score": 9.9
     },
     {
       "date": "2026-10-26",
@@ -1093870,7 +1094480,7 @@
       "rs_composite_raw": 0.056015,
       "acceleration_pct": 1.59,
       "state": "LEADING",
-      "rs_score": 69.2
+      "rs_score": 69.5
     },
     {
       "date": "2026-10-26",
@@ -1093880,7 +1094490,7 @@
       "rs_composite_raw": -0.093882,
       "acceleration_pct": -5.24,
       "state": "LAGGING",
-      "rs_score": 16.5
+      "rs_score": 19.2
     },
     {
       "date": "2026-10-26",
@@ -1093890,7 +1094500,7 @@
       "rs_composite_raw": -0.023253,
       "acceleration_pct": 2.82,
       "state": "RECOVERING",
-      "rs_score": 36.9
+      "rs_score": 40.1
     },
     {
       "date": "2026-10-26",
@@ -1093900,7 +1094510,7 @@
       "rs_composite_raw": -0.086217,
       "acceleration_pct": -12.42,
       "state": "LAGGING",
-      "rs_score": 18.4
+      "rs_score": 21.4
     },
     {
       "date": "2026-10-26",
@@ -1093910,7 +1094520,7 @@
       "rs_composite_raw": 0.014083,
       "acceleration_pct": 10.07,
       "state": "LEADING",
-      "rs_score": 54.9
+      "rs_score": 55.7
     },
     {
       "date": "2026-10-26",
@@ -1093920,7 +1094530,7 @@
       "rs_composite_raw": 0.071458,
       "acceleration_pct": -3.31,
       "state": "WEAKENING",
-      "rs_score": 75.2
+      "rs_score": 75.4
     },
     {
       "date": "2026-10-26",
@@ -1093940,7 +1094550,7 @@
       "rs_composite_raw": -0.116247,
       "acceleration_pct": -0.73,
       "state": "LAGGING",
-      "rs_score": 13.6
+      "rs_score": 16.2
     },
     {
       "date": "2026-10-26",
@@ -1093950,7 +1094560,7 @@
       "rs_composite_raw": 0.028173,
       "acceleration_pct": -4.44,
       "state": "WEAKENING",
-      "rs_score": 60.7
+      "rs_score": 60.8
     },
     {
       "date": "2026-10-26",
@@ -1093960,7 +1094570,7 @@
       "rs_composite_raw": -0.087501,
       "acceleration_pct": -6.83,
       "state": "LAGGING",
-      "rs_score": 18.0
+      "rs_score": 20.8
     },
     {
       "date": "2026-10-26",
@@ -1093970,7 +1094580,7 @@
       "rs_composite_raw": -0.004335,
       "acceleration_pct": -5.85,
       "state": "LAGGING",
-      "rs_score": 47.1
+      "rs_score": 48.9
     },
     {
       "date": "2026-10-26",
@@ -1093980,7 +1094590,7 @@
       "rs_composite_raw": 0.266333,
       "acceleration_pct": 18.8,
       "state": "LEADING",
-      "rs_score": 96.8
+      "rs_score": 97.3
     },
     {
       "date": "2026-10-26",
@@ -1093990,7 +1094600,7 @@
       "rs_composite_raw": 0.085051,
       "acceleration_pct": 1.02,
       "state": "LEADING",
-      "rs_score": 79.6
+      "rs_score": 79.7
     },
     {
       "date": "2026-10-26",
@@ -1094000,7 +1094610,7 @@
       "rs_composite_raw": 0.023302,
       "acceleration_pct": 5.65,
       "state": "LEADING",
-      "rs_score": 58.3
+      "rs_score": 58.6
     },
     {
       "date": "2026-10-26",
@@ -1094010,7 +1094620,7 @@
       "rs_composite_raw": -0.182842,
       "acceleration_pct": -2.04,
       "state": "LAGGING",
-      "rs_score": 7.0
+      "rs_score": 8.2
     },
     {
       "date": "2026-10-26",
@@ -1094020,7 +1094630,7 @@
       "rs_composite_raw": -0.006031,
       "acceleration_pct": 9.69,
       "state": "RECOVERING",
-      "rs_score": 45.9
+      "rs_score": 48.0
     },
     {
       "date": "2026-10-26",
@@ -1094030,7 +1094640,7 @@
       "rs_composite_raw": -0.028397,
       "acceleration_pct": 3.46,
       "state": "RECOVERING",
-      "rs_score": 35.4
+      "rs_score": 38.3
     },
     {
       "date": "2026-10-26",
@@ -1094040,7 +1094650,7 @@
       "rs_composite_raw": -0.089333,
       "acceleration_pct": 5.62,
       "state": "RECOVERING",
-      "rs_score": 17.5
+      "rs_score": 20.3
     },
     {
       "date": "2026-10-26",
@@ -1094060,7 +1094670,7 @@
       "rs_composite_raw": -0.027867,
       "acceleration_pct": 6.37,
       "state": "RECOVERING",
-      "rs_score": 35.9
+      "rs_score": 38.9
     },
     {
       "date": "2026-10-26",
@@ -1094070,7 +1094680,7 @@
       "rs_composite_raw": -0.228137,
       "acceleration_pct": 9.55,
       "state": "RECOVERING",
-      "rs_score": 3.9
+      "rs_score": 4.7
     },
     {
       "date": "2026-10-26",
@@ -1094080,7 +1094690,7 @@
       "rs_composite_raw": -0.049071,
       "acceleration_pct": 2.46,
       "state": "RECOVERING",
-      "rs_score": 28.2
+      "rs_score": 31.2
     },
     {
       "date": "2026-10-26",
@@ -1094090,7 +1094700,7 @@
       "rs_composite_raw": -0.058915,
       "acceleration_pct": 2.06,
       "state": "RECOVERING",
-      "rs_score": 24.8
+      "rs_score": 27.9
     },
     {
       "date": "2026-10-26",
@@ -1094100,7 +1094710,7 @@
       "rs_composite_raw": -0.091465,
       "acceleration_pct": 0.63,
       "state": "RECOVERING",
-      "rs_score": 16.7
+      "rs_score": 19.5
     },
     {
       "date": "2026-10-26",
@@ -1094110,7 +1094720,7 @@
       "rs_composite_raw": 0.004928,
       "acceleration_pct": -1.06,
       "state": "WEAKENING",
-      "rs_score": 49.8
+      "rs_score": 51.3
     },
     {
       "date": "2026-10-26",
@@ -1094120,7 +1094730,7 @@
       "rs_composite_raw": -0.016132,
       "acceleration_pct": 10.39,
       "state": "RECOVERING",
-      "rs_score": 40.0
+      "rs_score": 43.2
     },
     {
       "date": "2026-10-26",
@@ -1094130,7 +1094740,7 @@
       "rs_composite_raw": 0.043174,
       "acceleration_pct": -1.12,
       "state": "WEAKENING",
-      "rs_score": 65.5
+      "rs_score": 65.7
     },
     {
       "date": "2026-10-26",
@@ -1094140,7 +1094750,7 @@
       "rs_composite_raw": -0.03937,
       "acceleration_pct": -4.47,
       "state": "LAGGING",
-      "rs_score": 31.8
+      "rs_score": 34.7
     },
     {
       "date": "2026-10-26",
@@ -1094160,7 +1094770,7 @@
       "rs_composite_raw": 0.008653,
       "acceleration_pct": 2.95,
       "state": "LEADING",
-      "rs_score": 51.2
+      "rs_score": 52.6
     },
     {
       "date": "2026-10-26",
@@ -1094170,7 +1094780,7 @@
       "rs_composite_raw": -0.154721,
       "acceleration_pct": -6.45,
       "state": "LAGGING",
-      "rs_score": 9.5
+      "rs_score": 11.1
     },
     {
       "date": "2026-10-26",
@@ -1094180,7 +1094790,7 @@
       "rs_composite_raw": 0.107762,
       "acceleration_pct": 9.09,
       "state": "LEADING",
-      "rs_score": 85.0
+      "rs_score": 84.3
     },
     {
       "date": "2026-10-26",
@@ -1094190,7 +1094800,7 @@
       "rs_composite_raw": -0.007612,
       "acceleration_pct": -2.23,
       "state": "LAGGING",
-      "rs_score": 45.1
+      "rs_score": 47.3
     },
     {
       "date": "2026-10-26",
@@ -1094200,7 +1094810,7 @@
       "rs_composite_raw": 0.00471,
       "acceleration_pct": 1.76,
       "state": "IMPROVING",
-      "rs_score": 49.5
+      "rs_score": 51.1
     },
     {
       "date": "2026-10-26",
@@ -1094210,7 +1094820,7 @@
       "rs_composite_raw": 0.151342,
       "acceleration_pct": 4.99,
       "state": "LEADING",
-      "rs_score": 92.0
+      "rs_score": 91.6
     },
     {
       "date": "2026-10-26",
@@ -1094220,7 +1094830,7 @@
       "rs_composite_raw": 0.127528,
       "acceleration_pct": 0.43,
       "state": "LEADING",
-      "rs_score": 89.6
+      "rs_score": 88.7
     },
     {
       "date": "2026-10-26",
@@ -1094230,7 +1094840,7 @@
       "rs_composite_raw": -0.194118,
       "acceleration_pct": -0.63,
       "state": "LAGGING",
-      "rs_score": 6.1
+      "rs_score": 7.1
     },
     {
       "date": "2026-10-26",
@@ -1094240,7 +1094850,7 @@
       "rs_composite_raw": 0.008556,
       "acceleration_pct": -0.04,
       "state": "WEAKENING",
-      "rs_score": 51.0
+      "rs_score": 52.4
     },
     {
       "date": "2026-10-26",
@@ -1094254,13 +1094864,83 @@
     },
     {
       "date": "2026-10-26",
+      "ticker": "ADM",
+      "sector_etf": "XLP",
+      "relative_strength20_pct": -1.67,
+      "rs_composite_raw": -0.028664,
+      "acceleration_pct": 0.83,
+      "state": "RECOVERING",
+      "rs_score": 38.1
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BF-B",
+      "sector_etf": "XLP",
+      "relative_strength20_pct": 11.25,
+      "rs_composite_raw": 0.06017,
+      "acceleration_pct": 1.45,
+      "state": "LEADING",
+      "rs_score": 71.4
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BG",
+      "sector_etf": "XLP",
+      "relative_strength20_pct": -6.24,
+      "rs_composite_raw": -0.104584,
+      "acceleration_pct": 4.19,
+      "state": "RECOVERING",
+      "rs_score": 17.3
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CASY",
+      "sector_etf": "XLP",
+      "relative_strength20_pct": 16.15,
+      "rs_composite_raw": -0.032419,
+      "acceleration_pct": -2.13,
+      "state": "LAGGING",
+      "rs_score": 37.0
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CHD",
+      "sector_etf": "XLP",
+      "relative_strength20_pct": 10.24,
+      "rs_composite_raw": 0.077618,
+      "acceleration_pct": 2.04,
+      "state": "LEADING",
+      "rs_score": 77.4
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CLX",
+      "sector_etf": "XLP",
+      "relative_strength20_pct": 6.59,
+      "rs_composite_raw": -0.011966,
+      "acceleration_pct": 6.03,
+      "state": "RECOVERING",
+      "rs_score": 44.7
+    },
+    {
+      "date": "2026-10-26",
       "ticker": "KO",
       "sector_etf": "XLP",
       "relative_strength20_pct": 6.36,
       "rs_composite_raw": 0.066695,
       "acceleration_pct": -2.66,
       "state": "WEAKENING",
-      "rs_score": 73.5
+      "rs_score": 73.7
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CL",
+      "sector_etf": "XLP",
+      "relative_strength20_pct": 7.64,
+      "rs_composite_raw": 0.040921,
+      "acceleration_pct": -0.51,
+      "state": "WEAKENING",
+      "rs_score": 64.8
     },
     {
       "date": "2026-10-26",
@@ -1094270,7 +1094950,17 @@
       "rs_composite_raw": 0.075294,
       "acceleration_pct": 7.3,
       "state": "LEADING",
-      "rs_score": 76.7
+      "rs_score": 76.8
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "COST",
+      "sector_etf": "XLP",
+      "relative_strength20_pct": 8.94,
+      "rs_composite_raw": 0.040424,
+      "acceleration_pct": -1.13,
+      "state": "WEAKENING",
+      "rs_score": 64.6
     },
     {
       "date": "2026-10-26",
@@ -1094280,7 +1094970,7 @@
       "rs_composite_raw": 0.020316,
       "acceleration_pct": -7.54,
       "state": "WEAKENING",
-      "rs_score": 56.8
+      "rs_score": 57.5
     },
     {
       "date": "2026-10-26",
@@ -1094290,7 +1094980,7 @@
       "rs_composite_raw": 0.080918,
       "acceleration_pct": -0.27,
       "state": "WEAKENING",
-      "rs_score": 78.4
+      "rs_score": 78.6
     },
     {
       "date": "2026-10-26",
@@ -1094300,7 +1094990,7 @@
       "rs_composite_raw": 0.202415,
       "acceleration_pct": 0.58,
       "state": "LEADING",
-      "rs_score": 93.9
+      "rs_score": 94.5
     },
     {
       "date": "2026-10-26",
@@ -1094310,7 +1095000,7 @@
       "rs_composite_raw": -0.039339,
       "acceleration_pct": 6.42,
       "state": "RECOVERING",
-      "rs_score": 32.0
+      "rs_score": 34.9
     },
     {
       "date": "2026-10-26",
@@ -1094320,7 +1095010,7 @@
       "rs_composite_raw": -0.036816,
       "acceleration_pct": 2.27,
       "state": "RECOVERING",
-      "rs_score": 33.0
+      "rs_score": 35.9
     },
     {
       "date": "2026-10-26",
@@ -1094330,7 +1095020,7 @@
       "rs_composite_raw": -0.042676,
       "acceleration_pct": 4.99,
       "state": "RECOVERING",
-      "rs_score": 30.3
+      "rs_score": 33.2
     },
     {
       "date": "2026-10-26",
@@ -1094340,7 +1095030,7 @@
       "rs_composite_raw": 0.055177,
       "acceleration_pct": 3.45,
       "state": "LEADING",
-      "rs_score": 68.2
+      "rs_score": 68.8
     },
     {
       "date": "2026-10-26",
@@ -1094350,7 +1095040,7 @@
       "rs_composite_raw": 0.116684,
       "acceleration_pct": -1.17,
       "state": "WEAKENING",
-      "rs_score": 87.6
+      "rs_score": 86.9
     },
     {
       "date": "2026-10-26",
@@ -1094360,7 +1095050,7 @@
       "rs_composite_raw": 0.062727,
       "acceleration_pct": 4.31,
       "state": "LEADING",
-      "rs_score": 71.8
+      "rs_score": 71.9
     },
     {
       "date": "2026-10-26",
@@ -1094370,7 +1095060,7 @@
       "rs_composite_raw": 0.01256,
       "acceleration_pct": 8.22,
       "state": "LEADING",
-      "rs_score": 53.9
+      "rs_score": 54.7
     },
     {
       "date": "2026-10-26",
@@ -1094390,7 +1095080,7 @@
       "rs_composite_raw": -0.043173,
       "acceleration_pct": 5.51,
       "state": "RECOVERING",
-      "rs_score": 30.1
+      "rs_score": 32.8
     },
     {
       "date": "2026-10-26",
@@ -1094400,7 +1095090,7 @@
       "rs_composite_raw": 0.012902,
       "acceleration_pct": -2.18,
       "state": "WEAKENING",
-      "rs_score": 54.6
+      "rs_score": 55.5
     },
     {
       "date": "2026-10-26",
@@ -1094410,7 +1095100,7 @@
       "rs_composite_raw": 0.070174,
       "acceleration_pct": 1.75,
       "state": "LEADING",
-      "rs_score": 74.5
+      "rs_score": 74.8
     },
     {
       "date": "2026-10-26",
@@ -1094420,7 +1095110,7 @@
       "rs_composite_raw": -0.025693,
       "acceleration_pct": 1.68,
       "state": "RECOVERING",
-      "rs_score": 36.2
+      "rs_score": 39.1
     },
     {
       "date": "2026-10-26",
@@ -1094430,7 +1095120,7 @@
       "rs_composite_raw": 0.057847,
       "acceleration_pct": -1.12,
       "state": "WEAKENING",
-      "rs_score": 69.9
+      "rs_score": 70.1
     },
     {
       "date": "2026-10-26",
@@ -1094440,7 +1095130,7 @@
       "rs_composite_raw": 0.070601,
       "acceleration_pct": 2.06,
       "state": "LEADING",
-      "rs_score": 74.8
+      "rs_score": 75.0
     },
     {
       "date": "2026-10-26",
@@ -1094450,7 +1095140,7 @@
       "rs_composite_raw": 0.10418,
       "acceleration_pct": 1.49,
       "state": "LEADING",
-      "rs_score": 83.5
+      "rs_score": 83.2
     },
     {
       "date": "2026-10-26",
@@ -1094460,7 +1095150,7 @@
       "rs_composite_raw": 0.018893,
       "acceleration_pct": 0.39,
       "state": "LEADING",
-      "rs_score": 56.3
+      "rs_score": 56.9
     },
     {
       "date": "2026-10-26",
@@ -1094470,7 +1095160,7 @@
       "rs_composite_raw": -0.010959,
       "acceleration_pct": -5.22,
       "state": "LAGGING",
-      "rs_score": 42.7
+      "rs_score": 45.4
     },
     {
       "date": "2026-10-26",
@@ -1094480,7 +1095170,7 @@
       "rs_composite_raw": -0.008479,
       "acceleration_pct": 4.41,
       "state": "RECOVERING",
-      "rs_score": 44.7
+      "rs_score": 46.9
     },
     {
       "date": "2026-10-26",
@@ -1094490,7 +1095180,27 @@
       "rs_composite_raw": 0.042923,
       "acceleration_pct": 0.12,
       "state": "LEADING",
-      "rs_score": 65.3
+      "rs_score": 65.5
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "APA",
+      "sector_etf": "XLE",
+      "relative_strength20_pct": 22.07,
+      "rs_composite_raw": 0.255859,
+      "acceleration_pct": 3.96,
+      "state": "LEADING",
+      "rs_score": 96.7
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BKR",
+      "sector_etf": "XLE",
+      "relative_strength20_pct": -1.91,
+      "rs_composite_raw": -0.085369,
+      "acceleration_pct": -0.33,
+      "state": "LAGGING",
+      "rs_score": 21.5
     },
     {
       "date": "2026-10-26",
@@ -1094500,7 +1095210,17 @@
       "rs_composite_raw": 0.137912,
       "acceleration_pct": 2.53,
       "state": "LEADING",
-      "rs_score": 90.5
+      "rs_score": 90.0
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "COP",
+      "sector_etf": "XLE",
+      "relative_strength20_pct": 20.13,
+      "rs_composite_raw": 0.204189,
+      "acceleration_pct": 6.08,
+      "state": "LEADING",
+      "rs_score": 94.7
     },
     {
       "date": "2026-10-26",
@@ -1094510,7 +1095230,7 @@
       "rs_composite_raw": 0.079657,
       "acceleration_pct": 2.17,
       "state": "LEADING",
-      "rs_score": 77.7
+      "rs_score": 78.1
     },
     {
       "date": "2026-10-26",
@@ -1094520,7 +1095240,7 @@
       "rs_composite_raw": 0.047512,
       "acceleration_pct": 3.22,
       "state": "LEADING",
-      "rs_score": 66.5
+      "rs_score": 66.8
     },
     {
       "date": "2026-10-26",
@@ -1094530,7 +1095250,7 @@
       "rs_composite_raw": 0.12596,
       "acceleration_pct": 3.52,
       "state": "LEADING",
-      "rs_score": 89.1
+      "rs_score": 88.1
     },
     {
       "date": "2026-10-26",
@@ -1094550,7 +1095270,7 @@
       "rs_composite_raw": 0.020806,
       "acceleration_pct": 1.65,
       "state": "LEADING",
-      "rs_score": 57.0
+      "rs_score": 57.7
     },
     {
       "date": "2026-10-26",
@@ -1094560,7 +1095280,7 @@
       "rs_composite_raw": 0.143505,
       "acceleration_pct": 2.48,
       "state": "LEADING",
-      "rs_score": 91.0
+      "rs_score": 90.7
     },
     {
       "date": "2026-10-26",
@@ -1094570,7 +1095290,7 @@
       "rs_composite_raw": 0.027273,
       "acceleration_pct": 9.72,
       "state": "LEADING",
-      "rs_score": 60.4
+      "rs_score": 60.6
     },
     {
       "date": "2026-10-26",
@@ -1094580,7 +1095300,7 @@
       "rs_composite_raw": 0.061956,
       "acceleration_pct": 4.28,
       "state": "LEADING",
-      "rs_score": 71.6
+      "rs_score": 71.7
     },
     {
       "date": "2026-10-26",
@@ -1094590,7 +1095310,7 @@
       "rs_composite_raw": 0.393017,
       "acceleration_pct": -4.04,
       "state": "WEAKENING",
-      "rs_score": 99.8
+      "rs_score": 99.5
     },
     {
       "date": "2026-10-26",
@@ -1094600,7 +1095320,7 @@
       "rs_composite_raw": 0.105069,
       "acceleration_pct": 3.69,
       "state": "LEADING",
-      "rs_score": 83.7
+      "rs_score": 83.4
     },
     {
       "date": "2026-10-26",
@@ -1094610,7 +1095330,7 @@
       "rs_composite_raw": 0.057387,
       "acceleration_pct": 7.26,
       "state": "LEADING",
-      "rs_score": 69.7
+      "rs_score": 69.9
     },
     {
       "date": "2026-10-26",
@@ -1094620,7 +1095340,7 @@
       "rs_composite_raw": 0.280757,
       "acceleration_pct": -2.57,
       "state": "WEAKENING",
-      "rs_score": 97.3
+      "rs_score": 97.6
     },
     {
       "date": "2026-10-26",
@@ -1094630,7 +1095350,7 @@
       "rs_composite_raw": 0.007421,
       "acceleration_pct": 9.79,
       "state": "LEADING",
-      "rs_score": 50.7
+      "rs_score": 52.2
     },
     {
       "date": "2026-10-26",
@@ -1094640,7 +1095360,7 @@
       "rs_composite_raw": 0.1031,
       "acceleration_pct": 7.12,
       "state": "LEADING",
-      "rs_score": 83.0
+      "rs_score": 82.8
     },
     {
       "date": "2026-10-26",
@@ -1094650,7 +1095370,7 @@
       "rs_composite_raw": -0.122207,
       "acceleration_pct": 2.37,
       "state": "RECOVERING",
-      "rs_score": 12.9
+      "rs_score": 15.5
     },
     {
       "date": "2026-10-26",
@@ -1094660,7 +1095380,7 @@
       "rs_composite_raw": 0.274955,
       "acceleration_pct": -4.43,
       "state": "WEAKENING",
-      "rs_score": 97.1
+      "rs_score": 97.4
     },
     {
       "date": "2026-10-26",
@@ -1094670,7 +1095390,7 @@
       "rs_composite_raw": -0.009227,
       "acceleration_pct": 4.36,
       "state": "RECOVERING",
-      "rs_score": 43.7
+      "rs_score": 46.2
     },
     {
       "date": "2026-10-26",
@@ -1094684,13 +1095404,123 @@
     },
     {
       "date": "2026-10-26",
+      "ticker": "AOS",
+      "sector_etf": "XLI",
+      "relative_strength20_pct": 6.08,
+      "rs_composite_raw": 0.030702,
+      "acceleration_pct": 6.44,
+      "state": "LEADING",
+      "rs_score": 62.0
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "ALLE",
+      "sector_etf": "XLI",
+      "relative_strength20_pct": 14.73,
+      "rs_composite_raw": 0.163914,
+      "acceleration_pct": 14.29,
+      "state": "LEADING",
+      "rs_score": 92.3
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AME",
+      "sector_etf": "XLI",
+      "relative_strength20_pct": -3.49,
+      "rs_composite_raw": -0.027889,
+      "acceleration_pct": -4.07,
+      "state": "LAGGING",
+      "rs_score": 38.7
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "ADP",
+      "sector_etf": "XLI",
+      "relative_strength20_pct": 15.05,
+      "rs_composite_raw": 0.181378,
+      "acceleration_pct": 3.92,
+      "state": "LEADING",
+      "rs_score": 93.4
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AXON",
+      "sector_etf": "XLI",
+      "relative_strength20_pct": 0.04,
+      "rs_composite_raw": -0.054013,
+      "acceleration_pct": 12.7,
+      "state": "RECOVERING",
+      "rs_score": 29.9
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BE",
+      "sector_etf": "XLI",
+      "relative_strength20_pct": -22.39,
+      "rs_composite_raw": -0.195453,
+      "acceleration_pct": -15.48,
+      "state": "LAGGING",
+      "rs_score": 6.8
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BA",
+      "sector_etf": "XLI",
+      "relative_strength20_pct": 2.16,
+      "rs_composite_raw": -0.078853,
+      "acceleration_pct": 2.74,
+      "state": "RECOVERING",
+      "rs_score": 23.2
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BR",
+      "sector_etf": "XLI",
+      "relative_strength20_pct": 11.18,
+      "rs_composite_raw": 0.128004,
+      "acceleration_pct": 4.49,
+      "state": "LEADING",
+      "rs_score": 88.9
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CHRW",
+      "sector_etf": "XLI",
+      "relative_strength20_pct": -5.43,
+      "rs_composite_raw": -0.09367,
+      "acceleration_pct": 10.31,
+      "state": "RECOVERING",
+      "rs_score": 19.3
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CARR",
+      "sector_etf": "XLI",
+      "relative_strength20_pct": 1.05,
+      "rs_composite_raw": -0.063786,
+      "acceleration_pct": 3.43,
+      "state": "RECOVERING",
+      "rs_score": 26.6
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CAT",
+      "sector_etf": "XLI",
+      "relative_strength20_pct": -15.56,
+      "rs_composite_raw": -0.18879,
+      "acceleration_pct": -3.37,
+      "state": "LAGGING",
+      "rs_score": 7.5
+    },
+    {
+      "date": "2026-10-26",
       "ticker": "CTAS",
       "sector_etf": "XLI",
       "relative_strength20_pct": 12.67,
       "rs_composite_raw": 0.142693,
       "acceleration_pct": 7.26,
       "state": "LEADING",
-      "rs_score": 90.8
+      "rs_score": 90.3
     },
     {
       "date": "2026-10-26",
@@ -1094700,7 +1095530,17 @@
       "rs_composite_raw": -0.301279,
       "acceleration_pct": -15.13,
       "state": "LAGGING",
-      "rs_score": 1.5
+      "rs_score": 2.0
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CPRT",
+      "sector_etf": "XLI",
+      "relative_strength20_pct": 7.12,
+      "rs_composite_raw": -0.007076,
+      "acceleration_pct": 7.88,
+      "state": "RECOVERING",
+      "rs_score": 47.4
     },
     {
       "date": "2026-10-26",
@@ -1094710,7 +1095550,17 @@
       "rs_composite_raw": 0.063258,
       "acceleration_pct": 8.32,
       "state": "LEADING",
-      "rs_score": 72.1
+      "rs_score": 72.3
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CMI",
+      "sector_etf": "XLI",
+      "relative_strength20_pct": 0.86,
+      "rs_composite_raw": -0.112842,
+      "acceleration_pct": 2.28,
+      "state": "RECOVERING",
+      "rs_score": 16.8
     },
     {
       "date": "2026-10-26",
@@ -1094720,7 +1095570,7 @@
       "rs_composite_raw": -0.006426,
       "acceleration_pct": 3.59,
       "state": "RECOVERING",
-      "rs_score": 45.6
+      "rs_score": 47.8
     },
     {
       "date": "2026-10-26",
@@ -1094730,7 +1095580,7 @@
       "rs_composite_raw": -0.052663,
       "acceleration_pct": 3.18,
       "state": "RECOVERING",
-      "rs_score": 27.4
+      "rs_score": 30.7
     },
     {
       "date": "2026-10-26",
@@ -1094740,7 +1095590,7 @@
       "rs_composite_raw": -0.011754,
       "acceleration_pct": 2.12,
       "state": "RECOVERING",
-      "rs_score": 42.2
+      "rs_score": 45.1
     },
     {
       "date": "2026-10-26",
@@ -1094750,7 +1095600,7 @@
       "rs_composite_raw": -0.015758,
       "acceleration_pct": 3.6,
       "state": "RECOVERING",
-      "rs_score": 40.5
+      "rs_score": 43.6
     },
     {
       "date": "2026-10-26",
@@ -1094760,7 +1095610,7 @@
       "rs_composite_raw": -0.137879,
       "acceleration_pct": -4.56,
       "state": "LAGGING",
-      "rs_score": 10.7
+      "rs_score": 12.8
     },
     {
       "date": "2026-10-26",
@@ -1094770,7 +1095620,7 @@
       "rs_composite_raw": -0.190514,
       "acceleration_pct": -9.61,
       "state": "LAGGING",
-      "rs_score": 6.3
+      "rs_score": 7.3
     },
     {
       "date": "2026-10-26",
@@ -1094780,7 +1095630,7 @@
       "rs_composite_raw": 0.046035,
       "acceleration_pct": -1.85,
       "state": "WEAKENING",
-      "rs_score": 66.3
+      "rs_score": 66.6
     },
     {
       "date": "2026-10-26",
@@ -1094790,7 +1095640,7 @@
       "rs_composite_raw": 0.114095,
       "acceleration_pct": 17.59,
       "state": "LEADING",
-      "rs_score": 87.1
+      "rs_score": 86.5
     },
     {
       "date": "2026-10-26",
@@ -1094800,7 +1095650,7 @@
       "rs_composite_raw": 0.109744,
       "acceleration_pct": 1.58,
       "state": "LEADING",
-      "rs_score": 85.7
+      "rs_score": 84.9
     },
     {
       "date": "2026-10-26",
@@ -1094810,7 +1095660,7 @@
       "rs_composite_raw": 0.067559,
       "acceleration_pct": 2.19,
       "state": "LEADING",
-      "rs_score": 73.8
+      "rs_score": 73.9
     },
     {
       "date": "2026-10-26",
@@ -1094820,7 +1095670,7 @@
       "rs_composite_raw": -0.00083,
       "acceleration_pct": 5.79,
       "state": "RECOVERING",
-      "rs_score": 48.1
+      "rs_score": 49.6
     },
     {
       "date": "2026-10-26",
@@ -1094830,7 +1095680,7 @@
       "rs_composite_raw": -0.038403,
       "acceleration_pct": -0.97,
       "state": "LAGGING",
-      "rs_score": 32.5
+      "rs_score": 35.2
     },
     {
       "date": "2026-10-26",
@@ -1094840,7 +1095690,7 @@
       "rs_composite_raw": 0.034562,
       "acceleration_pct": 7.21,
       "state": "LEADING",
-      "rs_score": 62.9
+      "rs_score": 63.0
     },
     {
       "date": "2026-10-26",
@@ -1094850,7 +1095700,7 @@
       "rs_composite_raw": -0.124007,
       "acceleration_pct": -6.91,
       "state": "LAGGING",
-      "rs_score": 12.4
+      "rs_score": 15.0
     },
     {
       "date": "2026-10-26",
@@ -1094860,7 +1095710,7 @@
       "rs_composite_raw": -0.153324,
       "acceleration_pct": -4.67,
       "state": "LAGGING",
-      "rs_score": 10.0
+      "rs_score": 11.5
     },
     {
       "date": "2026-10-26",
@@ -1094870,7 +1095720,7 @@
       "rs_composite_raw": -0.126103,
       "acceleration_pct": -4.08,
       "state": "LAGGING",
-      "rs_score": 12.1
+      "rs_score": 14.8
     },
     {
       "date": "2026-10-26",
@@ -1094880,7 +1095730,7 @@
       "rs_composite_raw": -0.000596,
       "acceleration_pct": 5.65,
       "state": "RECOVERING",
-      "rs_score": 48.3
+      "rs_score": 49.8
     },
     {
       "date": "2026-10-26",
@@ -1094890,7 +1095740,7 @@
       "rs_composite_raw": -0.029678,
       "acceleration_pct": 3.68,
       "state": "RECOVERING",
-      "rs_score": 35.0
+      "rs_score": 37.6
     },
     {
       "date": "2026-10-26",
@@ -1094900,7 +1095750,17 @@
       "rs_composite_raw": -0.226326,
       "acceleration_pct": -9.94,
       "state": "LAGGING",
-      "rs_score": 4.1
+      "rs_score": 4.9
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "HUBB",
+      "sector_etf": "XLI",
+      "relative_strength20_pct": -1.33,
+      "rs_composite_raw": -0.052903,
+      "acceleration_pct": 0.34,
+      "state": "RECOVERING",
+      "rs_score": 30.5
     },
     {
       "date": "2026-10-26",
@@ -1094910,7 +1095770,7 @@
       "rs_composite_raw": -0.041387,
       "acceleration_pct": 6.19,
       "state": "RECOVERING",
-      "rs_score": 30.8
+      "rs_score": 33.8
     },
     {
       "date": "2026-10-26",
@@ -1094920,7 +1095780,7 @@
       "rs_composite_raw": -0.003922,
       "acceleration_pct": -4.93,
       "state": "LAGGING",
-      "rs_score": 47.6
+      "rs_score": 49.3
     },
     {
       "date": "2026-10-26",
@@ -1094930,7 +1095790,7 @@
       "rs_composite_raw": -0.008532,
       "acceleration_pct": 2.09,
       "state": "RECOVERING",
-      "rs_score": 44.4
+      "rs_score": 46.7
     },
     {
       "date": "2026-10-26",
@@ -1094940,7 +1095800,7 @@
       "rs_composite_raw": -0.066187,
       "acceleration_pct": -4.96,
       "state": "LAGGING",
-      "rs_score": 23.3
+      "rs_score": 26.5
     },
     {
       "date": "2026-10-26",
@@ -1094950,7 +1095810,7 @@
       "rs_composite_raw": -0.089678,
       "acceleration_pct": 4.97,
       "state": "RECOVERING",
-      "rs_score": 17.0
+      "rs_score": 19.7
     },
     {
       "date": "2026-10-26",
@@ -1094960,7 +1095820,7 @@
       "rs_composite_raw": 0.055645,
       "acceleration_pct": 6.93,
       "state": "LEADING",
-      "rs_score": 68.7
+      "rs_score": 69.2
     },
     {
       "date": "2026-10-26",
@@ -1094970,7 +1095830,7 @@
       "rs_composite_raw": -0.017952,
       "acceleration_pct": -2.59,
       "state": "LAGGING",
-      "rs_score": 39.1
+      "rs_score": 42.3
     },
     {
       "date": "2026-10-26",
@@ -1094980,7 +1095840,7 @@
       "rs_composite_raw": -0.017568,
       "acceleration_pct": 11.7,
       "state": "RECOVERING",
-      "rs_score": 39.3
+      "rs_score": 42.5
     },
     {
       "date": "2026-10-26",
@@ -1094990,7 +1095850,7 @@
       "rs_composite_raw": 0.119704,
       "acceleration_pct": 14.05,
       "state": "LEADING",
-      "rs_score": 88.6
+      "rs_score": 87.6
     },
     {
       "date": "2026-10-26",
@@ -1095000,7 +1095860,7 @@
       "rs_composite_raw": -0.118666,
       "acceleration_pct": 7.33,
       "state": "RECOVERING",
-      "rs_score": 13.3
+      "rs_score": 16.1
     },
     {
       "date": "2026-10-26",
@@ -1095030,7 +1095890,7 @@
       "rs_composite_raw": 0.019379,
       "acceleration_pct": -3.21,
       "state": "WEAKENING",
-      "rs_score": 56.6
+      "rs_score": 57.1
     },
     {
       "date": "2026-10-26",
@@ -1095040,7 +1095900,7 @@
       "rs_composite_raw": 0.026433,
       "acceleration_pct": 4.41,
       "state": "LEADING",
-      "rs_score": 59.0
+      "rs_score": 59.3
     },
     {
       "date": "2026-10-26",
@@ -1095050,7 +1095910,7 @@
       "rs_composite_raw": 0.055342,
       "acceleration_pct": 13.33,
       "state": "LEADING",
-      "rs_score": 68.4
+      "rs_score": 69.0
     },
     {
       "date": "2026-10-26",
@@ -1095060,7 +1095920,7 @@
       "rs_composite_raw": -0.058655,
       "acceleration_pct": 2.15,
       "state": "RECOVERING",
-      "rs_score": 25.0
+      "rs_score": 28.1
     },
     {
       "date": "2026-10-26",
@@ -1095070,7 +1095930,7 @@
       "rs_composite_raw": 0.061604,
       "acceleration_pct": 7.07,
       "state": "LEADING",
-      "rs_score": 71.4
+      "rs_score": 71.5
     },
     {
       "date": "2026-10-26",
@@ -1095080,7 +1095940,7 @@
       "rs_composite_raw": -0.131275,
       "acceleration_pct": -0.9,
       "state": "LAGGING",
-      "rs_score": 10.9
+      "rs_score": 13.1
     },
     {
       "date": "2026-10-26",
@@ -1095090,7 +1095950,7 @@
       "rs_composite_raw": -0.067162,
       "acceleration_pct": -4.37,
       "state": "LAGGING",
-      "rs_score": 22.8
+      "rs_score": 25.9
     },
     {
       "date": "2026-10-26",
@@ -1095100,7 +1095960,7 @@
       "rs_composite_raw": 0.110166,
       "acceleration_pct": 11.47,
       "state": "LEADING",
-      "rs_score": 85.9
+      "rs_score": 85.2
     },
     {
       "date": "2026-10-26",
@@ -1095110,7 +1095970,7 @@
       "rs_composite_raw": -0.103026,
       "acceleration_pct": 6.72,
       "state": "RECOVERING",
-      "rs_score": 14.8
+      "rs_score": 17.7
     },
     {
       "date": "2026-10-26",
@@ -1095120,7 +1095980,7 @@
       "rs_composite_raw": -0.18144,
       "acceleration_pct": -13.3,
       "state": "LAGGING",
-      "rs_score": 7.3
+      "rs_score": 8.4
     },
     {
       "date": "2026-10-26",
@@ -1095130,7 +1095990,7 @@
       "rs_composite_raw": 0.011205,
       "acceleration_pct": 4.94,
       "state": "LEADING",
-      "rs_score": 53.4
+      "rs_score": 54.4
     },
     {
       "date": "2026-10-26",
@@ -1095140,7 +1096000,7 @@
       "rs_composite_raw": 0.128484,
       "acceleration_pct": 7.84,
       "state": "LEADING",
-      "rs_score": 89.8
+      "rs_score": 89.1
     },
     {
       "date": "2026-10-26",
@@ -1095150,7 +1096010,7 @@
       "rs_composite_raw": -0.05438,
       "acceleration_pct": -1.89,
       "state": "LAGGING",
-      "rs_score": 26.2
+      "rs_score": 29.4
     },
     {
       "date": "2026-10-26",
@@ -1095160,7 +1096020,7 @@
       "rs_composite_raw": -0.053295,
       "acceleration_pct": 9.27,
       "state": "RECOVERING",
-      "rs_score": 27.2
+      "rs_score": 30.3
     },
     {
       "date": "2026-10-26",
@@ -1095170,7 +1096030,7 @@
       "rs_composite_raw": -0.083491,
       "acceleration_pct": -1.9,
       "state": "LAGGING",
-      "rs_score": 18.9
+      "rs_score": 22.3
     },
     {
       "date": "2026-10-26",
@@ -1095180,7 +1096040,7 @@
       "rs_composite_raw": -0.010291,
       "acceleration_pct": 8.49,
       "state": "RECOVERING",
-      "rs_score": 43.4
+      "rs_score": 46.0
     },
     {
       "date": "2026-10-26",
@@ -1095190,7 +1096050,7 @@
       "rs_composite_raw": 0.113018,
       "acceleration_pct": 8.83,
       "state": "LEADING",
-      "rs_score": 86.7
+      "rs_score": 86.1
     },
     {
       "date": "2026-10-26",
@@ -1095200,7 +1096060,7 @@
       "rs_composite_raw": -0.06859,
       "acceleration_pct": 6.15,
       "state": "RECOVERING",
-      "rs_score": 22.3
+      "rs_score": 25.5
     },
     {
       "date": "2026-10-26",
@@ -1095210,7 +1096070,7 @@
       "rs_composite_raw": -0.024758,
       "acceleration_pct": -2.28,
       "state": "LAGGING",
-      "rs_score": 36.7
+      "rs_score": 39.8
     },
     {
       "date": "2026-10-26",
@@ -1095220,7 +1096080,7 @@
       "rs_composite_raw": -0.049637,
       "acceleration_pct": -1.75,
       "state": "LAGGING",
-      "rs_score": 27.9
+      "rs_score": 31.0
     },
     {
       "date": "2026-10-26",
@@ -1095230,7 +1096090,7 @@
       "rs_composite_raw": -0.070329,
       "acceleration_pct": -4.92,
       "state": "LAGGING",
-      "rs_score": 22.1
+      "rs_score": 25.2
     },
     {
       "date": "2026-10-26",
@@ -1095240,7 +1096100,7 @@
       "rs_composite_raw": 0.052954,
       "acceleration_pct": 4.82,
       "state": "LEADING",
-      "rs_score": 67.2
+      "rs_score": 67.7
     },
     {
       "date": "2026-10-26",
@@ -1095250,7 +1096110,7 @@
       "rs_composite_raw": -0.103265,
       "acceleration_pct": 4.69,
       "state": "RECOVERING",
-      "rs_score": 14.6
+      "rs_score": 17.5
     },
     {
       "date": "2026-10-26",
@@ -1095260,7 +1096120,7 @@
       "rs_composite_raw": 0.00686,
       "acceleration_pct": 7.24,
       "state": "LEADING",
-      "rs_score": 50.5
+      "rs_score": 51.8
     },
     {
       "date": "2026-10-26",
@@ -1095270,7 +1096130,7 @@
       "rs_composite_raw": 0.070747,
       "acceleration_pct": 11.29,
       "state": "LEADING",
-      "rs_score": 75.0
+      "rs_score": 75.2
     },
     {
       "date": "2026-10-26",
@@ -1095280,7 +1096140,7 @@
       "rs_composite_raw": 0.082243,
       "acceleration_pct": 1.42,
       "state": "LEADING",
-      "rs_score": 78.9
+      "rs_score": 79.0
     },
     {
       "date": "2026-10-26",
@@ -1095300,7 +1096160,7 @@
       "rs_composite_raw": -0.244117,
       "acceleration_pct": 1.91,
       "state": "RECOVERING",
-      "rs_score": 2.9
+      "rs_score": 3.8
     },
     {
       "date": "2026-10-26",
@@ -1095310,7 +1096170,7 @@
       "rs_composite_raw": 0.055803,
       "acceleration_pct": 4.89,
       "state": "LEADING",
-      "rs_score": 68.9
+      "rs_score": 69.3
     },
     {
       "date": "2026-10-26",
@@ -1095320,7 +1096180,7 @@
       "rs_composite_raw": -0.046644,
       "acceleration_pct": -3.28,
       "state": "LAGGING",
-      "rs_score": 29.4
+      "rs_score": 32.1
     },
     {
       "date": "2026-10-26",
@@ -1095330,7 +1096190,7 @@
       "rs_composite_raw": 0.098937,
       "acceleration_pct": 9.05,
       "state": "LEADING",
-      "rs_score": 82.8
+      "rs_score": 82.5
     },
     {
       "date": "2026-10-26",
@@ -1095340,7 +1096200,17 @@
       "rs_composite_raw": -0.018779,
       "acceleration_pct": 8.56,
       "state": "RECOVERING",
-      "rs_score": 38.8
+      "rs_score": 42.0
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AES",
+      "sector_etf": "XLU",
+      "relative_strength20_pct": 1.11,
+      "rs_composite_raw": 0.003015,
+      "acceleration_pct": 1.16,
+      "state": "LEADING",
+      "rs_score": 50.5
     },
     {
       "date": "2026-10-26",
@@ -1095350,7 +1096220,67 @@
       "rs_composite_raw": 0.015854,
       "acceleration_pct": 7.13,
       "state": "LEADING",
-      "rs_score": 55.1
+      "rs_score": 56.0
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AEE",
+      "sector_etf": "XLU",
+      "relative_strength20_pct": 8.77,
+      "rs_composite_raw": 0.014448,
+      "acceleration_pct": 6.61,
+      "state": "LEADING",
+      "rs_score": 55.8
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AEP",
+      "sector_etf": "XLU",
+      "relative_strength20_pct": 9.35,
+      "rs_composite_raw": 0.019714,
+      "acceleration_pct": 6.22,
+      "state": "LEADING",
+      "rs_score": 57.3
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AWK",
+      "sector_etf": "XLU",
+      "relative_strength20_pct": 9.94,
+      "rs_composite_raw": 0.072487,
+      "acceleration_pct": 9.71,
+      "state": "LEADING",
+      "rs_score": 76.1
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "ATO",
+      "sector_etf": "XLU",
+      "relative_strength20_pct": 9.1,
+      "rs_composite_raw": 0.006998,
+      "acceleration_pct": 5.68,
+      "state": "LEADING",
+      "rs_score": 52.0
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CNP",
+      "sector_etf": "XLU",
+      "relative_strength20_pct": 12.54,
+      "rs_composite_raw": 0.027131,
+      "acceleration_pct": 7.87,
+      "state": "LEADING",
+      "rs_score": 60.4
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CMS",
+      "sector_etf": "XLU",
+      "relative_strength20_pct": 11.2,
+      "rs_composite_raw": 0.012872,
+      "acceleration_pct": 6.62,
+      "state": "LEADING",
+      "rs_score": 55.3
     },
     {
       "date": "2026-10-26",
@@ -1095360,7 +1096290,17 @@
       "rs_composite_raw": 0.07211,
       "acceleration_pct": 7.48,
       "state": "LEADING",
-      "rs_score": 76.0
+      "rs_score": 75.9
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CEG",
+      "sector_etf": "XLU",
+      "relative_strength20_pct": -3.02,
+      "rs_composite_raw": -0.0881,
+      "acceleration_pct": -2.81,
+      "state": "LAGGING",
+      "rs_score": 20.6
     },
     {
       "date": "2026-10-26",
@@ -1095370,7 +1096310,7 @@
       "rs_composite_raw": 0.010324,
       "acceleration_pct": 7.69,
       "state": "LEADING",
-      "rs_score": 52.4
+      "rs_score": 53.6
     },
     {
       "date": "2026-10-26",
@@ -1095380,7 +1096320,7 @@
       "rs_composite_raw": -0.011369,
       "acceleration_pct": 8.19,
       "state": "RECOVERING",
-      "rs_score": 42.5
+      "rs_score": 45.3
     },
     {
       "date": "2026-10-26",
@@ -1095390,7 +1096330,7 @@
       "rs_composite_raw": 0.022635,
       "acceleration_pct": 7.31,
       "state": "LEADING",
-      "rs_score": 57.8
+      "rs_score": 58.2
     },
     {
       "date": "2026-10-26",
@@ -1095400,7 +1096340,7 @@
       "rs_composite_raw": -0.053357,
       "acceleration_pct": 8.87,
       "state": "RECOVERING",
-      "rs_score": 26.9
+      "rs_score": 30.1
     },
     {
       "date": "2026-10-26",
@@ -1095410,7 +1096350,7 @@
       "rs_composite_raw": 0.012069,
       "acceleration_pct": 7.12,
       "state": "LEADING",
-      "rs_score": 53.6
+      "rs_score": 54.6
     },
     {
       "date": "2026-10-26",
@@ -1095420,7 +1096360,7 @@
       "rs_composite_raw": 0.037429,
       "acceleration_pct": 6.36,
       "state": "LEADING",
-      "rs_score": 63.8
+      "rs_score": 63.7
     },
     {
       "date": "2026-10-26",
@@ -1095430,7 +1096370,7 @@
       "rs_composite_raw": -0.005813,
       "acceleration_pct": 8.8,
       "state": "RECOVERING",
-      "rs_score": 46.1
+      "rs_score": 48.2
     },
     {
       "date": "2026-10-26",
@@ -1095440,7 +1096380,7 @@
       "rs_composite_raw": 0.018144,
       "acceleration_pct": 8.71,
       "state": "LEADING",
-      "rs_score": 55.8
+      "rs_score": 56.6
     },
     {
       "date": "2026-10-26",
@@ -1095450,7 +1096390,7 @@
       "rs_composite_raw": 0.006104,
       "acceleration_pct": 7.06,
       "state": "LEADING",
-      "rs_score": 50.0
+      "rs_score": 51.5
     },
     {
       "date": "2026-10-26",
@@ -1095460,7 +1096400,7 @@
       "rs_composite_raw": -0.021744,
       "acceleration_pct": 8.63,
       "state": "RECOVERING",
-      "rs_score": 37.4
+      "rs_score": 40.5
     },
     {
       "date": "2026-10-26",
@@ -1095470,7 +1096410,7 @@
       "rs_composite_raw": 0.010397,
       "acceleration_pct": 7.22,
       "state": "LEADING",
-      "rs_score": 52.9
+      "rs_score": 54.0
     },
     {
       "date": "2026-10-26",
@@ -1095480,7 +1096420,7 @@
       "rs_composite_raw": -0.208133,
       "acceleration_pct": -0.7,
       "state": "LAGGING",
-      "rs_score": 5.1
+      "rs_score": 5.8
     },
     {
       "date": "2026-10-26",
@@ -1095490,7 +1096430,7 @@
       "rs_composite_raw": -0.101861,
       "acceleration_pct": 3.07,
       "state": "RECOVERING",
-      "rs_score": 15.0
+      "rs_score": 17.9
     },
     {
       "date": "2026-10-26",
@@ -1095500,7 +1096440,7 @@
       "rs_composite_raw": 0.078958,
       "acceleration_pct": 7.65,
       "state": "LEADING",
-      "rs_score": 77.4
+      "rs_score": 77.9
     },
     {
       "date": "2026-10-26",
@@ -1095510,7 +1096450,7 @@
       "rs_composite_raw": 0.009569,
       "acceleration_pct": 5.24,
       "state": "LEADING",
-      "rs_score": 51.7
+      "rs_score": 52.9
     },
     {
       "date": "2026-10-26",
@@ -1095520,7 +1096460,7 @@
       "rs_composite_raw": -0.015386,
       "acceleration_pct": 6.07,
       "state": "RECOVERING",
-      "rs_score": 40.8
+      "rs_score": 43.8
     },
     {
       "date": "2026-10-26",
@@ -1095530,7 +1096470,7 @@
       "rs_composite_raw": -0.006979,
       "acceleration_pct": 7.2,
       "state": "RECOVERING",
-      "rs_score": 45.4
+      "rs_score": 47.6
     },
     {
       "date": "2026-10-26",
@@ -1095540,7 +1096480,7 @@
       "rs_composite_raw": 0.030152,
       "acceleration_pct": 6.54,
       "state": "LEADING",
-      "rs_score": 61.9
+      "rs_score": 61.7
     },
     {
       "date": "2026-10-26",
@@ -1095550,7 +1096490,7 @@
       "rs_composite_raw": -0.041599,
       "acceleration_pct": -1.19,
       "state": "LAGGING",
-      "rs_score": 30.6
+      "rs_score": 33.6
     },
     {
       "date": "2026-10-26",
@@ -1095560,7 +1096500,7 @@
       "rs_composite_raw": 0.026499,
       "acceleration_pct": 6.94,
       "state": "LEADING",
-      "rs_score": 59.2
+      "rs_score": 59.5
     },
     {
       "date": "2026-10-26",
@@ -1095580,7 +1096520,7 @@
       "rs_composite_raw": -0.126572,
       "acceleration_pct": -10.91,
       "state": "LAGGING",
-      "rs_score": 11.9
+      "rs_score": 14.6
     },
     {
       "date": "2026-10-26",
@@ -1095590,7 +1096530,17 @@
       "rs_composite_raw": -0.127705,
       "acceleration_pct": -10.6,
       "state": "LAGGING",
-      "rs_score": 11.7
+      "rs_score": 14.4
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "APP",
+      "sector_etf": "XLC",
+      "relative_strength20_pct": -15.38,
+      "rs_composite_raw": -0.289103,
+      "acceleration_pct": -0.04,
+      "state": "LAGGING",
+      "rs_score": 2.4
     },
     {
       "date": "2026-10-26",
@@ -1095600,7 +1096550,27 @@
       "rs_composite_raw": -0.169993,
       "acceleration_pct": -7.02,
       "state": "LAGGING",
-      "rs_score": 8.0
+      "rs_score": 9.7
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CHTR",
+      "sector_etf": "XLC",
+      "relative_strength20_pct": -8.25,
+      "rs_composite_raw": -0.219496,
+      "acceleration_pct": -2.67,
+      "state": "LAGGING",
+      "rs_score": 5.5
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CMCSA",
+      "sector_etf": "XLC",
+      "relative_strength20_pct": 1.22,
+      "rs_composite_raw": -0.069986,
+      "acceleration_pct": 2.14,
+      "state": "RECOVERING",
+      "rs_score": 25.4
     },
     {
       "date": "2026-10-26",
@@ -1095610,7 +1096580,7 @@
       "rs_composite_raw": -0.047896,
       "acceleration_pct": 8.85,
       "state": "RECOVERING",
-      "rs_score": 28.6
+      "rs_score": 31.6
     },
     {
       "date": "2026-10-26",
@@ -1095620,7 +1096590,7 @@
       "rs_composite_raw": 0.045837,
       "acceleration_pct": 0.34,
       "state": "IMPROVING",
-      "rs_score": 66.0
+      "rs_score": 66.2
     },
     {
       "date": "2026-10-26",
@@ -1095630,7 +1096600,7 @@
       "rs_composite_raw": 0.039324,
       "acceleration_pct": -0.27,
       "state": "WEAKENING",
-      "rs_score": 64.3
+      "rs_score": 64.2
     },
     {
       "date": "2026-10-26",
@@ -1095640,7 +1096610,7 @@
       "rs_composite_raw": 0.000117,
       "acceleration_pct": 0.75,
       "state": "IMPROVING",
-      "rs_score": 48.8
+      "rs_score": 50.4
     },
     {
       "date": "2026-10-26",
@@ -1095650,7 +1096620,7 @@
       "rs_composite_raw": -0.029875,
       "acceleration_pct": -4.94,
       "state": "LAGGING",
-      "rs_score": 34.7
+      "rs_score": 37.4
     },
     {
       "date": "2026-10-26",
@@ -1095660,7 +1096630,7 @@
       "rs_composite_raw": -0.144463,
       "acceleration_pct": -4.89,
       "state": "LAGGING",
-      "rs_score": 10.2
+      "rs_score": 11.9
     },
     {
       "date": "2026-10-26",
@@ -1095670,7 +1096640,7 @@
       "rs_composite_raw": 0.080368,
       "acceleration_pct": 2.95,
       "state": "LEADING",
-      "rs_score": 77.9
+      "rs_score": 78.3
     },
     {
       "date": "2026-10-26",
@@ -1095680,7 +1096650,7 @@
       "rs_composite_raw": 0.04932,
       "acceleration_pct": 2.55,
       "state": "LEADING",
-      "rs_score": 67.0
+      "rs_score": 67.2
     },
     {
       "date": "2026-10-26",
@@ -1095690,7 +1096660,7 @@
       "rs_composite_raw": 0.022737,
       "acceleration_pct": 1.35,
       "state": "IMPROVING",
-      "rs_score": 58.0
+      "rs_score": 58.4
     },
     {
       "date": "2026-10-26",
@@ -1095700,7 +1096670,7 @@
       "rs_composite_raw": -0.078283,
       "acceleration_pct": -3.05,
       "state": "LAGGING",
-      "rs_score": 19.9
+      "rs_score": 23.4
     },
     {
       "date": "2026-10-26",
@@ -1095710,7 +1096680,7 @@
       "rs_composite_raw": -0.231592,
       "acceleration_pct": 6.96,
       "state": "RECOVERING",
-      "rs_score": 3.2
+      "rs_score": 4.2
     },
     {
       "date": "2026-10-26",
@@ -1095720,7 +1096690,7 @@
       "rs_composite_raw": -0.170888,
       "acceleration_pct": -4.83,
       "state": "LAGGING",
-      "rs_score": 7.8
+      "rs_score": 9.3
     },
     {
       "date": "2026-10-26",
@@ -1095730,7 +1096700,7 @@
       "rs_composite_raw": -0.082814,
       "acceleration_pct": -0.66,
       "state": "LAGGING",
-      "rs_score": 19.2
+      "rs_score": 22.6
     },
     {
       "date": "2026-10-26",
@@ -1095740,7 +1096710,7 @@
       "rs_composite_raw": -0.081469,
       "acceleration_pct": 0.65,
       "state": "RECOVERING",
-      "rs_score": 19.4
+      "rs_score": 22.8
     },
     {
       "date": "2026-10-26",
@@ -1095750,7 +1096720,7 @@
       "rs_composite_raw": -0.09874,
       "acceleration_pct": -1.22,
       "state": "LAGGING",
-      "rs_score": 16.0
+      "rs_score": 18.6
     },
     {
       "date": "2026-10-26",
@@ -1095760,7 +1096730,77 @@
       "rs_composite_raw": 0.068137,
       "acceleration_pct": 0.18,
       "state": "LEADING",
-      "rs_score": 74.0
+      "rs_score": 74.1
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "APD",
+      "sector_etf": "XLB",
+      "relative_strength20_pct": 9.71,
+      "rs_composite_raw": 0.041868,
+      "acceleration_pct": 3.19,
+      "state": "LEADING",
+      "rs_score": 65.3
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "ALB",
+      "sector_etf": "XLB",
+      "relative_strength20_pct": -12.98,
+      "rs_composite_raw": -0.249608,
+      "acceleration_pct": 0.49,
+      "state": "RECOVERING",
+      "rs_score": 3.6
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AMCR",
+      "sector_etf": "XLB",
+      "relative_strength20_pct": 7.98,
+      "rs_composite_raw": 0.075212,
+      "acceleration_pct": 5.18,
+      "state": "LEADING",
+      "rs_score": 76.6
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AVY",
+      "sector_etf": "XLB",
+      "relative_strength20_pct": 6.74,
+      "rs_composite_raw": 0.065578,
+      "acceleration_pct": 3.1,
+      "state": "LEADING",
+      "rs_score": 73.2
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BALL",
+      "sector_etf": "XLB",
+      "relative_strength20_pct": 12.84,
+      "rs_composite_raw": 0.068985,
+      "acceleration_pct": 4.86,
+      "state": "LEADING",
+      "rs_score": 74.6
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CF",
+      "sector_etf": "XLB",
+      "relative_strength20_pct": 4.65,
+      "rs_composite_raw": -0.017303,
+      "acceleration_pct": 4.6,
+      "state": "RECOVERING",
+      "rs_score": 42.9
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CRH",
+      "sector_etf": "XLB",
+      "relative_strength20_pct": 2.04,
+      "rs_composite_raw": -0.087048,
+      "acceleration_pct": 6.25,
+      "state": "RECOVERING",
+      "rs_score": 21.0
     },
     {
       "date": "2026-10-26",
@@ -1095770,7 +1096810,7 @@
       "rs_composite_raw": 0.093918,
       "acceleration_pct": 12.33,
       "state": "LEADING",
-      "rs_score": 82.0
+      "rs_score": 81.8
     },
     {
       "date": "2026-10-26",
@@ -1095780,7 +1096820,7 @@
       "rs_composite_raw": 0.033165,
       "acceleration_pct": -0.78,
       "state": "WEAKENING",
-      "rs_score": 62.6
+      "rs_score": 62.8
     },
     {
       "date": "2026-10-26",
@@ -1095790,7 +1096830,7 @@
       "rs_composite_raw": -0.027897,
       "acceleration_pct": -6.31,
       "state": "LAGGING",
-      "rs_score": 35.7
+      "rs_score": 38.5
     },
     {
       "date": "2026-10-26",
@@ -1095800,7 +1096840,7 @@
       "rs_composite_raw": 0.147355,
       "acceleration_pct": 0.9,
       "state": "LEADING",
-      "rs_score": 91.5
+      "rs_score": 91.2
     },
     {
       "date": "2026-10-26",
@@ -1095810,7 +1096850,7 @@
       "rs_composite_raw": -0.072452,
       "acceleration_pct": 3.34,
       "state": "RECOVERING",
-      "rs_score": 21.4
+      "rs_score": 24.6
     },
     {
       "date": "2026-10-26",
@@ -1095820,7 +1096860,7 @@
       "rs_composite_raw": 0.040126,
       "acceleration_pct": 1.98,
       "state": "LEADING",
-      "rs_score": 64.6
+      "rs_score": 64.4
     },
     {
       "date": "2026-10-26",
@@ -1095830,7 +1096870,7 @@
       "rs_composite_raw": 0.057902,
       "acceleration_pct": 5.6,
       "state": "LEADING",
-      "rs_score": 70.1
+      "rs_score": 70.3
     },
     {
       "date": "2026-10-26",
@@ -1095840,7 +1096880,7 @@
       "rs_composite_raw": -0.051146,
       "acceleration_pct": 3.66,
       "state": "RECOVERING",
-      "rs_score": 27.7
+      "rs_score": 30.8
     },
     {
       "date": "2026-10-26",
@@ -1095850,7 +1096890,7 @@
       "rs_composite_raw": -0.228258,
       "acceleration_pct": 2.59,
       "state": "RECOVERING",
-      "rs_score": 3.6
+      "rs_score": 4.6
     },
     {
       "date": "2026-10-26",
@@ -1095860,7 +1096900,7 @@
       "rs_composite_raw": 0.012841,
       "acceleration_pct": -3.93,
       "state": "WEAKENING",
-      "rs_score": 54.4
+      "rs_score": 55.1
     },
     {
       "date": "2026-10-26",
@@ -1095870,7 +1096910,7 @@
       "rs_composite_raw": 0.029452,
       "acceleration_pct": -3.39,
       "state": "WEAKENING",
-      "rs_score": 61.4
+      "rs_score": 61.3
     },
     {
       "date": "2026-10-26",
@@ -1095880,7 +1096920,7 @@
       "rs_composite_raw": 0.05978,
       "acceleration_pct": 9.47,
       "state": "LEADING",
-      "rs_score": 70.6
+      "rs_score": 70.8
     },
     {
       "date": "2026-10-26",
@@ -1095890,7 +1096930,7 @@
       "rs_composite_raw": -0.000324,
       "acceleration_pct": 3.13,
       "state": "RECOVERING",
-      "rs_score": 48.5
+      "rs_score": 50.0
     },
     {
       "date": "2026-10-26",
@@ -1095900,7 +1096940,7 @@
       "rs_composite_raw": -0.005621,
       "acceleration_pct": -1.75,
       "state": "LAGGING",
-      "rs_score": 46.4
+      "rs_score": 48.4
     },
     {
       "date": "2026-10-26",
@@ -1095910,7 +1096950,7 @@
       "rs_composite_raw": -0.060622,
       "acceleration_pct": 5.81,
       "state": "RECOVERING",
-      "rs_score": 24.0
+      "rs_score": 27.2
     },
     {
       "date": "2026-10-26",
@@ -1095920,7 +1096960,7 @@
       "rs_composite_raw": -0.019459,
       "acceleration_pct": -4.41,
       "state": "LAGGING",
-      "rs_score": 38.3
+      "rs_score": 41.6
     },
     {
       "date": "2026-10-26",
@@ -1095930,7 +1096970,57 @@
       "rs_composite_raw": -0.016087,
       "acceleration_pct": 3.03,
       "state": "RECOVERING",
-      "rs_score": 40.3
+      "rs_score": 43.4
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "ARE",
+      "sector_etf": "XLRE",
+      "relative_strength20_pct": -10.78,
+      "rs_composite_raw": -0.121518,
+      "acceleration_pct": 7.93,
+      "state": "RECOVERING",
+      "rs_score": 15.7
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AMT",
+      "sector_etf": "XLRE",
+      "relative_strength20_pct": 12.1,
+      "rs_composite_raw": 0.078881,
+      "acceleration_pct": 4.21,
+      "state": "LEADING",
+      "rs_score": 77.7
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BXP",
+      "sector_etf": "XLRE",
+      "relative_strength20_pct": -0.24,
+      "rs_composite_raw": -0.040948,
+      "acceleration_pct": 8.2,
+      "state": "RECOVERING",
+      "rs_score": 33.9
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CPT",
+      "sector_etf": "XLRE",
+      "relative_strength20_pct": 3.69,
+      "rs_composite_raw": -0.029476,
+      "acceleration_pct": 5.46,
+      "state": "RECOVERING",
+      "rs_score": 37.8
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CBRE",
+      "sector_etf": "XLRE",
+      "relative_strength20_pct": -5.7,
+      "rs_composite_raw": -0.123879,
+      "acceleration_pct": -1.77,
+      "state": "LAGGING",
+      "rs_score": 15.1
     },
     {
       "date": "2026-10-26",
@@ -1095940,7 +1097030,17 @@
       "rs_composite_raw": 0.149561,
       "acceleration_pct": 10.2,
       "state": "LEADING",
-      "rs_score": 91.7
+      "rs_score": 91.4
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CCI",
+      "sector_etf": "XLRE",
+      "relative_strength20_pct": 30.39,
+      "rs_composite_raw": 0.173345,
+      "acceleration_pct": 12.9,
+      "state": "LEADING",
+      "rs_score": 93.1
     },
     {
       "date": "2026-10-26",
@@ -1095950,7 +1097050,7 @@
       "rs_composite_raw": -0.070978,
       "acceleration_pct": 4.83,
       "state": "RECOVERING",
-      "rs_score": 21.8
+      "rs_score": 25.0
     },
     {
       "date": "2026-10-26",
@@ -1095960,7 +1097060,7 @@
       "rs_composite_raw": -0.075922,
       "acceleration_pct": 3.34,
       "state": "RECOVERING",
-      "rs_score": 20.6
+      "rs_score": 23.9
     },
     {
       "date": "2026-10-26",
@@ -1095970,7 +1097070,7 @@
       "rs_composite_raw": -0.017386,
       "acceleration_pct": 4.17,
       "state": "RECOVERING",
-      "rs_score": 39.6
+      "rs_score": 42.7
     },
     {
       "date": "2026-10-26",
@@ -1095980,7 +1097080,7 @@
       "rs_composite_raw": 0.021342,
       "acceleration_pct": 6.42,
       "state": "LEADING",
-      "rs_score": 57.3
+      "rs_score": 57.8
     },
     {
       "date": "2026-10-26",
@@ -1095990,7 +1097090,7 @@
       "rs_composite_raw": -0.067873,
       "acceleration_pct": 4.49,
       "state": "RECOVERING",
-      "rs_score": 22.6
+      "rs_score": 25.7
     },
     {
       "date": "2026-10-26",
@@ -1096000,7 +1097100,7 @@
       "rs_composite_raw": -0.036531,
       "acceleration_pct": 6.43,
       "state": "RECOVERING",
-      "rs_score": 33.3
+      "rs_score": 36.1
     },
     {
       "date": "2026-10-26",
@@ -1096020,7 +1097120,7 @@
       "rs_composite_raw": -0.030337,
       "acceleration_pct": 3.96,
       "state": "RECOVERING",
-      "rs_score": 34.5
+      "rs_score": 37.2
     },
     {
       "date": "2026-10-26",
@@ -1096030,7 +1097130,7 @@
       "rs_composite_raw": -0.060502,
       "acceleration_pct": 2.55,
       "state": "RECOVERING",
-      "rs_score": 24.3
+      "rs_score": 27.4
     },
     {
       "date": "2026-10-26",
@@ -1096040,7 +1097140,7 @@
       "rs_composite_raw": -0.013526,
       "acceleration_pct": 5.37,
       "state": "RECOVERING",
-      "rs_score": 41.3
+      "rs_score": 44.2
     },
     {
       "date": "2026-10-26",
@@ -1096050,7 +1097150,7 @@
       "rs_composite_raw": -0.058647,
       "acceleration_pct": 3.91,
       "state": "RECOVERING",
-      "rs_score": 25.2
+      "rs_score": 28.3
     },
     {
       "date": "2026-10-26",
@@ -1096060,7 +1097160,7 @@
       "rs_composite_raw": -0.099715,
       "acceleration_pct": 3.8,
       "state": "RECOVERING",
-      "rs_score": 15.3
+      "rs_score": 18.1
     },
     {
       "date": "2026-10-26",
@@ -1096070,7 +1097170,7 @@
       "rs_composite_raw": 0.009774,
       "acceleration_pct": 5.94,
       "state": "LEADING",
-      "rs_score": 51.9
+      "rs_score": 53.3
     },
     {
       "date": "2026-10-26",
@@ -1096080,7 +1097180,7 @@
       "rs_composite_raw": -0.054037,
       "acceleration_pct": 4.95,
       "state": "RECOVERING",
-      "rs_score": 26.7
+      "rs_score": 29.7
     },
     {
       "date": "2026-10-26",
@@ -1096090,7 +1097190,7 @@
       "rs_composite_raw": -0.054354,
       "acceleration_pct": 2.64,
       "state": "RECOVERING",
-      "rs_score": 26.5
+      "rs_score": 29.6
     },
     {
       "date": "2026-10-26",
@@ -1096100,7 +1097200,7 @@
       "rs_composite_raw": 0.029347,
       "acceleration_pct": 4.73,
       "state": "LEADING",
-      "rs_score": 61.2
+      "rs_score": 61.1
     },
     {
       "date": "2026-10-26",
@@ -1096110,7 +1097210,7 @@
       "rs_composite_raw": -0.01031,
       "acceleration_pct": 5.37,
       "state": "RECOVERING",
-      "rs_score": 43.2
+      "rs_score": 45.8
     },
     {
       "date": "2026-10-26",
@@ -1096120,7 +1097220,7 @@
       "rs_composite_raw": -0.017119,
       "acceleration_pct": 6.23,
       "state": "RECOVERING",
-      "rs_score": 39.8
+      "rs_score": 43.1
     },
     {
       "date": "2026-10-26",
@@ -1096130,7 +1097230,7 @@
       "rs_composite_raw": -0.034584,
       "acceleration_pct": 5.67,
       "state": "RECOVERING",
-      "rs_score": 33.7
+      "rs_score": 36.5
     },
     {
       "date": "2026-10-26",
@@ -1096140,7 +1097240,7 @@
       "rs_composite_raw": -0.057403,
       "acceleration_pct": 6.39,
       "state": "RECOVERING",
-      "rs_score": 25.5
+      "rs_score": 28.5
     },
     {
       "date": "2026-10-26",
@@ -1096150,7 +1097250,7 @@
       "rs_composite_raw": -0.03426,
       "acceleration_pct": 3.6,
       "state": "RECOVERING",
-      "rs_score": 34.2
+      "rs_score": 36.9
     },
     {
       "date": "2026-10-26",
@@ -1096160,7 +1097260,7 @@
       "rs_composite_raw": 0.030165,
       "acceleration_pct": 5.47,
       "state": "LEADING",
-      "rs_score": 62.1
+      "rs_score": 61.9
     },
     {
       "date": "2026-10-26",
@@ -1096170,7 +1097270,7 @@
       "rs_composite_raw": -0.122343,
       "acceleration_pct": 4.75,
       "state": "RECOVERING",
-      "rs_score": 12.6
+      "rs_score": 15.3
     },
     {
       "date": "2026-10-26",
@@ -1096180,7 +1097280,27 @@
       "rs_composite_raw": -0.004163,
       "acceleration_pct": 2.2,
       "state": "RECOVERING",
-      "rs_score": 47.3
+      "rs_score": 49.1
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AVGO",
+      "sector_etf": "SMH",
+      "relative_strength20_pct": -5.8,
+      "rs_composite_raw": -0.140158,
+      "acceleration_pct": -0.96,
+      "state": "LAGGING",
+      "rs_score": 12.4
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AMD",
+      "sector_etf": "SMH",
+      "relative_strength20_pct": -12.57,
+      "rs_composite_raw": 0.052126,
+      "acceleration_pct": -0.51,
+      "state": "WEAKENING",
+      "rs_score": 67.5
     },
     {
       "date": "2026-10-26",
@@ -1096190,7 +1097310,7 @@
       "rs_composite_raw": 0.021727,
       "acceleration_pct": -4.33,
       "state": "WEAKENING",
-      "rs_score": 57.5
+      "rs_score": 58.0
     },
     {
       "date": "2026-10-26",
@@ -1096200,7 +1097320,17 @@
       "rs_composite_raw": 0.017846,
       "acceleration_pct": 5.0,
       "state": "LEADING",
-      "rs_score": 55.6
+      "rs_score": 56.4
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AMAT",
+      "sector_etf": "SMH",
+      "relative_strength20_pct": -20.34,
+      "rs_composite_raw": -0.20284,
+      "acceleration_pct": -7.36,
+      "state": "LAGGING",
+      "rs_score": 6.2
     },
     {
       "date": "2026-10-26",
@@ -1096210,7 +1097340,7 @@
       "rs_composite_raw": -0.225701,
       "acceleration_pct": -13.81,
       "state": "LAGGING",
-      "rs_score": 4.4
+      "rs_score": 5.1
     },
     {
       "date": "2026-10-26",
@@ -1096220,7 +1097350,17 @@
       "rs_composite_raw": -0.207267,
       "acceleration_pct": -5.86,
       "state": "LAGGING",
-      "rs_score": 5.3
+      "rs_score": 6.0
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "ADI",
+      "sector_etf": "SMH",
+      "relative_strength20_pct": 3.19,
+      "rs_composite_raw": 0.031749,
+      "acceleration_pct": 1.5,
+      "state": "LEADING",
+      "rs_score": 62.2
     },
     {
       "date": "2026-10-26",
@@ -1096230,7 +1097370,7 @@
       "rs_composite_raw": -0.160645,
       "acceleration_pct": -3.33,
       "state": "LAGGING",
-      "rs_score": 8.7
+      "rs_score": 10.4
     },
     {
       "date": "2026-10-26",
@@ -1096240,7 +1097380,17 @@
       "rs_composite_raw": -0.020056,
       "acceleration_pct": 0.33,
       "state": "RECOVERING",
-      "rs_score": 38.1
+      "rs_score": 41.2
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "ASML",
+      "sector_etf": "SMH",
+      "relative_strength20_pct": -10.16,
+      "rs_composite_raw": -0.05616,
+      "acceleration_pct": -3.45,
+      "state": "LAGGING",
+      "rs_score": 28.8
     },
     {
       "date": "2026-10-26",
@@ -1096250,7 +1097400,7 @@
       "rs_composite_raw": 0.05342,
       "acceleration_pct": 6.1,
       "state": "LEADING",
-      "rs_score": 67.5
+      "rs_score": 68.1
     },
     {
       "date": "2026-10-26",
@@ -1096260,7 +1097410,7 @@
       "rs_composite_raw": 0.096331,
       "acceleration_pct": -1.79,
       "state": "WEAKENING",
-      "rs_score": 82.3
+      "rs_score": 82.1
     },
     {
       "date": "2026-10-26",
@@ -1096270,7 +1097420,17 @@
       "rs_composite_raw": 0.056684,
       "acceleration_pct": -3.99,
       "state": "WEAKENING",
-      "rs_score": 69.4
+      "rs_score": 69.7
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CDNS",
+      "sector_etf": "SMH",
+      "relative_strength20_pct": -1.36,
+      "rs_composite_raw": -0.059178,
+      "acceleration_pct": -8.96,
+      "state": "LAGGING",
+      "rs_score": 27.7
     },
     {
       "date": "2026-10-26",
@@ -1096280,7 +1097440,7 @@
       "rs_composite_raw": -0.20853,
       "acceleration_pct": -9.04,
       "state": "LAGGING",
-      "rs_score": 4.9
+      "rs_score": 5.7
     },
     {
       "date": "2026-10-26",
@@ -1096290,7 +1097450,27 @@
       "rs_composite_raw": -0.194202,
       "acceleration_pct": -11.14,
       "state": "LAGGING",
-      "rs_score": 5.8
+      "rs_score": 6.9
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "ALAB",
+      "sector_etf": "SMH",
+      "relative_strength20_pct": -26.1,
+      "rs_composite_raw": -0.158579,
+      "acceleration_pct": -16.46,
+      "state": "LAGGING",
+      "rs_score": 10.8
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "ARM",
+      "sector_etf": "SMH",
+      "relative_strength20_pct": -21.14,
+      "rs_composite_raw": -0.131108,
+      "acceleration_pct": 4.51,
+      "state": "RECOVERING",
+      "rs_score": 13.3
     },
     {
       "date": "2026-10-26",
@@ -1096300,7 +1097480,7 @@
       "rs_composite_raw": -0.008584,
       "acceleration_pct": 6.19,
       "state": "RECOVERING",
-      "rs_score": 44.2
+      "rs_score": 46.5
     },
     {
       "date": "2026-10-26",
@@ -1096310,7 +1097490,7 @@
       "rs_composite_raw": -0.173448,
       "acceleration_pct": -4.17,
       "state": "LAGGING",
-      "rs_score": 7.5
+      "rs_score": 8.9
     },
     {
       "date": "2026-10-26",
@@ -1096320,7 +1097500,7 @@
       "rs_composite_raw": -0.071334,
       "acceleration_pct": -0.68,
       "state": "LAGGING",
-      "rs_score": 21.6
+      "rs_score": 24.8
     },
     {
       "date": "2026-10-26",
@@ -1096330,7 +1097510,7 @@
       "rs_composite_raw": -0.112699,
       "acceleration_pct": -0.98,
       "state": "LAGGING",
-      "rs_score": 14.1
+      "rs_score": 17.0
     },
     {
       "date": "2026-10-26",
@@ -1096340,7 +1097520,7 @@
       "rs_composite_raw": -0.163569,
       "acceleration_pct": -8.95,
       "state": "LAGGING",
-      "rs_score": 8.3
+      "rs_score": 10.0
     },
     {
       "date": "2026-10-26",
@@ -1096350,7 +1097530,17 @@
       "rs_composite_raw": 0.088194,
       "acceleration_pct": -0.47,
       "state": "WEAKENING",
-      "rs_score": 81.3
+      "rs_score": 81.2
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "COHR",
+      "sector_etf": "SMH",
+      "relative_strength20_pct": -21.55,
+      "rs_composite_raw": -0.24188,
+      "acceleration_pct": 2.02,
+      "state": "RECOVERING",
+      "rs_score": 4.0
     },
     {
       "date": "2026-10-26",
@@ -1096360,7 +1097550,7 @@
       "rs_composite_raw": -0.066438,
       "acceleration_pct": -2.06,
       "state": "LAGGING",
-      "rs_score": 23.1
+      "rs_score": 26.3
     },
     {
       "date": "2026-10-26",
@@ -1096370,7 +1097560,7 @@
       "rs_composite_raw": -0.156186,
       "acceleration_pct": -2.23,
       "state": "LAGGING",
-      "rs_score": 9.2
+      "rs_score": 10.9
     },
     {
       "date": "2026-10-26",
@@ -1096380,7 +1097570,37 @@
       "rs_composite_raw": -0.223765,
       "acceleration_pct": -11.03,
       "state": "LAGGING",
-      "rs_score": 4.6
+      "rs_score": 5.3
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CRDO",
+      "sector_etf": "SMH",
+      "relative_strength20_pct": -21.52,
+      "rs_composite_raw": -0.251213,
+      "acceleration_pct": -14.21,
+      "state": "LAGGING",
+      "rs_score": 3.5
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "ACLS",
+      "sector_etf": "SMH",
+      "relative_strength20_pct": -11.98,
+      "rs_composite_raw": -0.171515,
+      "acceleration_pct": -5.57,
+      "state": "LAGGING",
+      "rs_score": 9.1
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AMKR",
+      "sector_etf": "SMH",
+      "relative_strength20_pct": -30.75,
+      "rs_composite_raw": -0.355207,
+      "acceleration_pct": -4.53,
+      "state": "LAGGING",
+      "rs_score": 1.1
     },
     {
       "date": "2026-10-26",
@@ -1096390,7 +1097610,7 @@
       "rs_composite_raw": -0.012062,
       "acceleration_pct": -3.03,
       "state": "LAGGING",
-      "rs_score": 41.7
+      "rs_score": 44.5
     },
     {
       "date": "2026-10-26",
@@ -1096400,7 +1097620,7 @@
       "rs_composite_raw": -0.282608,
       "acceleration_pct": -3.69,
       "state": "LAGGING",
-      "rs_score": 1.7
+      "rs_score": 2.6
     },
     {
       "date": "2026-10-26",
@@ -1096410,7 +1097630,7 @@
       "rs_composite_raw": -0.130392,
       "acceleration_pct": -8.33,
       "state": "LAGGING",
-      "rs_score": 11.2
+      "rs_score": 13.7
     },
     {
       "date": "2026-10-26",
@@ -1096420,7 +1097640,17 @@
       "rs_composite_raw": 0.078249,
       "acceleration_pct": 10.62,
       "state": "LEADING",
-      "rs_score": 77.2
+      "rs_score": 77.6
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AEHR",
+      "sector_etf": "SMH",
+      "relative_strength20_pct": -42.5,
+      "rs_composite_raw": -0.394925,
+      "acceleration_pct": -10.22,
+      "state": "LAGGING",
+      "rs_score": 0.5
     },
     {
       "date": "2026-10-26",
@@ -1096430,7 +1097660,7 @@
       "rs_composite_raw": -0.1875,
       "acceleration_pct": -4.97,
       "state": "LAGGING",
-      "rs_score": 6.8
+      "rs_score": 7.8
     },
     {
       "date": "2026-10-26",
@@ -1096440,7 +1097670,7 @@
       "rs_composite_raw": 0.080735,
       "acceleration_pct": -16.6,
       "state": "WEAKENING",
-      "rs_score": 78.2
+      "rs_score": 78.5
     },
     {
       "date": "2026-10-26",
@@ -1096450,7 +1097680,7 @@
       "rs_composite_raw": -0.084105,
       "acceleration_pct": -17.48,
       "state": "LAGGING",
-      "rs_score": 18.7
+      "rs_score": 21.9
     },
     {
       "date": "2026-10-26",
@@ -1096460,7 +1097690,47 @@
       "rs_composite_raw": -0.063711,
       "acceleration_pct": -6.68,
       "state": "LAGGING",
-      "rs_score": 23.5
+      "rs_score": 26.8
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BBD",
+      "sector_etf": "EWZ",
+      "relative_strength20_pct": -12.51,
+      "rs_composite_raw": -0.185296,
+      "acceleration_pct": -25.43,
+      "state": "LAGGING",
+      "rs_score": 8.0
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "ABEV",
+      "sector_etf": "EWZ",
+      "relative_strength20_pct": -1.36,
+      "rs_composite_raw": -0.08473,
+      "acceleration_pct": -15.0,
+      "state": "LAGGING",
+      "rs_score": 21.7
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BSBR",
+      "sector_etf": "EWZ",
+      "relative_strength20_pct": -15.56,
+      "rs_composite_raw": -0.176824,
+      "acceleration_pct": -12.37,
+      "state": "LAGGING",
+      "rs_score": 8.6
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CIG",
+      "sector_etf": "EWZ",
+      "relative_strength20_pct": -5.88,
+      "rs_composite_raw": -0.131961,
+      "acceleration_pct": -14.15,
+      "state": "LAGGING",
+      "rs_score": 13.0
     },
     {
       "date": "2026-10-26",
@@ -1096470,7 +1097740,7 @@
       "rs_composite_raw": -0.18818,
       "acceleration_pct": -75.22,
       "state": "LAGGING",
-      "rs_score": 6.6
+      "rs_score": 7.7
     },
     {
       "date": "2026-10-26",
@@ -1096480,7 +1097750,7 @@
       "rs_composite_raw": -0.098486,
       "acceleration_pct": -24.72,
       "state": "LAGGING",
-      "rs_score": 16.3
+      "rs_score": 18.8
     },
     {
       "date": "2026-10-26",
@@ -1096490,7 +1097760,17 @@
       "rs_composite_raw": -0.199448,
       "acceleration_pct": -28.65,
       "state": "LAGGING",
-      "rs_score": 5.6
+      "rs_score": 6.6
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "AFYA",
+      "sector_etf": "EWZ",
+      "relative_strength20_pct": -11.6,
+      "rs_composite_raw": -0.200393,
+      "acceleration_pct": -26.19,
+      "state": "LAGGING",
+      "rs_score": 6.4
     },
     {
       "date": "2026-10-26",
@@ -1096500,7 +1097780,7 @@
       "rs_composite_raw": -0.081238,
       "acceleration_pct": -7.62,
       "state": "LAGGING",
-      "rs_score": 19.7
+      "rs_score": 23.0
     },
     {
       "date": "2026-10-26",
@@ -1096510,7 +1097790,7 @@
       "rs_composite_raw": -0.034308,
       "acceleration_pct": -1.84,
       "state": "LAGGING",
-      "rs_score": 34.0
+      "rs_score": 36.7
     },
     {
       "date": "2026-10-26",
@@ -1096520,7 +1097800,17 @@
       "rs_composite_raw": -0.153824,
       "acceleration_pct": 7.36,
       "state": "RECOVERING",
-      "rs_score": 9.7
+      "rs_score": 11.3
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BMA",
+      "sector_etf": "ARGT",
+      "relative_strength20_pct": -6.27,
+      "rs_composite_raw": -0.170433,
+      "acceleration_pct": 5.47,
+      "state": "RECOVERING",
+      "rs_score": 9.5
     },
     {
       "date": "2026-10-26",
@@ -1096530,7 +1097820,7 @@
       "rs_composite_raw": -0.120571,
       "acceleration_pct": 7.31,
       "state": "RECOVERING",
-      "rs_score": 13.1
+      "rs_score": 15.9
     },
     {
       "date": "2026-10-26",
@@ -1096540,7 +1097830,7 @@
       "rs_composite_raw": -0.099111,
       "acceleration_pct": 3.63,
       "state": "RECOVERING",
-      "rs_score": 15.5
+      "rs_score": 18.2
     },
     {
       "date": "2026-10-26",
@@ -1096550,7 +1097840,7 @@
       "rs_composite_raw": -0.063447,
       "acceleration_pct": -0.24,
       "state": "LAGGING",
-      "rs_score": 23.8
+      "rs_score": 27.0
     },
     {
       "date": "2026-10-26",
@@ -1096560,7 +1097850,27 @@
       "rs_composite_raw": -0.09878,
       "acceleration_pct": -3.0,
       "state": "LAGGING",
-      "rs_score": 15.8
+      "rs_score": 18.4
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CEPU",
+      "sector_etf": "ARGT",
+      "relative_strength20_pct": -4.19,
+      "rs_composite_raw": -0.150551,
+      "acceleration_pct": -2.37,
+      "state": "LAGGING",
+      "rs_score": 11.7
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CRESY",
+      "sector_etf": "ARGT",
+      "relative_strength20_pct": -9.52,
+      "rs_composite_raw": -0.083658,
+      "acceleration_pct": -1.29,
+      "state": "LAGGING",
+      "rs_score": 22.1
     },
     {
       "date": "2026-10-26",
@@ -1096570,7 +1097880,17 @@
       "rs_composite_raw": -0.231544,
       "acceleration_pct": -0.06,
       "state": "LAGGING",
-      "rs_score": 3.4
+      "rs_score": 4.4
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "BBAR",
+      "sector_etf": "ARGT",
+      "relative_strength20_pct": -3.39,
+      "rs_composite_raw": -0.175892,
+      "acceleration_pct": 3.84,
+      "state": "RECOVERING",
+      "rs_score": 8.8
     },
     {
       "date": "2026-10-26",
@@ -1096580,7 +1097900,7 @@
       "rs_composite_raw": -0.040366,
       "acceleration_pct": 4.74,
       "state": "RECOVERING",
-      "rs_score": 31.3
+      "rs_score": 34.3
     },
     {
       "date": "2026-10-26",
@@ -1096590,7 +1097910,7 @@
       "rs_composite_raw": -0.272476,
       "acceleration_pct": -13.93,
       "state": "LAGGING",
-      "rs_score": 2.7
+      "rs_score": 3.3
     },
     {
       "date": "2026-10-26",
@@ -1096600,7 +1097920,7 @@
       "rs_composite_raw": -0.37732,
       "acceleration_pct": -8.39,
       "state": "LAGGING",
-      "rs_score": 0.2
+      "rs_score": 0.7
     },
     {
       "date": "2026-10-26",
@@ -1096610,7 +1097930,7 @@
       "rs_composite_raw": -0.413712,
       "acceleration_pct": -3.44,
       "state": "LAGGING",
-      "rs_score": 0.0
+      "rs_score": 0.4
     },
     {
       "date": "2026-10-26",
@@ -1096620,7 +1097940,7 @@
       "rs_composite_raw": -0.347151,
       "acceleration_pct": -2.97,
       "state": "LAGGING",
-      "rs_score": 0.7
+      "rs_score": 1.5
     },
     {
       "date": "2026-10-26",
@@ -1096630,7 +1097950,27 @@
       "rs_composite_raw": -0.317028,
       "acceleration_pct": 4.75,
       "state": "RECOVERING",
-      "rs_score": 1.0
+      "rs_score": 1.6
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "APLD",
+      "sector_etf": "NCLD",
+      "relative_strength20_pct": -27.28,
+      "rs_composite_raw": -0.370563,
+      "acceleration_pct": -2.22,
+      "state": "LAGGING",
+      "rs_score": 0.9
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CIFR",
+      "sector_etf": "NCLD",
+      "relative_strength20_pct": -53.91,
+      "rs_composite_raw": -0.615014,
+      "acceleration_pct": -4.89,
+      "state": "LAGGING",
+      "rs_score": 0.0
     },
     {
       "date": "2026-10-26",
@@ -1096640,7 +1097980,27 @@
       "rs_composite_raw": -0.353595,
       "acceleration_pct": 3.97,
       "state": "RECOVERING",
-      "rs_score": 0.5
+      "rs_score": 1.3
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CORZ",
+      "sector_etf": "NCLD",
+      "relative_strength20_pct": -18.19,
+      "rs_composite_raw": -0.292431,
+      "acceleration_pct": 3.75,
+      "state": "RECOVERING",
+      "rs_score": 2.2
+    },
+    {
+      "date": "2026-10-26",
+      "ticker": "CLSK",
+      "sector_etf": "NCLD",
+      "relative_strength20_pct": -41.72,
+      "rs_composite_raw": -0.442187,
+      "acceleration_pct": -2.5,
+      "state": "LAGGING",
+      "rs_score": 0.2
     }
   ]
 }
